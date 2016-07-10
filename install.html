@@ -1,0 +1,150 @@
+<h1>Are You Ready to ROCK!</h1>
+
+<h2>The ROCm Install guide</h2>
+
+<p>The ROCm Platform delivers on the vision of the Boltzmann Initiative, bringing new opportunities in GPU Computing Research.</p>
+
+<p>On November 16th, 2015, the Radeon Technology Group rolled out Boltzmann Initiative with three core foundation elements:</p>
+
+<p>New Linux(R) Driver and Runtime Stack optimized for HPC &amp; Ultra-scale class computing,
+Heterogeneous C and C++ compiler which best address the whole system not just a single device
+HIP acknowledging the need for platform choice when utilizing GPU computing API
+Using our knowledge of the HSA Standards and, more importantly, the HSA 1.1 Runtime we have been able to successfully extended support to the dGPU with critical features for NUMA class acceleration. As a result, the ROCK driver is composed of several components based on our efforts to develop the Heterogeneous System Architecture for APUs, including the new AMDGPU driver, the Kernel Fusion Driver (KFD), the HSA+ Runtime and an LLVM based compilation stack for the building of key language support. This support starts with AMD’s FIJI Family of dGPU, but support is planned to expand to include future ASICS.</p>
+
+<h3>The Latest ROCm Platform - ROCm 1.1</h3>
+
+<p>The latest tested version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available under the roc-1.1.0 tag of the following GitHub repositories:</p>
+
+<ul>
+<li>ROCK-Kernel-Driver</li>
+<li>ROCR-Runtime</li>
+<li>ROCT-Thunk-Interface</li>
+<li>HCC compiler</li>
+<li>LLVM-AMDGPU-Assembler-Extra</li>
+<li>ROC-smi</li>
+<li>ROCnRDMA</li>
+<li>HIP</li>
+<li>HIP-Examples</li>
+</ul>
+
+<p>Also the following mirror repositories that support the HCC compiler are also available on GitHub, and frozen for the roc-1.1.0 release:</p>
+
+<ul>
+<li>llvm</li>
+<li>clang</li>
+</ul>
+
+<h4>Installing from AMD ROCm Repositories</h4>
+
+<p>AMD is hosting both Debian and rpm repositories for the ROCm 1.1 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:</p>
+
+<h6>Supported Operating Systems</h6>
+
+<p>The ROCm platform has been tested on the following operating systems:</p>
+
+<ul>
+<li>Ubuntu 14.04.04</li>
+<li>Fedora 23</li>
+</ul>
+
+<p>There is experimental support for the following operating systems:</p>
+
+<ul>
+<li>Ubuntu 16.04</li>
+<li>Fedora 22</li>
+</ul>
+
+<h6>Debian repository - apt-get</h6>
+
+<p>Add the ROCm apt repository</p>
+
+<p>For Debian based systems, like Ubuntu, configure the Debian ROCm repository as follows:
+<code>wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+sudo sh -c &#39;echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ trusty main &gt; /etc/apt/sources.list.d/rocm.list&#39;</code></p>
+
+<h6>Install or Update</h6>
+
+<p>Next, update the apt-get repository list and install/update the rocm package:</p>
+
+<p>Warning: Before proceeding, make sure to completely uninstall any pre-release ROCm packages:
+<code>sudo apt-get update
+sudo apt-get install rocm</code>
+Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
+<code>sudo vi /etc/default/grub
+sudo update-grub</code>
+Once complete, reboot your system.</p>
+
+<p>We recommend you verify your installation to make sure everything completed successfully.</p>
+
+<h6>Ubuntu Un-install</h6>
+
+<p>To un-install the entire rocm-dev development package execute:
+<code>sudo apt-get autoremove rocm</code>
+Installing development packages for cross compilation</p>
+
+<p>It is often useful to develop and test on different systems. In this scenario, you may prefer to avoid installing the ROCm Kernel to your development system.</p>
+
+<p>In this case, install the development subset of packages:</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install rocm-dev
+</code></pre>
+
+<p>Note: To execute ROCm enabled apps you will require a system with the full ROCm driver stack installed
+Removing pre-release packages</p>
+
+<p>If you installed any of the ROCm pre-release packages from Github, they will need to be manually un-installed:
+<code>sudo apt-get purge libhsakmt
+sudo apt-get purge Radeon-firmware
+sudo apt-get purge $(dpkg -l | grep &#39;kfd\|rocm&#39; | grep Linux | grep -v libc | awk &#39;{print $2}&#39;)</code>
+If possible, we would recommend starting with a fresh OS install.</p>
+
+<h6>RPM repository - dnf (yum)</h6>
+
+<p>A dnf (yum) repository is also available for installation of rpm packages. To configure a system to use the ROCm rpm directory create the file /etc/yum.repos.d/rocm.repo with the following contents:
+<code>[remote]
+name=ROCm Repo
+baseurl=http://packages.amd.com/rocm/yum/rpm/
+enabled=1
+gpgcheck=0</code>
+Execute the following commands:
+<code>sudo dnf clean all
+sudo dnf install rocm</code>
+As with the debian packages, it is possible to install rocm-dev or rocm-kernel individually. To uninstall the packages execute:
+<code>sudo dnf remove rocm</code></p>
+
+<h6>Verify Installation</h6>
+
+<p>To verify that the ROCm stack completed successfully you can execute to HSA vectory_copy sample application:
+<code>cd /opt/rocm/hsa/sample
+make
+./vector_copy</code></p>
+
+<h6>Closed Source Components</h6>
+
+<p>The ROCm platform relies on a few closed source components to provide legacy functionality like HSAIL finalization and debugging/profiling support. </p>
+
+<p>These components are only available through the ROCm repositories, and will either be deprecated or become open source components in the future. </p>
+
+<p>These components are made available in the following packages:
+<code>hsa-ext-rocr-dev</code></p>
+
+<h6>Getting ROCm Source Code</h6>
+
+<p>Modifications can be made to the ROCm 1.1 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.1 manifest file to download the entire ROCm 1.1 source code.</p>
+
+<h6>Installing repo</h6>
+
+<p>Google&#39;s repo tool allows you to manage multiple git repositories simultaneously. You can install it by executing the following commands:
+<code>curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
+chmod a+x ~/bin/repo</code>
+Note: make sure ~/bin exists and it is part of your PATH</p>
+
+<h6>Cloning the code</h6>
+
+<pre><code>mkdir ROCm &amp;&amp; cd ROCm
+repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.1.0
+repo sync
+</code></pre>
+
+<p>These series of commands will pull all of the open source code associated with the ROCm 1.1 release.</p>
