@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="ROCm, A New Era in Open GPU Computing : Platform for GPU Enabled HPC and UltraScale Computing ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ROCm, A New Era in Open GPU Computing</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/RadeonOpenCompute">View on GitHub</a>
+
+          <h1 id="project_title">ROCm, A New Era in Open GPU Computing</h1>
+          <h2 id="project_tagline">Platform for GPU Enabled HPC and UltraScale Computing </h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h4>
+<a id="welcome-to-the-rocm-platform" class="anchor" href="#welcome-to-the-rocm-platform" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to the ROCm Platform</h4>
+
+<p>We are excited to present to you the ROCm the first Open Source HPC/Ultrascale class GPU computing platform which is also programming language independent. We are bringing the UNIX philosophy of choice, minimalist, modular software development to GPU Computing. The new ROCm foundation lets you choose or even develop your tools and language runtime needed to develop your application.</p>
+
+<p>ROCm built for scale; it supports multi-GPU computing in server node and out of server node communication via RDMA. We also focused on simplifying the stack were RDMA Peer Sync support is built directly into the driver.  </p>
+
+<p>ROCm has a rich system runtime with the key features needed to support large scale application, compiler, and language runtime development:</p>
+
+<ul>
+<li>At the core is the Heterogeneous System Architecture ("HSA") Runtime API
+
+<ul>
+<li>Multi-GPU Coarse-grain Shared Virtual Memory </li>
+<li>Process Concurrency &amp; Preemption</li>
+<li>Large Memory Allocations </li>
+<li>HSA Signals and Atomics</li>
+<li>User Mode Queues and DMA</li>
+</ul>
+</li>
+<li>Standardized loader and Code Object Format
+
+<ul>
+<li>Dynamics and Offline Compilation Support</li>
+</ul>
+</li>
+<li>Peer to Peer Multi-GPU with RDMA Support</li>
+<li>Profiler Trace and Event Collection API </li>
+<li>Systems Management API and Tools</li>
+</ul>
+
+<p>We are also delivering a rich open source llvm based compiler foundation with native GCN ISA code generation.  This foundation will all you to develop commercial quality development tools and a framework to explore GPU computing language development. </p>
+
+<ul>
+<li>LLVM Compiler Foundation 
+
+<ul>
+<li>LLVM Compiler with GCN Native Compilation </li>
+<li>Supports GCN Assembler and Disassembler</li>
+<li>Fully Upstream in the LLVM source repository<br>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>Building on this is rich system runtime is a set of GPU Enabled Programing Languages to allow to focus on your application idea in familiar application development environment. The ROCm platform initially is supporting C, C++ and Python based GPU enabled programming solutions. </p>
+
+<p>Heterogeneous Compute Compiler (HCC) supports C11 &amp; C++ 11/14 with llvm code generation backend for AMD x64 and GCN ISA. The HCC Compiler has three language persona. </p>
+
+<ul>
+<li>Single Source C++ 11/14 with Parallel Standard Template Library (STL)</li>
+<li>HIP is  C++ GPU Kernel Language with C-Style Language Runtime that to ease conversion of CUDA applications into portable C++ code. </li>
+<li>OpenMP 3.1 for CPU based programs that can integrate HIP or C++ 11/14 based GPU acceleration </li>
+</ul>
+
+<p>OpenCL 1.2+ Compiler and Language Runtime release will be made available in the Fall, which will support the new native GCN ISA compiler and also integrated into the new capabilities in the ROCm system runtime.  </p>
+
+<p>With the explosion of use of Python in application programming and Data Analytics. We are bringing Continuum Analytics Anaconda with Numba Acceleration to ROCm. Numba helps you accelerate array-oriented and math-heavy Python codes. Kernels compiled with Numba also have direct access to NumPy arrays.   </p>
+
+<p>To give you deeper visibility into ROCm platform are developing the fundamental profiling and debugging tools( GDB Debugger, ROCm Profiler). </p>
+
+<p>To accelerate the speed at which you can build your application, we are bringing a comprehensive set of math libraries ( BLAS, FFT, Sparse, RNG) and programming frameworks( RAJA, Kokkos, CHARM++, HPX) to ROCm as well. </p>
+
+<p>The frontiers of where you take ROCm is just beginning,  we look forward working with you to improve the platform to help you drive the exploration of your application domains.  We know we have opened the door to unique heterogeneous computing applications and a new opportunity to explore what possible with heterogeneous computing.  </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
