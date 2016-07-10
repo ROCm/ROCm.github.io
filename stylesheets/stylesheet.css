@@ -270,7 +270,48 @@ Full-Width Styles
   padding: 20px 10px;
   margin: 0 auto;
 }
+/* Navbar */
 
+#nav {
+  height: 30px;
+  background: #0071C5;
+  position: relative;
+
+  max-width: 640px;
+  min-width: 520px;
+  margin: 0 auto;
+}
+#nbar {
+  position: relative;
+  width: auto;
+  height: 30px;
+  margin: 0;
+  padding : 0 0 0 0;
+  font: bold 12px/25px Verdana, Arial, Tahoma, Sans-serif;
+}
+#nbar ul {
+  float: left;
+  list-style : none;
+  margin: 0;
+  padding: 0;
+  padding-top: 2px;
+}
+#nbar ul li {
+  display: inline;
+}
+#nbar ul li a {
+  display: block;
+  float: left;
+  padding: 0 10px;
+  color: #BFBFBF;
+  text-decoration: none;
+}
+#nbar ul li a:hover {
+  color: #FAFAFA;
+}
+#nbar ul li#selected a {
+  color: #fff;
+}
 #forkme_banner {
   display: block;
   position: absolute;
