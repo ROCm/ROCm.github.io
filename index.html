@@ -41,69 +41,57 @@
       <section id="main_content" class="inner">
         <h4>
 <a id="welcome-to-the-rocm-platform" class="anchor" href="#welcome-to-the-rocm-platform" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to the ROCm Platform</h4>
+<h2>Welcome to the ROCm Platform</h2>
 
 <p>We are excited to present to you the ROCm the first Open Source HPC/Ultrascale class GPU computing platform which is also programming language independent. We are bringing the UNIX philosophy of choice, minimalist, modular software development to GPU Computing. The new ROCm foundation lets you choose or even develop your tools and language runtime needed to develop your application.</p>
 
-<p>ROCm built for scale; it supports multi-GPU computing in server node and out of server node communication via RDMA. We also focused on simplifying the stack were RDMA Peer Sync support is built directly into the driver.  </p>
+<p><strong>ROCm built for scale</strong>; it supports multi-GPU computing in server node and out of server node communication via RDMA. We also focused on simplifying the stack were RDMA Peer Sync support is built directly into the driver.</p>
 
-<p>ROCm has a rich system runtime with the key features needed to support large scale application, compiler, and language runtime development:</p>
+<p><strong>ROCm has a rich system runtime</strong> with the key features needed to support large scale application, compiler, and language runtime development:</p>
+
+<p><strong>At the core is the Heterogeneous System Architecture (<q>HSA</q>) Runtime API</strong></p>
 
 <ul>
-<li>At the core is the Heterogeneous System Architecture ("HSA") Runtime API
-
-<ul>
-<li>Multi-GPU Coarse-grain Shared Virtual Memory </li>
+<li>* Multi-GPU Coarse-grain Shared Virtual Memory</li>
 <li>Process Concurrency &amp; Preemption</li>
-<li>Large Memory Allocations </li>
+<li>Large Memory Allocations</li>
 <li>HSA Signals and Atomics</li>
 <li>User Mode Queues and DMA</li>
-</ul>
-</li>
-<li>Standardized loader and Code Object Format
-
-<ul>
+<li>Standardized loader and Code Object Format</li>
 <li>Dynamics and Offline Compilation Support</li>
-</ul>
-</li>
 <li>Peer to Peer Multi-GPU with RDMA Support</li>
-<li>Profiler Trace and Event Collection API </li>
+<li>Profiler Trace and Event Collection API</li>
 <li>Systems Management API and Tools</li>
 </ul>
 
-<p>We are also delivering a rich open source llvm based compiler foundation with native GCN ISA code generation.  This foundation will all you to develop commercial quality development tools and a framework to explore GPU computing language development. </p>
+<h4>Solid Compilation Foundation and Language Support</h4>
 
-<ul>
-<li>LLVM Compiler Foundation 
+<p>We are also delivering a rich open source llvm based compiler foundation with native GCN ISA code generation. This foundation will all you to develop commercial quality development tools and a framework to explore GPU computing language development.</p>
 
-<ul>
-<li>LLVM Compiler with GCN Native Compilation </li>
-<li>Supports GCN Assembler and Disassembler</li>
-<li>Fully Upstream in the LLVM source repository<br>
-</li>
-</ul>
-</li>
-</ul>
+<p><strong>LLVM Compiler Foundation</strong>
+LLVM Compiler with GCN Native Compilation
+Supports GCN Assembler and Disassembler
+Fully Upstream in the LLVM source repository
+Building on this is rich system runtime is a set of GPU Enabled Programing Languages to allow to focus on your application idea in familiar application development environment. The ROCm platform initially is supporting C, C++ and Python based GPU enabled programming solutions.</p>
 
-<p>Building on this is rich system runtime is a set of GPU Enabled Programing Languages to allow to focus on your application idea in familiar application development environment. The ROCm platform initially is supporting C, C++ and Python based GPU enabled programming solutions. </p>
-
-<p>Heterogeneous Compute Compiler (HCC) supports C11 &amp; C++ 11/14 with llvm code generation backend for AMD x64 and GCN ISA. The HCC Compiler has three language persona. </p>
+<p><strong>Heterogeneous Compute Compiler (HCC)</strong> supports C11 &amp; C++ 11/14 with llvm code generation backend for AMD x64 and GCN ISA. The HCC Compiler has three language persona.</p>
 
 <ul>
 <li>Single Source C++ 11/14 with Parallel Standard Template Library (STL)</li>
-<li>HIP is  C++ GPU Kernel Language with C-Style Language Runtime that to ease conversion of CUDA applications into portable C++ code. </li>
-<li>OpenMP 3.1 for CPU based programs that can integrate HIP or C++ 11/14 based GPU acceleration </li>
+<li>HIP is C++ GPU Kernel Language with C-Style Language Runtime that to ease conversion of CUDA applications into portable C++ code.</li>
+<li>OpenMP 3.1 for CPU based programs that can integrate HIP or C++ 11/14 based GPU acceleration</li>
 </ul>
 
-<p>OpenCL 1.2+ Compiler and Language Runtime release will be made available in the Fall, which will support the new native GCN ISA compiler and also integrated into the new capabilities in the ROCm system runtime.  </p>
+<p><strong>OpenCL 1.2+ Compiler and Language Runtime</strong> release will be made available in the Fall, which will support the new native GCN ISA compiler and also integrated into the new capabilities in the ROCm system runtime.</p>
 
-<p>With the explosion of use of Python in application programming and Data Analytics. We are bringing Continuum Analytics Anaconda with Numba Acceleration to ROCm. Numba helps you accelerate array-oriented and math-heavy Python codes. Kernels compiled with Numba also have direct access to NumPy arrays.   </p>
+<p>With the explosion of use of Python in application programming and Data Analytics. We are bringing <strong>Continuum Analytics Anaconda with Numba Acceleration</strong> to ROCm. Numba helps you accelerate array-oriented and math-heavy Python codes. Kernels compiled with Numba also have direct access to NumPy arrays.</p>
 
-<p>To give you deeper visibility into ROCm platform are developing the fundamental profiling and debugging tools( GDB Debugger, ROCm Profiler). </p>
+<p><strong>Key Development Tools</strong> to give you deeper visibility into ROCm platform are developing the fundamental profiling and debugging tools( <strong>GDB Debugger, ROCm Profiler</strong>).</p>
 
-<p>To accelerate the speed at which you can build your application, we are bringing a comprehensive set of math libraries ( BLAS, FFT, Sparse, RNG) and programming frameworks( RAJA, Kokkos, CHARM++, HPX) to ROCm as well. </p>
+<p><strong>Application Frameworks and Libraries</strong> to accelerate the speed at which you can build your application, we are bringing a comprehensive set of math libraries ( <strong>BLAS, FFT, Sparse, RNG</strong>) and programming frameworks( <strong>RAJA, Kokkos, CHARM++, HPX</strong>) to ROCm as well.</p>
 
-<p>The frontiers of where you take ROCm is just beginning,  we look forward working with you to improve the platform to help you drive the exploration of your application domains.  We know we have opened the door to unique heterogeneous computing applications and a new opportunity to explore what possible with heterogeneous computing.  </p>
-      </section>
+<p>The frontiers of where you take ROCm is just beginning, we look forward working with you to improve the platform to help you drive the exploration of your application domains. We know we have opened the door to unique heterogeneous computing applications and a new opportunity to explore what possible with heterogeneous computing.</p>
+
     </div>
 
     <!-- FOOTER  -->
