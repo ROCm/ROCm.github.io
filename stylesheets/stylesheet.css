@@ -274,7 +274,7 @@ Full-Width Styles
   background: #000000;
   position: relative;
 
-  max-width: 640px;
+  max-width: 900px;
   min-width: 520px;
   margin: 0 auto;
 }
@@ -309,82 +309,54 @@ Full-Width Styles
 #nbar ul li#selected a {
   color: #fff;
 }
-#primary_nav_wrap
-{
-	margin-top:15px
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-#primary_nav_wrap ul
-{
-	list-style:none;
-	position:relative;
-	float:left;
-	margin:0;
-	padding:0
+li {
+    float: left;
 }
 
-#primary_nav_wrap ul a
-{
-	display:block;
-	color:#FFFFFF;
-	text-decoration:none;
-	font-weight:700;
-	font-size:12px;
-	line-height:32px;
-	padding:0 15px;
-	font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-#primary_nav_wrap ul li
-{
-	position:relative;
-	float:Left;
-	margin:0;
-	padding:0
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: black;
 }
 
-#primary_nav_wrap ul li.current-menu-item
-{
-	background:#000000
+li.dropdown {
+    display: inline-block;
 }
 
-#primary_nav_wrap ul li:hover
-{
-	background:#000000
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-#primary_nav_wrap ul ul
-{
-	display:none;
-	position:absolute;
-	top:100%;
-	left:0;
-	background:#000000;
-	padding:0
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
 
-#primary_nav_wrap ul ul li
-{
-	float:none;
-	width:200px
-}
+.dropdown-content a:hover {background-color: #f1f1f1}
 
-#primary_nav_wrap ul ul a
-{
-	line-height:120%;
-	padding:10px 15px
-}
-
-#primary_nav_wrap ul ul ul
-{
-	top:0;
-	left:100%
-}
-
-#primary_nav_wrap ul li:hover > ul
-{
-	display:block
-}
+.dropdown:hover .dropdown-content {
+    display: block;
 
 #forkme_banner {
   display: block;
