@@ -309,19 +309,19 @@ Full-Width Styles
 #nbar ul li#selected a {
   color: #fff;
 }
-ul {
+#dtopbtn ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #000000;
 }
 
-li {
+#dtopbtn li {
     float: left;
 }
 
-li a, .dropbtn {
+#dtopbtn li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -329,15 +329,15 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+#dtopbtn li a:hover, .dropdown:hover .dropbtn {
     background-color: black;
 }
 
-li.dropdown {
+#dtopbtn li.dropdown {
     display: inline-block;
 }
 
-.dropdown-content {
+#dtopbtn .dropdown-content {
     display: none;
     position: absolute;
     background-color: #000000;
@@ -345,7 +345,7 @@ li.dropdown {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.dropdown-content a {
+#dtopbtn .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -353,9 +353,9 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #000000}
+#dtopbtn .dropdown-content a:hover {background-color: #000000}
 
-.dropdown:hover .dropdown-content {
+#dtopbtn .dropdown:hover .dropdown-content {
     display: block;
 
 #forkme_banner {
