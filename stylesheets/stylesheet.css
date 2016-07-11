@@ -168,7 +168,7 @@ p img {
   text-align: center;
   border: none;
 }
-
+img.wrap {float: left}
 pre, code {
   width: 100%;
   color: #222;
