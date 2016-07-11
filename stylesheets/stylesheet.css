@@ -139,7 +139,7 @@ img {
   max-width: 739px;
   padding: 0px;
   margin: 0px 0 0px 0;
-  border: 0px solid #ebebeb;
+  border: none;
 
   box-shadow: 0 0 5px #ebebeb;
   -webkit-box-shadow: 0 0 5px #ebebeb;
