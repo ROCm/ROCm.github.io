@@ -1,0 +1,88 @@
+
+<h2>ROCm, Lingua franca,  C++, OpenCL, and Python</h2>
+
+<p>The open-source ROCm stack offers several programming language choices. Overall, the goal is to give you a range of tools to help solve the problem at hand. This post describes some of the options and how to choose between them.</p>
+
+<p><strong>HC: Heterogeneous Compute Compiler</strong></p>
+
+<p>What is it? HC is a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about making the language capable of expressing all forms of parallelism—including multicore CPU, SIMD, and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.</p>
+
+<p>The Heterogeneous Compute Compiler (HCC) provides two significant benefits:</p>
+
+<p>Ease of development:</p>
+
+<ul>
+<li>A full C++ API for managing devices, queues, and events.</li>
+<li>C++ data containers that provide type safety, multidimensional array indexing, and automatic data management.</li>
+<li>C++ kernel-launch syntax using parallel_for_each plus C++11 lambda functions.</li>
+<li>A single-source C++ programming environment: the host and source code can be in the same source file and use the same C++ language. Templates and classes work naturally across the host/device boundary. 
+<ul>
+<li>HCC generates both host and device code from the same compiler, so it benefits from a consistent view of the source code using the same CLANG-based language parser.</li>
+</ul></li>
+</ul>
+
+<p><em>Full control over the machine:</em></p>
+
+<ul>
+<li>Access AMD scratchpad memories (“LDS”).</li>
+<li>Fully control data movement, prefetch, and discard.</li>
+<li>Fully control asynchronous kernel launch and completion.</li>
+<li>Get device-side dependency resolution for kernel and data commands (no host involvement).</li>
+<li>Obtain HSA agents, queues, and signals for low-level control of the architecture using the HSA Runtime API.</li>
+<li>Use <a href="https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA">direct-to-ISA compilation</a>.</li>
+</ul>
+
+<p><em>When to use HC:</em></p>
+
+<p>When targeting the AMD ROCm Platform: it delivers an easy-to-program, single-source C++ environment without compromising performance or control of the machine.</p>
+
+<p><strong>HIP: Heterogeneous-Computing Interface for Portability</strong></p>
+
+<p>What is it? HIP is a C++ dialect designed to ease conversion of CUDA applications into portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface includes the ability to use templates and classes across the host/kernel boundary. </p>
+
+<p>The hipify tool automates much of the conversion work by performing a source-to-source transformation from CUDA to HIP. HIP code can run on AMD hardware (through the HCC compiler) or Nvidia hardware (through the NVCC compiler) with no performance loss compared with original CUDA code. </p>
+
+<p>Programmers familiar with other GPGPU languages will find it very easy to learn and use. AMD platforms implement HIP using the HC dialect described above, providing similar low-level control over the machine.</p>
+
+<p><em>When to use HIP:</em></p>
+
+<p>When converting CUDA applications to portable C++.
+For new projects that require portability between AMD and Nvidia. HIP provides a C++ development language and access to the best development tools on both platforms.</p>
+
+<p><strong>OpenCL™: Open Compute Language</strong> </p>
+
+<p>What is it? OpenCL is a framework for developing programs that can execute across a wide variety of heterogeneous platforms. Version 1.2 of the specification is supported on AMD, Intel, and Nvidia GPUs as well as x86 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C run-time API and C99-based kernel language.</p>
+
+<p><em>When to use OpenCL:</em></p>
+
+<p>When you have existing OpenCL code. When portability to multiple platforms and devices is required: OpenCL runs on Windows, Linux, and Mac OS, as well as a wide variety of hardware platforms described above.</p>
+
+<p><strong>Anaconda Python with Numba</strong></p>
+
+<p>What is it? Anaconda is the modern open source analytics platform powered by Python. Continuum Analytics, an ROCm platform partner,  is the driving force behind Anaconda. Anaconda includes high-performance capabilities including acceleration for HSA APU, and Boltzmann enabled discrete GPUs via Numba. Anaconda gives superpowers to the people who are changing the world.</p>
+
+<p><em>Numba</em></p>
+
+<p>Numba gives you the power to speed up your applications with high-performance functions written directly in Python. With a few annotations, array-oriented and math-heavy Python code can be just-in-time compiled to native machine instructions, similar in performance to C, C++ and Fortran, without having to switch languages or Python interpreters.</p>
+
+<p>Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, runtime, or statically (using the included pycc tool). Numba supports compilation of Python to run on either CPU or GPU hardware and is designed to integrate with the Python scientific software stack like NUMpy.  </p>
+
+<p><em>When to use Anaconda:</em></p>
+
+<p>When you working Large Scale Data Analytics, Scientific and Engineering Problems and need to manipulate large arrays of data</p>
+
+<p><strong>Wrap-Up</strong></p>
+
+<p>From a high-level tools perspective, ROCm delivers a rich set of tools to allow you to choose the best language for developing your application. </p>
+
+<ul>
+<li>HCC (Heterogeneous Compute Compiler) supports HC dialects. </li>
+<li>HIP is a run-time library that layers on top of HCC (for AMD ROCm platforms; for Nvidia, it uses the NVCC compiler).</li>
+<li>Comming Soon with Native GCN ISA Compiler support.
+<ul>
+<li>OpenCL 1.2+   </li>
+<li>Anaconda(Python) with NUMBA </li>
+</ul></li>
+</ul>
+
+<p>All are open-source projects so that you can employ a fully open stack from the language down to the metal. AMD is committed to providing an open ecosystem that gives developers the ability to choose; we are excited about innovating quickly using open source and about interacting closely with our developer community. More soon!</p>
