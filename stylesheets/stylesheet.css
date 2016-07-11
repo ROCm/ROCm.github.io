@@ -338,7 +338,7 @@ Full-Width Styles
 #primary_nav_wrap ul li
 {
 	position:relative;
-	float:center;
+	float:Left;
 	margin:0;
 	padding:0
 }
