@@ -326,7 +326,7 @@ Full-Width Styles
 #primary_nav_wrap ul a
 {
 	display:block;
-	color:#333;
+	color:#FFFFFF;
 	text-decoration:none;
 	font-weight:700;
 	font-size:12px;
@@ -338,19 +338,19 @@ Full-Width Styles
 #primary_nav_wrap ul li
 {
 	position:relative;
-	float:left;
+	float:center;
 	margin:0;
 	padding:0
 }
 
 #primary_nav_wrap ul li.current-menu-item
 {
-	background:#ddd
+	background:#000000
 }
 
 #primary_nav_wrap ul li:hover
 {
-	background:#f6f6f6
+	background:#000000
 }
 
 #primary_nav_wrap ul ul
@@ -359,7 +359,7 @@ Full-Width Styles
 	position:absolute;
 	top:100%;
 	left:0;
-	background:#fff;
+	background:#000000;
 	padding:0
 }
 
