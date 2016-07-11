@@ -141,11 +141,6 @@ img {
   margin: 0px 0 0px 0;
   border: none;
 
-  box-shadow: 0 0 5px #000000;
-  -webkit-box-shadow: 0 0 5px #000000;
-  -moz-box-shadow: 0 0 5px #000000;
-  -o-box-shadow: 0 0 5px #000000;
-  -ms-box-shadow: 0 0 5px #000000;
 }
 img.wrap {float: left}
 
