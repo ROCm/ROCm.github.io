@@ -1,1 +1,103 @@
-b
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="ROCm, A New Era in Open GPU Computing : Platform for GPU Enabled HPC and UltraScale Computing ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ROCm, A New Era in Open GPU Computing</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/RadeonOpenCompute">View on GitHub</a>
+          <img class="wrap" src="images/ROCm_Logo_128.png" alt="ROCm_Logo" />
+          <h2 id="project_title">ROCm, A New Era in Open GPU Computing</h2>
+          <h3 id="project_tagline">Platform for GPU Enabled HPC and UltraScale Computing </h3>
+
+       
+      
+    </div>
+
+<div>
+
+<ul>
+  <div id="nav">
+      <div id="nbar">
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="install.html">Install</a></li>
+          <li><a href="languages.html">Languages</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="packages.html">ROCm Solutions </a></li>
+          <li id="selected"><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="hardware.html">ROCm Hardware</a></li>
+          <li><a href="blog.html">ROCm BLOG</a></li>
+        </ul>
+      </div>
+      </div>
+</ul>
+</nav>
+    </div>
+ </header>
+       <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h1 id="ROCm-Blog">ROCm Blog Roll</h1>
+
+<h3>Rolling out HIP version 0.86 </h3>
+The team just released an update to <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP" target="_blank">HIP</a> in version 0.86 which includes several improvements in the functionality and tools. Also we have included several additional HIP ports and <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples">examples</a>.
+
+If you're just getting started, HIP (or Heterogeneous-Computing Interface for Portability) is a portable C++ runtime and kernel language for GPUs, and includes tools to "hipify" CUDA code into the portable C++ language.
+<h2>HIP 0.86 Release Notes</h2>
+<em>Release:0.86.00</em>
+<em>Date: 2016.06.06</em>
+<ul>
+ 	<li>Add clang-hipify : clang-based hipify tool.  Improved parsing of source code, and automates
+creation of hipLaunchParm variable.</li>
+ 	<li>Implement memory register / unregister commands (hipHostRegister, hipHostUnregister)</li>
+ 	<li>Add cross-linking support between G++ and HCC, in particular for interfaces that use
+standard C++ libraries (ie std::vectors, std::strings).  HIPCC now uses libstdc++ by default on the HCC
+compilation path.</li>
+ 	<li>More samples including gpu-burn, <a href="https://github.com/vetter/shoc/pull/50" target="_blank">SHOC</a>, nbody, rtm.  See <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples" target="_blank">HIP-Examples.</a></li>
+</ul>
+<h2>Also some info on the previous 0.84 release:</h2>
+<em>Release:0.84.01</em>
+<em>Date: 2016.04.25</em>
+
+- Refactor HIP make and install system:
+- Move to CMake. Refer to the installation section in README.md for details.
+- Split source into multiple modular .cpp and .h files.
+- Create static library and link.
+- Set HIP_PATH to install.
+- Make hipDevice and hipStream thread-safe.
+- Prefered hipStream usage is still to create new streams for each new thread, but it works even if you don;t.
+- Improve automated platform detection: If AMD GPU is installed and detected by driver, default HIP_PLATFORM to hcc.
+- HIP_TRACE_API now prints arguments to the HIP function (in addition to name of function).
+- Deprecate hipDeviceGetProp (Replace with hipGetDeviceProp)
+- Deprecate hipMallocHost (Replace with hipHostMalloc)
+- Deprecate hipFreeHost (Replace with hipHostFree)
+- The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to CUDA and OpenCL.  Let the comparisons begin. :)
+
+See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more.
+<h2>Related Resources</h2>
+<ul>
+ 	<li><a href="http://gpuopen.com/tag/hip/">Technical Blogs</a></li>
+ 	<li><a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP" target="_blank">HIP GitHub Repository</a></li>
+</ul>
+
+<!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p> © 2016 AMD Corporation <a href="legal.html">Disclaimer and Legal Information</a> </p> 
+      </footer>
+    </div>
+    
+  </body>
+</html>
