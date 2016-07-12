@@ -58,7 +58,7 @@ To make this change, we will need to restructure the BitonicSort::run call as fo
  	<li>The last kernel needs a system release fence to make sure it releases the data for the device-&gt;host copy.</li>
  	<li>All of the intermediate kernels only need to use "agent" level fences.  On the AMD Fiji hardware, agent-scope fences are significantly faster than system-scope fences since the former flush only the L1 caches while the latter flush both the L1 and the L2 caches.</li>
 </ul>
-[codebox]
+<codebox>
 <pre>// Optimize HSA Fences
 if (p_optFence) {
     aql.header =
@@ -86,7 +86,7 @@ if (p_optFence) {
         aql.header |= (HSA_FENCE_SCOPE_AGENT &lt;&lt; HSA_PACKET_HEADER_RELEASE_FENCE_SCOPE);
     }
 }</pre>
-[/codebox]</li>
+</codebox></li>
  	<li>The flag <strong>p_optPinHost</strong> uses <strong>hc::am_alloc </strong>with the <strong>amPinnedHost</strong> flag to allocate pinned host memory.  Pinned host memory accelerates the data transfer operations since the runtime will identify that the memory is already pinned and thus immediately start the DMA transactions - this achieves a peak transfer rate of 13-14GB/s.    Unpinned memory is transferred through a host-side staging buffer and can be transferred at 6-7GB/s.</li>
 </ul>
 <h2>Results</h2>
