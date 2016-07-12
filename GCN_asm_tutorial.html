@@ -59,20 +59,20 @@ Two new instructions, [code]ds_permute_b32[/code] and [code]ds_bpermute_b32[/cod
 
 The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
 
-[codebox]
+<codebox>
 <pre>__kernel void hello_world(__global const uint * in, __global const uint * index, __global uint * out)
 {
      size_t i = get_global_id(0);
      out[i] = in[ index[i] ];
 }
 </pre>
-[/codebox]
+</codebox>
 <h2>Passing Parameters to a Kernel</h2>
 Formal HSA arguments are passed to a kernel using a special read-only memory segment called [code]kernarg[/code]. Before a wavefront starts, the base address of the [code]kernarg[/code] segment is written to an SGPR pair. The memory layout of variables in [code]kernarg[/code] must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier.
 
 The example host program must create the [code]kernarg[/code] segment and fill it with the buffer base addresses. The HSA host code might look like the following:
 
-[codebox]
+<codebox>
 <pre>/*
 * This is the host-side representation of the kernel arguments that the simplePermute kernel expects.
 */
@@ -98,11 +98,11 @@ args-&gt;in = in_ptr;
 args-&gt;index = index_ptr;
 args-&gt;out = out_ptr;
 </pre>
-[/codebox]
+</codebox>
 
 The host program should also allocate memory for the [code]in[/code], [code]index[/code] and [code]out[/code] buffers. In the GitHub repository, all the run-time-related stuff is hidden in the Dispatch and Buffer classes, so the sample code looks much cleaner:
 
-[codebox]
+<codebox>
 <pre>// Create Kernarg segment
 if (!AllocateKernarg(3 * sizeof(void*))) { return false; }
 
@@ -117,7 +117,7 @@ Kernarg(in); // Add base pointer to “in” buffer
 Kernarg(index); // Append base pointer to “index” buffer
 Kernarg(out); // Append base pointer to “out” buffer
 </pre>
-[/codebox]
+</codebox>
 <h2>Initial Wavefront and Register State</h2>
 To launch a kernel in real hardware, the run time needs information about the kernel, such as
 <ul>
@@ -127,7 +127,7 @@ To launch a kernel in real hardware, the run time needs information about the ke
 </ul>
 All this data resides in the [code]amd_kernel_code_t[/code] structure. A full description of the structure is available in the <a href="https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md" target="_blank">AMDGPU-ABI</a> specification. This is what it looks like in source code:
 
-[codebox]
+<codebox>
 <pre>.hsa_code_object_version 2,0
 .hsa_code_object_isa 8, 0, 3, "AMD", "AMDGPU"
 
@@ -170,7 +170,7 @@ s_waitcnt     lgkmcnt(0)
 flat_store_dword  v[3:4], v1
 s_endpgm
 </pre>
-[/codebox]
+</codebox>
 
 Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure.
 
@@ -181,16 +181,16 @@ Before the start of every wavefront execution, the GPU sets up the register stat
 The next [code]amd_kernel_code_t[/code] fields are obvious: [code]is_ptr64 = 1[/code] says we are in 64-bit mode, and [code]kernarg_segment_byte_size = 24[/code] describes the [code]kernarg[/code] segment size. The GPR counting is less straightforward, however. The [code]workitem_vgpr_count[/code] holds the number of vector registers that each work item uses, and [code]wavefront_sgpr_count[/code] holds the number of scalar registers that a wavefront uses. The code above employs [code]v0–v4[/code], so [code]workitem_vgpr_count = 5[/code]. But [code]wavefront_sgpr_count = 8[/code] even though the code only shows [code]s0–s5[/code], since the special registers [code]VCC[/code], [code]FLAT_SCRATCH[/code] and [code]XNACK[/code] are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, [code]FLAT_SCRATCH[/code] and [code]XNACK[/code] are disabled, so [code]VCC[/code] has only two additional registers.
 
 In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields [code]compute_pgm_rsrc1_*gprs[/code] contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
-[codebox]
+<codebox>
 <pre>compute_pgm_rsrc1_vgprs = (workitem_vgpr_count-1)/4
 
 compute_pgm_rsrc1_sgprs = (wavefront_sgpr_count-1)/8
 </pre>
-[/codebox]
+</codebox>
 
 Now consider the corresponding assembly:
 
-[codebox]
+<codebox>
 <pre>// initial state:
 //   s[0:1] - kernarg base address
 //   v0 - workitem id
@@ -246,7 +246,7 @@ The next step is to produce a Hsaco from the ASM source. LLVM has added support 
 
 clang -target amdgcn--amdhsa test.o -o test.co
 </pre>
-[/codebox]
+</codebox>
 
 The first command assembles an object file from the assembly source, and the second one links everything (you could have multiple source files) into a Hsaco. Now, you can load and run kernels from that Hsaco in a program. The <a href="https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra" target="_blank">GitHub examples</a> use Cmake to automatically compile ASM sources.
 
