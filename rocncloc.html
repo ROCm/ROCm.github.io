@@ -47,7 +47,7 @@
 <p>In a <a href="/rocm-do-you-speaka-my-language/">previous blog</a> we discussed the different languages available on the ROCm platform.  <a href="https://github.com/RadeonOpenCompute/HCC-Example-Application/tree/master/BitonicSort-CL-from-HCC" target="_blank">Here </a>we’ll show you how to combine several of these languages in a single program:</p>
 <ul>
  	<li>We’ll use an offline OpenCL™ compiler to compile the “BitonicSort” OpenCL kernel (from the AMD APP SDK) into a standard HSA code object (“hsaco”) format.</li>
- 	<li>The host code will employ HCC’s hc dialect for device discovery (ie <pre>hc::accelerator</pre> and <pre>hc::accelerator_view</pre>) and memory management (<pre>hc::array</pre>)</li>
+ 	<li>The host code will employ HCC’s hc dialect for device discovery (ie <code>hc::accelerator</code> and <code>hc::accelerator_view</code>) and memory management (<code>hc::array</code>)</li>
  	<li>The actual dispatch will use the low-level HSA Runtime calls.  Recall that ROCR is an implementation of the HSA Runtime with extensions for multi-GPU configurations.   We’ll show you how to extract HSA queue and agent structures from the HCC C++ ones, and then use them to perform the kernel launch.</li>
 </ul>
 <p>There are several reasons you might want to do something along these lines. First, many kernels exist in OpenCL and re-using this existing investment can save time.  The OpenCL kernel language is widely-used, and it enables programmers to use advanced GPU features including local memory, rich math functions, and vector operations.   But the OpenCL runtime can be verbose and the memory interface can be difficult to control and optimize. HCC provides the advantage of a full C++ runtime but also full control over the memory allocation and copies.  Using the techniques we'll show you here, you can employ OpenCL kernels without having to port the host runtime code to OpenCL. This approach offers a significant advantage for larger C++ programs that can use a few optimized OpenCL kernels while sticking with C++ kernels and features for the rest of the program.</p>
@@ -57,7 +57,7 @@ Hsaco is informally pronounced “sock-o” (with a slight emphasis on the first
 Many tools in AMD’s compiler chain generate and use the hsaco format including  OpenCL, HCC, HIP, the GCN assembler and the HSAIL Finalizer.  Kernel code contained in hsaco can be extracted and then launched onto the GPU.    Additionally, the <a href="https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra" target="_blank">dissembler tool </a>can disassemble hsaco files so you can see what is going on inside the kernel.  In a future blog, we’ll talk about using the same techniques described here to assemble and then launch kernels written in GCN assembly.  Essentially, hsaco is the interchange format used to pass code between these different tools, and allows code written in different languages to be used together.
 <h3>Compiling an OpenCL Kernel into hsaco</h3>
 The Makefile shows the usage of the <a href="https://github.com/HSAFoundation/CLOC" target="_blank">CLOC </a>(CL Offline Compiler) tool to compile the CL kernel into the hsaco file.  Here’s the relevant call to CLOC:
-<pre>/opt/rocm/cloc/bin/cloc.sh BitonicSort_Kernels.cl -o BitonicSort_Kernels.hsaco</pre>
+<code>/opt/rocm/cloc/bin/cloc.sh BitonicSort_Kernels.cl -o BitonicSort_Kernels.hsaco</code>
 <h3>Using hsaco:</h3>
 This example shows two methods for accessing the hsaco data from the host application :
 <ul>
