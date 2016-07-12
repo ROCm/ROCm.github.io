@@ -75,7 +75,7 @@ The picture below shows the different steps in the code loading process, and in 
 <h2>Making HCC Sing</h2>
 The example uses the <a href="http://gpuopen.com/rocm-do-you-speaka-my-language/" target="_blank">hc C++ dialect</a> to select the default accelerator and queue.  To launch the hsaco file we’ve created, we need to make HCC reveal the details of the HSA data structure that live under the covers. Here’s the critical piece of code that shows how to get from the HCC world to the HSA world using “hc::accelerator_view::get_hsa_queue”:
 
-<code>
+<pre>
 //_acc is type hc::accelerator.
 
 // Select default queue
@@ -84,7 +84,7 @@ hc::accelerator_view av = _acc.get_default_view();
 
 // Extract the HSA queue from the accelerator view:
 hsa_queue_t  *hsaQueue = static_cast&lt;hsa_queue_t*&gt; (av.get_hsa_queue());
-</code>
+</pre>
 <h3></h3>
 Now that we have an HSA queue we can use the low-level HSA runtime API to enqueue the kernel for execution on the GPU. The code creates an "AQL" packet, uses the hsa runtime APIs (such as hsa_queue_store_write_index_relaxed) to place the packet into the queue and make it visible to the GPU for execution. More details in the code.
 
