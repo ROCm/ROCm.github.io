@@ -47,7 +47,7 @@
 <p>In a <a href="/rocm-do-you-speaka-my-language/">previous blog</a> we discussed the different languages available on the ROCm platform.  <a href="https://github.com/RadeonOpenCompute/HCC-Example-Application/tree/master/BitonicSort-CL-from-HCC" target="_blank">Here </a>we’ll show you how to combine several of these languages in a single program:</p>
 <ul>
  	<li>We’ll use an offline OpenCL™ compiler to compile the “BitonicSort” OpenCL kernel (from the AMD APP SDK) into a standard HSA code object (“hsaco”) format.</li>
- 	<li>The host code will employ HCC’s hc dialect for device discovery (ie [code]hc::accelerator[/code] and [code]hc::accelerator_view[/code]) and memory management ([code]hc::array[/code])</li>
+ 	<li>The host code will employ HCC’s hc dialect for device discovery (ie <code>hc::accelerator[/code] and [code]hc::accelerator_view</code>) and memory management (<code></code>hc::array</code>)</li>
  	<li>The actual dispatch will use the low-level HSA Runtime calls.  Recall that ROCR is an implementation of the HSA Runtime with extensions for multi-GPU configurations.   We’ll show you how to extract HSA queue and agent structures from the HCC C++ ones, and then use them to perform the kernel launch.</li>
 </ul>
 <p>There are several reasons you might want to do something along these lines. First, many kernels exist in OpenCL and re-using this existing investment can save time.  The OpenCL kernel language is widely-used, and it enables programmers to use advanced GPU features including local memory, rich math functions, and vector operations.   But the OpenCL runtime can be verbose and the memory interface can be difficult to control and optimize. HCC provides the advantage of a full C++ runtime but also full control over the memory allocation and copies.  Using the techniques we'll show you here, you can employ OpenCL kernels without having to port the host runtime code to OpenCL. This approach offers a significant advantage for larger C++ programs that can use a few optimized OpenCL kernels while sticking with C++ kernels and features for the rest of the program.</p>
@@ -107,7 +107,7 @@ _inputAccPtr = _inputArray-&gt;;accelerator_pointer();
 
 <p>Our application is still responsible for ensuring that the data at this pointer is valid on the accelerator, before calling the kernel.   In this case, the application copies from host data (allocated with malloc) to the inputArray.</p>
 
-<p>The code also shows the use of hc’s accelerator memory interface to allocate and copy the data.  This is an alternative to using [code]hc::array&lt;&gt;[/code], and can be select by setting p_useHcArray=false in the top of the source code.  Here’s the relevant code snippet:</p>
+<p>The code also shows the use of hc’s accelerator memory interface to allocate and copy the data.  This is an alternative to using <code></code>hc::array&lt;&gt;</code>, and can be select by setting p_useHcArray=false in the top of the source code.  Here’s the relevant code snippet:</p>
 
 [codebox lang="cpp"] // Alternative allocation technique using am_alloc
 
@@ -117,7 +117,7 @@ hc::am_copy(_inputAccPtr, _input, sizeBytes);
 
 [/codebox]
 
-We do not recommended usinge  [code]hc::array_view&lt;&gt;[/code] with the direct hsaco code launching techniques we are discussing here.  [code]hc::array_view&lt;&gt;[/code] is designed to automatically synchronize the data before and after parallel_for_each blocks are launched.  Direct launching with HSA runtime APIs will not automatically synchronize [code]hc::array_view&lt;&gt;[/code].
+We do not recommended usinge  <code></code>hc::array_view&lt;&gt;</code> with the direct hsaco code launching techniques we are discussing here.  <code></code>hc::array_view&lt;&gt;</code> is designed to automatically synchronize the data before and after parallel_for_each blocks are launched.  Direct launching with HSA runtime APIs will not automatically synchronize <code></code>hc::array_view&lt;&gt;</code>.
 
 <p>Finally, HCC provides accessors that allow easy retrieval of the the HSA “regions” associated with an accelerator.  The HSA runtime API uses regions to specify where memory on an agent is located - for example coarse-grain device memory or fine-grain system memory.    When enumerating accelerators, HCC scans the supported regions for each underlying HSA agent and provides the following accessors:</p>
 
