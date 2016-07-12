@@ -75,7 +75,7 @@ The picture below shows the different steps in the code loading process, and in 
 <h2>Making HCC Sing</h2>
 The example uses the <a href="http://gpuopen.com/rocm-do-you-speaka-my-language/" target="_blank">hc C++ dialect</a> to select the default accelerator and queue.  To launch the hsaco file we’ve created, we need to make HCC reveal the details of the HSA data structure that live under the covers. Here’s the critical piece of code that shows how to get from the HCC world to the HSA world using “hc::accelerator_view::get_hsa_queue”:
 
-[codebox lang="cpp"]
+[codebox]
 //_acc is type hc::accelerator.
 
 // Select default queue
