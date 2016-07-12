@@ -71,19 +71,19 @@ compilation path.</li>
 <em>Release:0.84.01</em>
 <em>Date: 2016.04.25</em>
 
-- Refactor HIP make and install system:
-- Move to CMake. Refer to the installation section in README.md for details.
-- Split source into multiple modular .cpp and .h files.
-- Create static library and link.
-- Set HIP_PATH to install.
-- Make hipDevice and hipStream thread-safe.
-- Prefered hipStream usage is still to create new streams for each new thread, but it works even if you don;t.
-- Improve automated platform detection: If AMD GPU is installed and detected by driver, default HIP_PLATFORM to hcc.
-- HIP_TRACE_API now prints arguments to the HIP function (in addition to name of function).
-- Deprecate hipDeviceGetProp (Replace with hipGetDeviceProp)
-- Deprecate hipMallocHost (Replace with hipHostMalloc)
-- Deprecate hipFreeHost (Replace with hipHostFree)
-- The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to CUDA and OpenCL.  Let the comparisons begin. :)
+<li> Refactor HIP make and install system:</li>
+<li> Move to CMake. Refer to the installation section in README.md for details.</li>
+<li> Split source into multiple modular .cpp and .h files.</li>
+<li> Create static library and link.</li>
+<li> Set HIP_PATH to install.</li>
+<li> Make hipDevice and hipStream thread-safe.</li>
+<li> Prefered hipStream usage is still to create new streams for each new thread, but it works even if you don;t.</li>
+<li>Improve automated platform detection: If AMD GPU is installed and detected by driver, default HIP_PLATFORM to hcc.</li>
+<li> HIP_TRACE_API now prints arguments to the HIP function (in addition to name of function).</li>
+<li>Deprecate hipDeviceGetProp (Replace with hipGetDeviceProp)</li>
+<li> Deprecate hipMallocHost (Replace with hipHostMalloc)</li>
+<li>Deprecate hipFreeHost (Replace with hipHostFree)</li>
+<li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to CUDA and OpenCL.  Let the comparisons begin. :)</li>
 
 See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more.
 <h4>Related Resources</h4>
