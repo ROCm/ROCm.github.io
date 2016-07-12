@@ -47,7 +47,7 @@
 <p>In a <a href="/rocm-do-you-speaka-my-language/">previous blog</a> we discussed the different languages available on the ROCm platform.  <a href="https://github.com/RadeonOpenCompute/HCC-Example-Application/tree/master/BitonicSort-CL-from-HCC" target="_blank">Here </a>we’ll show you how to combine several of these languages in a single program:</p>
 <ul>
  	<li>We’ll use an offline OpenCL™ compiler to compile the “BitonicSort” OpenCL kernel (from the AMD APP SDK) into a standard HSA code object (“hsaco”) format.</li>
- 	<li>The host code will employ HCC’s hc dialect for device discovery (ie <code>hc::accelerator</code> and <code>hc::accelerator_view</code>) and memory management (<code></code>hc::array</code>)</li>
+ 	<li>The host code will employ HCC’s hc dialect for device discovery (ie <pre>hc::accelerator</pre> and <pre>hc::accelerator_view</pre>) and memory management (<pre>hc::array</pre>)</li>
  	<li>The actual dispatch will use the low-level HSA Runtime calls.  Recall that ROCR is an implementation of the HSA Runtime with extensions for multi-GPU configurations.   We’ll show you how to extract HSA queue and agent structures from the HCC C++ ones, and then use them to perform the kernel launch.</li>
 </ul>
 <p>There are several reasons you might want to do something along these lines. First, many kernels exist in OpenCL and re-using this existing investment can save time.  The OpenCL kernel language is widely-used, and it enables programmers to use advanced GPU features including local memory, rich math functions, and vector operations.   But the OpenCL runtime can be verbose and the memory interface can be difficult to control and optimize. HCC provides the advantage of a full C++ runtime but also full control over the memory allocation and copies.  Using the techniques we'll show you here, you can employ OpenCL kernels without having to port the host runtime code to OpenCL. This approach offers a significant advantage for larger C++ programs that can use a few optimized OpenCL kernels while sticking with C++ kernels and features for the rest of the program.</p>
@@ -75,7 +75,7 @@ The picture below shows the different steps in the code loading process, and in 
 <h2>Making HCC Sing</h2>
 The example uses the <a href="http://gpuopen.com/rocm-do-you-speaka-my-language/" target="_blank">hc C++ dialect</a> to select the default accelerator and queue.  To launch the hsaco file we’ve created, we need to make HCC reveal the details of the HSA data structure that live under the covers. Here’s the critical piece of code that shows how to get from the HCC world to the HSA world using “hc::accelerator_view::get_hsa_queue”:
 
-[codebox]
+<pre>
 //_acc is type hc::accelerator.
 
 // Select default queue
@@ -84,24 +84,24 @@ hc::accelerator_view av = _acc.get_default_view();
 
 // Extract the HSA queue from the accelerator view:
 hsa_queue_t  *hsaQueue = static_cast&lt;hsa_queue_t*&gt; (av.get_hsa_queue());
-[/codebox]
+</pre>
 <h3></h3>
 Now that we have an HSA queue we can use the low-level HSA runtime API to enqueue the kernel for execution on the GPU. The code creates an "AQL" packet, uses the hsa runtime APIs (such as hsa_queue_store_write_index_relaxed) to place the packet into the queue and make it visible to the GPU for execution. More details in the code.
 
 This capability is a quite useful since we can now mix HCC kernels (submitted with parallel_for_each) with kernels in hsaco format (from OpenCL kernels, or assembly, or other sources) in the same application or even in the same queue.   For example, libraries can benefit from this architecture : the library interface can be based on HCC structures (accelerator, accelerator_view, completion_future) while the implementation uses HSA Runtime and hsacos.
 <h3>Extracting Data Pointers</h3>
-The example under discussion uses  [code]hc::array&lt;&gt;[/code]to store the array of integers that are sorted.  The original OpenCL kernel of course knows nothing of the  [code]hc::array&lt;&gt;[/code] data-type.  Here’s the OpenCL kernel signature:
+The example under discussion uses <pre>hc::array&lt;&gt;</pre>to store the array of integers that are sorted.  The original OpenCL kernel of course knows nothing of the  [code]hc::array&lt;&gt;[/code] data-type.  Here’s the OpenCL kernel signature:
 
-[codebox lang="cpp"]
+<pre>
 __kernel
 void bitonicSort(__global uint * theArray, const uint stage, const uint passOfStage, const uint direction)
-[/codebox]
+</pre>
 
 When calling this kernel, the first parameter (theArray) is an 8-byte pointer.  Fortunately the hc syntax defines an API that allows us to retrieve this pointer on the host side so we can later pass it to the kernel in the expected position:
 
-[codebox lang="cpp"]
+<pre>
 _inputAccPtr = _inputArray-&gt;;accelerator_pointer();
-[/codebox]
+</pre>
 
 &nbsp;
 
@@ -109,19 +109,19 @@ _inputAccPtr = _inputArray-&gt;;accelerator_pointer();
 
 <p>The code also shows the use of hc’s accelerator memory interface to allocate and copy the data.  This is an alternative to using <code></code>hc::array&lt;&gt;</code>, and can be select by setting p_useHcArray=false in the top of the source code.  Here’s the relevant code snippet:</p>
 
-[codebox lang="cpp"] // Alternative allocation technique using am_alloc
+<pre> // Alternative allocation technique using am_alloc
 
 _inputAccPtr = hc::am_alloc(sizeBytes, _acc, 0);
 
 hc::am_copy(_inputAccPtr, _input, sizeBytes);
 
-[/codebox]
+</pre>
 
-We do not recommended usinge  <code></code>hc::array_view&lt;&gt;</code> with the direct hsaco code launching techniques we are discussing here.  <code></code>hc::array_view&lt;&gt;</code> is designed to automatically synchronize the data before and after parallel_for_each blocks are launched.  Direct launching with HSA runtime APIs will not automatically synchronize <code></code>hc::array_view&lt;&gt;</code>.
+We do not recommended usinge  <code>hc::array_view&lt;&gt;</code> with the direct hsaco code launching techniques we are discussing here.  <code>hc::array_view&lt;&gt;</code> is designed to automatically synchronize the data before and after parallel_for_each blocks are launched.  Direct launching with HSA runtime APIs will not automatically synchronize <code>hc::array_view&lt;&gt;</code>.
 
 <p>Finally, HCC provides accessors that allow easy retrieval of the the HSA “regions” associated with an accelerator.  The HSA runtime API uses regions to specify where memory on an agent is located - for example coarse-grain device memory or fine-grain system memory.    When enumerating accelerators, HCC scans the supported regions for each underlying HSA agent and provides the following accessors:</p>
 
-[codebox lang="cpp"]
+<pre>
 
 void* get_hsa_am_region();// Accelerator-memory region.  On discrete GPUs its the device memory ; on APUs its shared host memory
 
@@ -129,11 +129,11 @@ void* get_hsa_am_system_region() // Pinned or registered host memory accessible 
 
 void* get_hsa_kernarg_region() // Memory for kernel arguments.
 
-[/codebox]
+<pre>
 
 <p>This example uses <strong>get_hsa_kernarg_region()</strong> to allocate memory for the kernel arguments passed to the BitonicSort kernel.  Kernarg memory is typically written by the host CPU and read by the accelerator executing the kernel.  The example defines a host-side structure to describe the layout of the arguments expected by the kernel, and then typecasts the pointer returned by the kernarg pointer.</p>
 
-[codebox lang="cpp"]
+<pre>
 
 /*
 
@@ -189,7 +189,7 @@ args-&gt;passOfStage = 0;
 
 args-&gt;direction = _sortIncreasing;
 
-[/codebox]
+</pre>
 <h2>Summary</h2>
 <p>We learned how to use offline compilation to convert an OpenCL kernel into a standard hsaco file and then employed the HSA Runtime API to launch that kernel from an HCC program.  Harmony!  In the future we'll look at how to optimize the HSA Runtime calls, and also how to use other tools to create hsaco files (such as the AMDGCN assembler).   Stay tuned.</p>
 <h2>Reference:</h2>
