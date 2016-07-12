@@ -252,7 +252,21 @@ form {
   background: #f2f2f2;
   padding: 20px;
 }
-
+#codeBox {
+position: absolute; /* CODE BOX POSITION */
+top: 10px; /* DISTANCE FROM LEFT OF SCREEN */
+left: 10px; /* DISTANCE FROM TOP OF SCREEN */
+width: 300px; /* BOX WIDTH */
+height: 100px; /* BOX HEIGHT */
+border: #006699 1px solid; /* PROPERTIES OF BORDER AROUND BOX */
+background: #FFFFFF url(link_filename.extension) no-repeat center; /* PROPERTIES OF THE BACKGROUND OF THE BOX */
+font-family: "Comic Sans MS"; /* CODE BOX FONT - MAKE DIFFERENT TO YOUR SITE NORMAL BODY FONT TO DIFFERENTIATE CODE FROM TEXT */
+font-size: 9px; /* FONT SIZE */
+color: #494949; /* FONT COLOUR */
+font-weight: normal; /* FONT WIEGHT - BOLD, ITALICS ETC */
+text-align: justify; /* TEXT ALIGNMENT - CENTER, LEFT ETC */
+padding: 5px 5px 5px 5px; /* PADDING AROUND TEXT SO IT DOESN'T TOUCH BOX SIDES */
+}
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
