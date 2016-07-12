@@ -238,10 +238,10 @@ flat_store_dword  v[3:4], v1
 
 s_endpgm
 </pre>
-[/codebox]
+</codebox>
 <h2>Compiling GCN ASM Kernel Into Hsaco</h2>
 The next step is to produce a Hsaco from the ASM source. LLVM has added support for the AMDGCN assembler, so you can use Clang to do all the necessary magic:
-[codebox]
+<codebox>
 <pre>clang -x assembler -target amdgcn--amdhsa -mcpu=fiji -c -o test.o asm_source.s
 
 clang -target amdgcn--amdhsa test.o -o test.co
