@@ -90,11 +90,11 @@ if (p_optFence) {
  	<li>The flag <strong>p_optPinHost</strong> uses <strong>hc::am_alloc </strong>with the <strong>amPinnedHost</strong> flag to allocate pinned host memory.  Pinned host memory accelerates the data transfer operations since the runtime will identify that the memory is already pinned and thus immediately start the DMA transactions - this achieves a peak transfer rate of 13-14GB/s.    Unpinned memory is transferred through a host-side staging buffer and can be transferred at 6-7GB/s.</li>
 </ul>
 <h2>Results</h2>
-After making these changes, we see the speedups shown in the chart and table below.
+<p>After making these changes, we see the speedups shown in the chart and table below.</p>
 
 <img class="aligncenter size-full wp-image-3435" src="http://gpuopen.com/wp-content/uploads/2016/06/perf-data.png" alt="perf-data" width="743" height="416" />
 
-The timing numbers shown here includes the time to transfer the array to the GPU, run all of the kernels, and transfer back the result.  The numbers do not include time spent initializing the runtime, allocating memory, or performing the result verification.  The times show the time required to sort 32768 integers using 120 kernels.  This is relatively small size to offload to the GPU (only 128K) and as a result the kernels run in 3-4 us, which stresses the HSA runtime features that we want to discuss.
+<p>The timing numbers shown here includes the time to transfer the array to the GPU, run all of the kernels, and transfer back the result.  The numbers do not include time spent initializing the runtime, allocating memory, or performing the result verification.  The times show the time required to sort 32768 integers using 120 kernels.  This is relatively small size to offload to the GPU (only 128K) and as a result the kernels run in 3-4 us, which stresses the HSA runtime features that we want to discuss.</p>
 <table>
 <thead>
 <tr>
@@ -128,15 +128,15 @@ The timing numbers shown here includes the time to transfer the array to the GPU
 </tr>
 </tbody>
 </table>
-The results show that signal allocation and kernarg allocation both take approximately 37us to complete, which makes sense since both operations require a trip into kernel space (ROCK) and perform memory allocation.  Even the baseline operation shares the signal and kernarg allocation for all 120 kernels but the overhead here is still significant.  Kernels can be dispatched in 5-10us each, so optimal programs definitely will want to perform these operations outside of the critical path.  The optimized code path here moves these operations into the setup routine.  Another option is to create a buffer pool of signals and kernargs (this is the approach used by <a href="https://github.com/RadeonOpenCompute/hcc/blob/master/lib/hsa/mcwamp_hsa.cpp#L47" target="_blank">HCC</a>) or to use thread-local-storage (if thread-safety is required).
+<p>The results show that signal allocation and kernarg allocation both take approximately 37us to complete, which makes sense since both operations require a trip into kernel space (ROCK) and perform memory allocation.  Even the baseline operation shares the signal and kernarg allocation for all 120 kernels but the overhead here is still significant.  Kernels can be dispatched in 5-10us each, so optimal programs definitely will want to perform these operations outside of the critical path.  The optimized code path here moves these operations into the setup routine.  Another option is to create a buffer pool of signals and kernargs (this is the approach used by <a href="https://github.com/RadeonOpenCompute/hcc/blob/master/lib/hsa/mcwamp_hsa.cpp#L47" target="_blank">HCC</a>) or to use thread-local-storage (if thread-safety is required).</p>
 
-Avoiding the host synchronization saves 204us, or about 1.7us per kernel.
+<p>Avoiding the host synchronization saves 204us, or about 1.7us per kernel.</p>
 
-The system-scope fences are fairly expensive - Fiji has a 2MB L2 cache, and it takes 3-4 us to flush the entire thing.  Additionally, the bitonic kernel default size is only 128K (32K elements * 4 bytes/element)  which can easily fit in the L2 cache.  Each kernel in the sequence then reads from the L2 and writes the data back to it.  By optimizing these fences to use AGENT scope when possible, we are able to save approximately 3.7us per kernel launch.
+<p>The system-scope fences are fairly expensive - Fiji has a 2MB L2 cache, and it takes 3-4 us to flush the entire thing.  Additionally, the bitonic kernel default size is only 128K (32K elements * 4 bytes/element)  which can easily fit in the L2 cache.  Each kernel in the sequence then reads from the L2 and writes the data back to it.  By optimizing these fences to use AGENT scope when possible, we are able to save approximately 3.7us per kernel launch.</p>
 
-Finally, using pinned host memory improves the transfer speeds from around 6GB/s to 14GB/s.    In this workload, we see a modest performance improvement (84us) since most of the benchmark is spent running the kernels and synchronizing between them.
+<p>Finally, using pinned host memory improves the transfer speeds from around 6GB/s to 14GB/s.    In this workload, we see a modest performance improvement (84us) since most of the benchmark is spent running the kernels and synchronizing between them.</p>
 
-Overall the performance improvement from these optimizations is 1.7X faster than the baseline version.
+<p>Overall the performance improvement from these optimizations is 1.7X faster than the baseline version.</p>
 
 &nbsp;
 <h2>Reference:</h2>
