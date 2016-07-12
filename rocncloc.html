@@ -90,7 +90,7 @@ Now that we have an HSA queue we can use the low-level HSA runtime API to enqueu
 
 This capability is a quite useful since we can now mix HCC kernels (submitted with parallel_for_each) with kernels in hsaco format (from OpenCL kernels, or assembly, or other sources) in the same application or even in the same queue.   For example, libraries can benefit from this architecture : the library interface can be based on HCC structures (accelerator, accelerator_view, completion_future) while the implementation uses HSA Runtime and hsacos.
 <h3>Extracting Data Pointers</h3>
-The example under discussion uses <code>hc::array&lt;&gt;</code>to store the array of integers that are sorted.  The original OpenCL kernel of course knows nothing of the  [code]hc::array&lt;&gt;[/code] data-type.  Here’s the OpenCL kernel signature:
+The example under discussion uses <code>hc::array&lt;&gt;</code>to store the array of integers that are sorted.  The original OpenCL kernel of course knows nothing of the  <code></code>hc::array&lt;&gt;</code> data-type.  Here’s the OpenCL kernel signature:
 
 <pre>
 __kernel
@@ -107,7 +107,7 @@ _inputAccPtr = _inputArray-&gt;;accelerator_pointer();
 
 <p>Our application is still responsible for ensuring that the data at this pointer is valid on the accelerator, before calling the kernel.   In this case, the application copies from host data (allocated with malloc) to the inputArray.</p>
 
-<p>The code also shows the use of hc’s accelerator memory interface to allocate and copy the data.  This is an alternative to using <code></code>hc::array&lt;&gt;</code>, and can be select by setting p_useHcArray=false in the top of the source code.  Here’s the relevant code snippet:</p>
+<p>The code also shows the use of hc’s accelerator memory interface to allocate and copy the data.  This is an alternative to using <code>hc::array&lt;&gt;</code>, and can be select by setting p_useHcArray=false in the top of the source code.  Here’s the relevant code snippet:</p>
 
 <pre> // Alternative allocation technique using am_alloc
 
