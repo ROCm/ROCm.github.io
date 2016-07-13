@@ -44,7 +44,7 @@
       <section id="main_content" class="inner">
         <h2>ROCm With Harmony: Combining OpenCL, HCC, and HSA in a Single Program</h2>
 <h3>Introduction</h3>
-<p>In a <a href="/rocm-do-you-speaka-my-language/">previous blog</a> we discussed the different languages available on the ROCm platform.  <a href="https://github.com/RadeonOpenCompute/HCC-Example-Application/tree/master/BitonicSort-CL-from-HCC" target="_blank">Here </a>we’ll show you how to combine several of these languages in a single program:</p>
+<p>In a <a href="http:gpuopen.com/rocm-do-you-speaka-my-language/">previous blog</a> we discussed the different languages available on the ROCm platform.  <a href="https://github.com/RadeonOpenCompute/HCC-Example-Application/tree/master/BitonicSort-CL-from-HCC" target="_blank">Here </a>we’ll show you how to combine several of these languages in a single program:</p>
 <ul>
  	<li>We’ll use an offline OpenCL™ compiler to compile the “BitonicSort” OpenCL kernel (from the AMD APP SDK) into a standard HSA code object (“hsaco”) format.</li>
  	<li>The host code will employ HCC’s hc dialect for device discovery (ie <code>hc::accelerator</code> and <code>hc::accelerator_view</code>) and memory management (<code>hc::array</code>)</li>
