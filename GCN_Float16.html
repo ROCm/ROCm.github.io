@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="ROCm, A New Era in Open GPU Computing : Platform for GPU Enabled HPC and UltraScale Computing ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+       
+    <title>ROCm, A New Era in Open GPU Computing</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/RadeonOpenCompute">View on GitHub</a>
+          <img class="wrap" src="images/ROCm_Logo_128.png" alt="ROCm_Logo" />
+          <h2 id="project_title">ROCm, A New Era in Open GPU Computing</h2>
+          <h3 id="project_tagline">Platform for GPU Enabled HPC and UltraScale Computing </h3>
+
+        </header>
+      
+    </div>
+   <div id="nav">
+      <div id="nbar">
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="install.html">Install</a></li>
+          <li><a href="languages.html">Languages</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="packages.html">ROCm Solutions </a></li>
+          <li id="selected"><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="hardware.html">ROCm Hardware</a></li>
+          <li><a href="blog.html">ROCm BLOG</a></li>
+        </ul>
+      </div>
+      </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h1>ROC ON, Float16 and Integer16 support in AMD GPU&#39;s</h1>
+
+<p>It has been secret to long,  AMD GPU&#39;s do support Single Rate Float16 and Int16 instructions right now: </p>
+
+<ul>
+<li> Fiji Family of Hardware: Radeon R9 Nano, R9 Fury, R9 Fury X, FirePro S9300x2,</li>
+<li> Tonga Family of Hardware: R9 285, R9 380, R9 380x, FirePro S7150x2, S7150, W7100</li>
+<li> Polaris Family of Hardware: RX480. RX470, RX460 </li>
+</ul>
+
+<p>ROCm Compilers will be bring full richness of FLOAT16 and Int16  via HCC, HIP and OpenCL.  </p>
+
+<p>We will also expose our GCN 3 ISA via assembler directly support by compiler. The new LLVM Native GCN ISA  compiler supports a disassembler, assembler and soon inline-assembly so you be able tune your code even further.  </p>
+
+<p>Here are example of some of the instruction supported, in the new GCN Native ISA Compiler we working hard to expose Float16, </p>
+
+<ul>
+<li>V_FREXP_EXP_I16_F16 Returns exponent of half precision float input, such that the original single float = significand * (2 ** exponent).</li>
+<li>V_CVT_F16_F32 Float32 to Float16.</li>
+<li>V_ADD_F16 D.f16 = S0.f16 + S1.f16. Supports denormals, round mode, exception flags, saturation.</li>
+<li>V_SUB_F16 D.f16 = S0.f16 - S1.f16. Supports denormals, round mode, exception flags, saturation. SQ translates to V_ADD_F16.</li>
+<li>V_MAC_F16 16-bit floating point multiply -accumulate</li>
+<li>V_FMA_F16.Fused half precision multiply add.</li>
+<li>V_MAD_F16 Floating point multiply-add (MAD). Gives same result as ADD after MUL_IEEE. Uses IEEE rules for 0*anything. </li>
+<li>V_MADAK_F16 16-bit floating-point multiply-add with constant add operand.</li>
+<li>V_MADMK_F16 16-bit floating-point multiply-add with multiply operand immediate.</li>
+<li>V_COS_F16 Cosine function </li>
+<li>V_SIN_F16 Sin function</li>
+<li>V_EXP_F16 Base2 exponent function</li>
+<li>V_LOG_F16 Base2 log function. 
+•   V_SQRT_F16 if(S0.f16 == 1.0f) D.f16 = 1.0f; else D.f16 = ApproximateSqrt(S0.f16).</li>
+<li>V_FRACT_F16 Floating point ‘fractional’ part of S0.f. </li>
+<li>V_RCP_F16 if (S0.f16 == 1.0f), D.f16 = 1.0f; else D.f16 = ApproximateRecip(S0.f16).</li>
+<li>V_RSQ_F16 if(S0.f16 == 1.0f) D.f16 = 1.0f; else D.f16 = ApproximateRecipSqrt(S0.f16).</li>
+<li>V_RNDNE_F16 Floating-point Round-to-Nearest-Even Integer.</li>
+<li>V_TRUNC_F16 Floating point ‘integer’ part of S0.f. D.f16 = trunc(S0.f16). Round-to-zero semantics.</li>
+<li>V_LDEXP_F16</li>
+<li>V_CEIL_F16 Floating point ceiling function.</li>
+<li>V_FLOOR_F16 Floating-point floor function</li>
+<li>V_MAX_F16 D.f16 = max(S0.f16, S1.f16). IEEE compliant. Supports denormals, round mode, exception flags, saturation.</li>
+<li>V_MAX_I16 D.f16 = max(S0.f16, S1.f16). IEEE compliant. Supports denormals, round mode, exception flags, saturation. </li>
+<li>V_MIN_F16 D.f16 = min(S0.f16, S1.f16). IEEE compliant. Supports denormals, round mode, exception flags, saturation. </li>
+<li>V_CVT_PKRTZ_F16_F32 Convert two float 32 numbers into a single register holding two packed 16-bit floats.</li>
+<li>V_DIV_FIXUP_F16 Given a numerator, denominator, and quotient from a divide, this opcode detects and applies special case numerics, modifies the quotient if necessary. This opcode also generates invalid, denorm, and divide by zero exceptions caused by the division.</li>
+<li>V_SUBREV_F16 D.f16 = S1.f16 - S0.f16. Supports denormals, round mode, exception flags, saturation. SQ translates to V_ADD_F16.</li>
+</ul>
+
+<p>Also did you the GCN 3 Architecture support Integer math 32bit  &amp; 16 bit </p>
+
+<ul>
+<li>V_ADD_U16 D.u16 = S0.u16 + S1.u16. Supports saturation (unsigned 16-bit integer domain).</li>
+<li>V_SUB_U16 D.u16 = S0.u16 - S1.u16. Supports saturation (unsigned 16-bit integer domain).</li>
+<li>V_MAD_I16 Signed integer muladd.</li>
+<li>V_MAD_U16 Unsigned integer muladd.</li>
+<li>V_SAD_U16 Sum of absolute differences with accumulation.</li>
+<li>V_MAX_I16 D.i[15:0] = max(S0.i[15:0], S1.i[15:0]).</li>
+<li>V_MAX_U16 D.u[15:0] = max(S0.u[15:0], S1.u[15:0]).</li>
+<li>V_MIN_I16 D.i[15:0] = min(S0.i[15:0], S1.i[15:0]).</li>
+<li>V_MIN_U16 D.u[15:0] = min(S0.u[15:0], S1.u[15:0]).</li>
+<li>V_MUL_LO_U16 D.u16 = S0.u16 * S1.u16. Supports saturation (unsigned 16-bit integer domain).</li>
+<li>V_CVT_F16_U16 D.f16 = uint16_to_flt16(S.u16). Supports denormals, rounding, exception flags and saturation.</li>
+<li>V_CVT_F16_I16 D.f16 = int16_to_flt16(S.i16). Supports denormals, rounding, exception flags and saturation</li>
+<li><p>V_SUBREV_U16 D.u16 = S1.u16 - S0.u16. Supports saturation (unsigned 16-bit integer domain). SQ translates this to V_SUB_U16 with reversed operands.</p>
+
+<p><a href="http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf">You can find out more on Float16  and other instruction in the GCN version ISA manual</a></p></li>
+</ul>
+
+
+
+</div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p> © 2016 AMD Corporation <a href="legal.html">Disclaimer and Legal Information</a> </p> 
+      </footer>
+    </div>
+
+  
+
+  </body>
+</html>
