@@ -62,7 +62,7 @@ If you’re just getting started, HIP (Heterogeneous-Computing Interface for Por
 <em>Date: 2016.06.06</em>
 <p></p>
 <ul>
- 	<li>Add clang-hipify&mdash;Clang-based hipify tool. Improves parsing of source code and automates
+ 	<li>Add clang-hipify&mdash;a Clang-based hipify tool that improves parsing of source code and automates
 creation of hipLaunchParm variable.</li>
  	<li>Implement memory register/unregister commands (hipHostRegister, hipHostUnregister)</li>
  	<li>Add cross-linking support between G++ and HCC, in particular for interfaces that use
@@ -70,7 +70,7 @@ standard C++ libraries (i.e., std::vectors, std::strings). HIPCC now uses libstd
 compilation path.</li>
  	<li>Include more samples, such as gpu-burn, <a href="https://github.com/vetter/shoc/pull/50" target="_blank">SHOC</a>, nbody and rtm. See <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples" target="_blank">HIP-Examples</a>.</li>
 </ul>
-<h4>Also some info on the previous 0.84 release:</h4>
+<h4>Info on Previous 0.84 Release</h4>
 <em>Release: 0.84.01</em></br>
 <em>Date: 2016.04.25</em>
 <p></p>
@@ -87,10 +87,9 @@ compilation path.</li>
 <li> Deprecate hipDeviceGetProp (replace with hipGetDeviceProp).</li>
 <li> Deprecate hipMallocHost (replace with hipHostMalloc).</li>
 <li> Deprecate hipFreeHost (replace with hipHostFree).</li>
-<li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to Cuda and OpenCL. Let the comparisons begin!</li>
+<li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to Cuda and OpenCL. Let the comparisons begin! See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more information.</li>
 </ul>
 
-See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more information.
 <h4>Related Resources</h4>
 <ul>
  	<li><a href="http://gpuopen.com/tag/hip/">Technical blogs</a></li>
