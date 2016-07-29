@@ -79,13 +79,13 @@
 
 <h3>HIP: Heterogeneous-Computing Interface for Portability</h3>
 
-<p>What is Heterogeneous-Computing Interface for Portability (HIP)? It’s a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface includes the ability to use templates and classes across the host/kernel boundary. </p>
+<p>What is Heterogeneous-Computing Interface for Portability (HIP)? It’s a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the host/kernel boundary. </p>
 
-<p>The Hipify tool automates much of the conversion work by performing a source-to-source transformation from Cuda to HIP. HIP code can run on AMD hardware (through the HCC compiler) or Nvidia hardware (through the NVCC compiler) with no performance loss compared with original Cuda code. </p>
+<p>The Hipify tool automates much of the conversion work by performing a source-to-source transformation from Cuda to HIP. HIP code can run on AMD hardware (through the HCC compiler) or Nvidia hardware (through the NVCC compiler) with no performance loss compared with the original Cuda code. </p>
 
 <p>Programmers familiar with other GPGPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.</p>
 
-<h4>When to use HIP</h4>
+<h4>When to Use HIP</h4>
 
 <p>Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and Nvidia. HIP provides a C++ development language and access to the best development tools on both platforms.</p>
 
@@ -105,7 +105,7 @@
 
 <p>Numba gives you the power to speed up your applications with high-performance functions written directly in Python. Through a few annotations, you can just-in-time compile array-oriented and math-heavy Python code to native machine instructions&mdash;offering performance similar to that of C, C++ and Fortran&mdash;without having to switch languages or Python interpreters.</p>
 
-<p>Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically (using the included Pycc tool). It supports compilation of Python to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NUMpy.</p>
+<p>Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically (through the included Pycc tool). It supports Python compilation to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NUMpy.</p>
 
 <h4>When to Use Anaconda</h4>
 
@@ -113,7 +113,7 @@
 
 <h3>Wrap-Up</h3>
 
-<p>Looking from a high level, ROCm delivers a rich set of tools that allow you to choose the best language for your application. </p>
+<p>From a high-level perspective, ROCm delivers a rich set of tools that allow you to choose the best language for your application. </p>
 
 <ul>
 <li>HCC (Heterogeneous Compute Compiler) supports HC dialects</li>
