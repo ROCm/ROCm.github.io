@@ -59,7 +59,7 @@ The team just released an update to <a href="https://github.com/GPUOpen-Professi
 If you’re just getting started, HIP (or Heterogeneous-Computing Interface for Portability) is a portable C++ run time and kernel language for GPUs. It includes tools to <q>hipify</q> Cuda code into the portable C++ language.
 <h4>HIP 0.86 Release Notes</h4>
 <em>Release: 0.86.00</em></br>
-<em>Date: 2016.06.06</em>
+<em>Date: 2016.06.06</em></br>
 <ul>
  	<li>Add clang-hipify&mdash;Clang-based hipify tool. Improves parsing of source code and automates
 creation of hipLaunchParm variable.</li>
@@ -71,29 +71,29 @@ compilation path.</li>
 </ul>
 <h4>Also some info on the previous 0.84 release:</h4>
 <em>Release: 0.84.01</em></br>
-<em>Date: 2016.04.25</em>
+<em>Date: 2016.04.25</em></br>
 
 <ul>
-<li> Refactor HIP make and install system:</li>
+<li> Refactor HIP make and install system.</li>
 <li> Move to CMake. Refer to the installation section in README.md for details.</li>
 <li> Split source into multiple modular .cpp and .h files.</li>
 <li> Create static library and link.</li>
 <li> Set HIP_PATH to install.</li>
 <li> Make hipDevice and hipStream thread-safe.</li>
-<li> Prefered hipStream usage is still to create new streams for each new thread, but it works even if you don;t.</li>
-<li>Improve automated platform detection: If AMD GPU is installed and detected by driver, default HIP_PLATFORM to hcc.</li>
-<li> HIP_TRACE_API now prints arguments to the HIP function (in addition to name of function).</li>
-<li>Deprecate hipDeviceGetProp (Replace with hipGetDeviceProp)</li>
-<li> Deprecate hipMallocHost (Replace with hipHostMalloc)</li>
-<li>Deprecate hipFreeHost (Replace with hipHostFree)</li>
-<li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to CUDA and OpenCL.  Let the comparisons begin. :)</li>
+<li> Preferred hipStream usage still involves creating new streams for each new thread, but it works even if you don’t.</li>
+<li> Improve automated platform detection: if an AMD GPU is installed and the driver detects it, default HIP_PLATFORM to hcc.</li>
+<li> HIP_TRACE_API now prints arguments to the HIP function (in addition to the function name).</li>
+<li> Deprecate hipDeviceGetProp (replace with hipGetDeviceProp).</li>
+<li> Deprecate hipMallocHost (replace with hipHostMalloc).</li>
+<li> Deprecate hipFreeHost (replace with hipHostFree).</li>
+<li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to Cuda and OpenCL. Let the comparisons begin!</li>
 </ul>
 
-See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more.
+See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more information.
 <h4>Related Resources</h4>
 <ul>
- 	<li><a href="http://gpuopen.com/tag/hip/">Technical Blogs</a></li>
- 	<li><a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP" target="_blank">HIP GitHub Repository</a></li>
+ 	<li><a href="http://gpuopen.com/tag/hip/">Technical blogs</a></li>
+ 	<li><a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP" target="_blank">HIP GitHub repository</a></li>
 </ul>
 
 <!-- FOOTER  -->
