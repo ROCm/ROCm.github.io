@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="ROCm, A New Era in Open GPU Computing : Platform for GPU Enabled HPC and UltraScale Computing ">
+    <meta name="description" content="ROCm, a New Era in Open GPU Computing : Platform for GPU-Enabled HPC and Ultrascale Computing ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>ROCm, A New Era in Open GPU Computing</title>
+    <title>ROCm, a New Era in Open GPU Computing</title>
   </head>
 
   <body>
@@ -18,8 +18,8 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/RadeonOpenCompute">View on GitHub</a>
           <img class="wrap" src="images/ROCm_Logo_128.png" alt="ROCm_Logo" />
-          <h2 id="project_title">ROCm, A New Era in Open GPU Computing</h2>
-          <h3 id="project_tagline">Platform for GPU Enabled HPC and UltraScale Computing </h3>
+          <h2 id="project_title">ROCm, a New Era in Open GPU Computing</h2>
+          <h3 id="project_tagline">Platform for GPU-Enabled HPC and Ultrascale Computing </h3>
 
        
       
@@ -50,29 +50,30 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 <h1 id="ROCm-Blog">ROCm Blog Roll</h1>
-<h3>It is time to ROC</h3>
+<h3>It’s Time to ROC</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dnKDFci2x2Q" frameborder="0" allowfullscreen></iframe>
-<p>HPC User Forum in Tucson, Gregory Stoner from AMD presents: It's Time to ROC.</p>
-<h3>Rolling out HIP version 0.86 </h3>
-The team just released an update to <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP" target="_blank">HIP</a> in version 0.86 which includes several improvements in the functionality and tools. Also we have included several additional HIP ports and <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples">examples</a>.
+<p>HPC User Forum in Tucson; Gregory Stoner from AMD presents <q>It's Time to ROC.</q></p>
+<h3>Rolling Out HIP Version 0.86 </h3>
+The team just released an update to <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP" target="_blank">HIP</a> in version 0.86, which includes multiple improvements to the capabilities and tools. Also, we included several additional HIP ports and <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples">examples</a>.
 
-If you're just getting started, HIP (or Heterogeneous-Computing Interface for Portability) is a portable C++ runtime and kernel language for GPUs, and includes tools to "hipify" CUDA code into the portable C++ language.
+If you’re just getting started, HIP (or Heterogeneous-Computing Interface for Portability) is a portable C++ run time and kernel language for GPUs. It includes tools to <q>hipify</q> Cuda code into the portable C++ language.
 <h4>HIP 0.86 Release Notes</h4>
-<em>Release:0.86.00</em>
+<em>Release: 0.86.00</em></br>
 <em>Date: 2016.06.06</em>
 <ul>
- 	<li>Add clang-hipify : clang-based hipify tool.  Improved parsing of source code, and automates
+ 	<li>Add clang-hipify&mdash;Clang-based hipify tool. Improves parsing of source code and automates
 creation of hipLaunchParm variable.</li>
- 	<li>Implement memory register / unregister commands (hipHostRegister, hipHostUnregister)</li>
+ 	<li>Implement memory register/unregister commands (hipHostRegister, hipHostUnregister)</li>
  	<li>Add cross-linking support between G++ and HCC, in particular for interfaces that use
-standard C++ libraries (ie std::vectors, std::strings).  HIPCC now uses libstdc++ by default on the HCC
+standard C++ libraries (i.e., std::vectors, std::strings). HIPCC now uses libstdc++ by default on the HCC
 compilation path.</li>
- 	<li>More samples including gpu-burn, <a href="https://github.com/vetter/shoc/pull/50" target="_blank">SHOC</a>, nbody, rtm.  See <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples" target="_blank">HIP-Examples.</a></li>
+ 	<li>Include more samples, such as gpu-burn, <a href="https://github.com/vetter/shoc/pull/50" target="_blank">SHOC</a>, nbody and rtm. See <a href="https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples" target="_blank">HIP-Examples</a>.</li>
 </ul>
 <h4>Also some info on the previous 0.84 release:</h4>
-<em>Release:0.84.01</em>
+<em>Release: 0.84.01</em></br>
 <em>Date: 2016.04.25</em>
 
+<ul>
 <li> Refactor HIP make and install system:</li>
 <li> Move to CMake. Refer to the installation section in README.md for details.</li>
 <li> Split source into multiple modular .cpp and .h files.</li>
@@ -86,6 +87,7 @@ compilation path.</li>
 <li> Deprecate hipMallocHost (Replace with hipHostMalloc)</li>
 <li>Deprecate hipFreeHost (Replace with hipHostFree)</li>
 <li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to CUDA and OpenCL.  Let the comparisons begin. :)</li>
+</ul>
 
 See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more.
 <h4>Related Resources</h4>
