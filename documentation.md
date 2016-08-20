@@ -42,14 +42,15 @@ concepts.
 * [Documentation covering helper tools for ROCm GCN LLVM assembler](https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra/blob/master/README.md)
 * [GCN Float 16](GCN_Float16.html)
 
-#### DevOps and System Managment 
-
-* [ROCm system-managment interface (SMI) documentation](https://github.com/RadeonOpenCompute/ROC-smi/blob/master/README.md)
-* [ROCm Docker: setup and how-to](https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/README.md)
-
 #### Development Tools 
 
 * [ROCm profiler: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/README.md)
 * [ROCm GDB debugger: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Debugger/blob/master/TUTORIAL.md)
 * [ROCm compiler development: foundation for developing your own compiler](ROCmCompilerKit.html)
+
+#### DevOps and System Managment 
+
+* [ROCm system-managment interface (SMI) documentation](https://github.com/RadeonOpenCompute/ROC-smi/blob/master/README.md)
+* [ROCm Docker: setup and how-to](https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/README.md)
+
 
