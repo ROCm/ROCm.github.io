@@ -3,16 +3,13 @@ layout: default
 title: ROCm Documentation
 ---
 
-## ROCm documentation
+## ROCm Documentation
 
-Below are HSA Foundation online documents. The ROCr run time
-uses the core functions of the HSA Runtime specification. The
-following links allow you to explore some of the main ROCm
-concepts.
+Welcome to the the ROCm documentation site where we will be building up Quickstart Guides, Installation Guides, Programing Guides, API Reference Documentation, Tools Documentation and Whitepapers.
 
 #### ROCr Runtime Documentation 
 
-* [HSA Specification](http://www.hsafoundation.com/html_spec11/HSA_Library.htm)
+* [HSA Runtime Specification - HSA Foundation online documents](http://www.hsafoundation.com/html_spec11/HSA_Library.htm)
 * [ROCr error codes](ROCmRTec.html)
 
 #### HCC
