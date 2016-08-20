@@ -10,7 +10,7 @@ uses the core functions of the HSA Runtime specification. The
 following links allow you to explore some of the main ROCm
 concepts.
 
-####ROCr Runtime Documentation 
+#### ROCr Runtime Documentation 
 * [HSA Specification](http://www.hsafoundation.com/html_spec11/HSA_Library.htm)
 * [ROCr error codes](ROCmRTec.html)
 #### HCC
