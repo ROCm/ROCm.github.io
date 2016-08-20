@@ -36,9 +36,7 @@ concepts.
 
 * [GFX7 GCN ISA Southern Islands manual, Hawaii ]( http://bit.ly/29t5aQP)
 * [GFX8  GCN Version 3 Tonga, Fiji & Polaris ](http://bit.ly/29bup73)
-* [AMD GPU-compute application binary interface (ABI): ROCm run-time
-  loader support, standardized compute ABI for tools and compiler
-  developers](https://github.com/RadeonOpenCompute/ROCm-ComputeABI-Doc/blob/master/AMDGPU-ABI.md)
+* [AMD GPU-compute application binary interface (ABI) ](https://github.com/RadeonOpenCompute/ROCm-ComputeABI-Doc/blob/master/AMDGPU-ABI.md)
 * [Documentation covering helper tools for ROCm GCN LLVM assembler](https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra/blob/master/README.md)
 * [GCN Float 16](GCN_Float16.html)
 
