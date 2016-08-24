@@ -17,6 +17,7 @@ Welcome to the the ROCm documentation site where we will be building up Quicksta
 * [HCC overview](https://github.com/RadeonOpenCompute/hcc/wiki)
 * [How to use HCC & select a GPU Device](https://github.com/RadeonOpenCompute/hcc/wiki#how-to-use-hcc)
 * [HCC Language API Documentation](http://scchan.github.io/hcc/)
+* [HC API : Moving Beyond C++AMP for Accelerated GPU Computing](https://github.com/RadeonOpenCompute/hcc/blob/master/doc/markdown/Home.md)
 * [HCC SAXPY Example](https://gist.github.com/scchan/540d410456e3e2682dbf018d3c179008)
 
 #### HIP
