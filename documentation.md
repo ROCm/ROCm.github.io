@@ -21,7 +21,7 @@ Welcome to the the ROCm documentation site where we will be building up Quicksta
 
 #### HIP
 
-* [HIP porting giude: overview and
+* [HIP porting guide: overview and
   how-to](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/blob/master/docs/markdown/hip_porting_guide.md)
 * [HIP Terminology Compared to OpenCL, CUDA, C++ AMP and HCC](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/blob/master/docs/markdown/hip_terms.md)
 * [HIP Runtime API overview and documentation
