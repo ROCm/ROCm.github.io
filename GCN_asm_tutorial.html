@@ -55,7 +55,7 @@ Consider a program that uses one of GCN’s new features (source code is availab
 
 Note: the assembler is currently experimental; some of syntax we describe may change.
 <h2>DS Permute Instructions</h2>
-Two new instructions, [code]ds_permute_b32[/code] and [code]ds_bpermute_b32[/code], allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, [code]ds_permute_b32[/code] says “put my lane data in lane i,” and [code]ds_bpermute_b32[/code] says “read data from lane i.” The <a href="http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf" target="_blank">GCN ISA Reference Guide</a> provides a more formal description.
+Two new instructions, <code>ds_permute_b32</code> and <code>ds_bpermute_b32</code>, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, <code>ds_permute_b32</code> says “put my lane data in lane i,” and <code>ds_bpermute_b32</code> says “read data from lane i.” The <a href="http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf" target="_blank">GCN ISA Reference Guide</a> provides a more formal description.
 
 The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
 
@@ -68,9 +68,9 @@ The test kernel is simple: read the initial data and indices from memory into GP
 </pre>
 </codebox>
 <h2>Passing Parameters to a Kernel</h2>
-Formal HSA arguments are passed to a kernel using a special read-only memory segment called [code]kernarg[/code]. Before a wavefront starts, the base address of the [code]kernarg[/code] segment is written to an SGPR pair. The memory layout of variables in [code]kernarg[/code] must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier.
+Formal HSA arguments are passed to a kernel using a special read-only memory segment called <code>kernarg</code>. Before a wavefront starts, the base address of the <code>kernarg</code> segment is written to an SGPR pair. The memory layout of variables in <code>kernarg</code> must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier.
 
-The example host program must create the [code]kernarg[/code] segment and fill it with the buffer base addresses. The HSA host code might look like the following:
+The example host program must create the <code>kernarg</code> segment and fill it with the buffer base addresses. The HSA host code might look like the following:
 
 <codebox>
 <pre>/*
@@ -100,7 +100,7 @@ args-&gt;out = out_ptr;
 </pre>
 </codebox>
 
-The host program should also allocate memory for the [code]in[/code], [code]index[/code] and [code]out[/code] buffers. In the GitHub repository, all the run-time-related stuff is hidden in the Dispatch and Buffer classes, so the sample code looks much cleaner:
+The host program should also allocate memory for the <code>in</code>, <code>index</code> and <code>out</code> buffers. In the GitHub repository, all the run-time-related stuff is hidden in the Dispatch and Buffer classes, so the sample code looks much cleaner:
 
 <codebox>
 <pre>// Create Kernarg segment
@@ -125,7 +125,7 @@ To launch a kernel in real hardware, the run time needs information about the ke
  	<li>The number of GPRs</li>
  	<li>Which registers need initialization before the kernel starts</li>
 </ul>
-All this data resides in the [code]amd_kernel_code_t[/code] structure. A full description of the structure is available in the <a href="https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md" target="_blank">AMDGPU-ABI</a> specification. This is what it looks like in source code:
+All this data resides in the <code>amd_kernel_code_t</code> structure. A full description of the structure is available in the <a href="https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md" target="_blank">AMDGPU-ABI</a> specification. This is what it looks like in source code:
 
 <codebox>
 <pre>.hsa_code_object_version 2,0
@@ -174,13 +174,13 @@ s_endpgm
 
 Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure.
 
-Before the start of every wavefront execution, the GPU sets up the register state on the basis of the [code]enable_sgpr_* and enable_vgpr_*[/code] flags. VGPR [code]v0[/code] is always initialized with a work-item ID in the <em>x</em> dimension. Registers [code]v1[/code] and [code]v2[/code] can be initialized with work-item IDs in the <em>y</em> and <em>z</em> dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to [code]kernarg[/code], the [code]aql[/code] packet, the [code]aql[/code] queue, and so on. Again, the <a href="https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md#initial-kernel-register-state" target="_blank">AMDGPU-ABI</a> specification contains a full list in in the section on initial register state. For this example, a 64-bit base [code]kernarg[/code] address will be stored in the [code]s[0:1][/code] registers [code](enable_sgpr_kernarg_segment_ptr = 1)[/code], and the work-item thread ID will occupy [code]v0[/code] (by default). Below is the scheme showing initial state for our kernel.
+Before the start of every wavefront execution, the GPU sets up the register state on the basis of the <code>enable_sgpr_* and enable_vgpr_*</code> flags. VGPR <code>v0</code> is always initialized with a work-item ID in the <em>x</em> dimension. Registers <code>v1</code> and <code>v2</code> can be initialized with work-item IDs in the <em>y</em> and <em>z</em> dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to <code>kernarg</code>, the <code>aql</code> packet, the <code>aql</code> queue, and so on. Again, the <a href="https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md#initial-kernel-register-state" target="_blank">AMDGPU-ABI</a> specification contains a full list in in the section on initial register state. For this example, a 64-bit base <code>kernarg</code> address will be stored in the <code>s[0:1]</code> registers <code>(enable_sgpr_kernarg_segment_ptr = 1)</code>, and the work-item thread ID will occupy <code>v0</code> (by default). Below is the scheme showing initial state for our kernel.
 
 <img class="size-large wp-image-3535 aligncenter" src="http://gpuopen.com/wp-content/uploads/2016/06/initial_state-1024x516.png" alt="initial_state" width="640" height="323" />
 <h2>The GPR Counting</h2>
-The next [code]amd_kernel_code_t[/code] fields are obvious: [code]is_ptr64 = 1[/code] says we are in 64-bit mode, and [code]kernarg_segment_byte_size = 24[/code] describes the [code]kernarg[/code] segment size. The GPR counting is less straightforward, however. The [code]workitem_vgpr_count[/code] holds the number of vector registers that each work item uses, and [code]wavefront_sgpr_count[/code] holds the number of scalar registers that a wavefront uses. The code above employs [code]v0–v4[/code], so [code]workitem_vgpr_count = 5[/code]. But [code]wavefront_sgpr_count = 8[/code] even though the code only shows [code]s0–s5[/code], since the special registers [code]VCC[/code], [code]FLAT_SCRATCH[/code] and [code]XNACK[/code] are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, [code]FLAT_SCRATCH[/code] and [code]XNACK[/code] are disabled, so [code]VCC[/code] has only two additional registers.
+The next <code>amd_kernel_code_t</code> fields are obvious: <code>is_ptr64 = 1</code> says we are in 64-bit mode, and <code>kernarg_segment_byte_size = 24</code> describes the <code>kernarg</code> segment size. The GPR counting is less straightforward, however. The <code>workitem_vgpr_count</code> holds the number of vector registers that each work item uses, and <code>wavefront_sgpr_count</code> holds the number of scalar registers that a wavefront uses. The code above employs <code>v0–v4</code>, so <code>workitem_vgpr_count = 5</code>. But <code>wavefront_sgpr_count = 8</code> even though the code only shows <code>s0–s5</code>, since the special registers <code>VCC</code>, <code>FLAT_SCRATCH</code> and <code>XNACK</code> are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, <code>FLAT_SCRATCH</code> and <code>XNACK</code> are disabled, so <code>VCC</code> has only two additional registers.
 
-In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields [code]compute_pgm_rsrc1_*gprs[/code] contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
+In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields <code>compute_pgm_rsrc1_*gprs</code> contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
 <codebox>
 <pre>compute_pgm_rsrc1_vgprs = (workitem_vgpr_count-1)/4
 
