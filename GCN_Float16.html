@@ -41,9 +41,9 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-<h1>ROC ON, Float16 and Integer16 support in AMD GPU&#39;s</h1>
+<h1>ROC ON, Float16 and Integer16 support in AMD GPUs</h1>
 
-<p>It has been secret to long,  AMD GPU&#39;s do support Single Rate Float16 and Int16 instructions right now: </p>
+<p>It has been a secret for too long. AMD GPUs do support Float16 and Int16 instructions. The current GPUs execute at same speed as Float32. </p>
 
 <ul>
 <li> Fiji Family of Hardware: Radeon R9 Nano, R9 Fury, R9 Fury X, FirePro S9300x2,</li>
@@ -51,12 +51,13 @@
 <li> Polaris Family of Hardware: RX480. RX470, RX460 </li>
 </ul>
 
-<p>ROCm Compilers will be bring full richness of FLOAT16 and Int16  via HCC, HIP and OpenCL.  </p>
-
 <p>We will also expose our GCN 3 ISA via assembler directly support by compiler. The new LLVM Native GCN ISA  compiler supports a disassembler, assembler and soon inline-assembly so you be able tune your code even further.  </p>
 
-<p>Here are example of some of the instruction supported, in the new GCN Native ISA Compiler we working hard to expose Float16, </p>
+<p>ROCm Compilers will be bring full richness of FLOAT16 and Int16  via HCC, HIP and OpenCL.  </p>
 
+<p><a href="http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf">You can find out more on Float16 and other instruction in the GCN version ISA manual</a></p>
+ +
+ +<p>Here are examples of some of the instructions supported:</p>
 <ul>
 <li>V_FREXP_EXP_I16_F16 Returns exponent of half precision float input, such that the original single float = significand * (2 ** exponent).</li>
 <li>V_CVT_F16_F32 Float32 to Float16.</li>
@@ -71,7 +72,7 @@
 <li>V_SIN_F16 Sin function</li>
 <li>V_EXP_F16 Base2 exponent function</li>
 <li>V_LOG_F16 Base2 log function. 
-•   V_SQRT_F16 if(S0.f16 == 1.0f) D.f16 = 1.0f; else D.f16 = ApproximateSqrt(S0.f16).</li>
+<li>  V_SQRT_F16 if(S0.f16 == 1.0f) D.f16 = 1.0f; else D.f16 = ApproximateSqrt(S0.f16).</li>
 <li>V_FRACT_F16 Floating point ‘fractional’ part of S0.f. </li>
 <li>V_RCP_F16 if (S0.f16 == 1.0f), D.f16 = 1.0f; else D.f16 = ApproximateRecip(S0.f16).</li>
 <li>V_RSQ_F16 if(S0.f16 == 1.0f) D.f16 = 1.0f; else D.f16 = ApproximateRecipSqrt(S0.f16).</li>
@@ -88,7 +89,7 @@
 <li>V_SUBREV_F16 D.f16 = S1.f16 - S0.f16. Supports denormals, round mode, exception flags, saturation. SQ translates to V_ADD_F16.</li>
 </ul>
 
-<p>Also did you know the GCN 3 Architecture support Integer math 32bit  &amp; 16 bit </p>
++<p>Also the GCN 3 Architecture supports 32-bit, 24-bit, and 16-bit integer math.</p>
 
 <ul>
 <li>V_ADD_U16 D.u16 = S0.u16 + S1.u16. Supports saturation (unsigned 16-bit integer domain).</li>
@@ -105,7 +106,7 @@
 <li>V_CVT_F16_I16 D.f16 = int16_to_flt16(S.i16). Supports denormals, rounding, exception flags and saturation</li>
 <li><p>V_SUBREV_U16 D.u16 = S1.u16 - S0.u16. Supports saturation (unsigned 16-bit integer domain). SQ translates this to V_SUB_U16 with reversed operands.</p>
 
-<p><a href="http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf">You can find out more on Float16  and other instruction in the GCN version ISA manual</a></p></li>
+
 </ul>
 
 
