@@ -52,30 +52,39 @@
 <h1 id="ROCm-Blog">ROCm Blog Roll</h1>
 <h3>HCC Getting Little Richer in Low level Optimizations</h3>
 <ul>
-<li>unsigned int 	hc::__activelaneid_u32 () __HC__
- 	Get the count of the number of earlier (in flattened work-item order) active work-items within the same wavefront. </li>
+<li> 24-bit integer multiple and multiply-add (__mul24, __mad24)</li>
+<li>intrinsics for ds_permute and ds_bpermute (__amdgcn_ds_permute, __amdgcn_ds_bpermute)</li>
+<li>intrinsics for ds_swizzle  (__amdgcn_ds_swizzle)</li>
+<li>intrinsics for wave shift and rotate by one thread (__amdgcn_wave_*)</li>
+<li>intrinsic for move dpp (__amdgcn_move_dpp)</li>
+</ul>
+<p>Example of the HCC Fuctions</p>
+<ul>
+<li>unsigned int 	hc::__activelaneid_u32 () __HC__</li>
+ 	<ul><li>Get the count of the number of earlier (in flattened work-item order) active work-items within the same wavefront. </li></ul>
  
-<li>uint64_t 	hc::__activelanemask_v4_b64_b1 (unsigned int input) __HC__
- 	Return a bit mask shows which active work-items in the wavefront have a non-zero input. </li>
+<li>uint64_t 	hc::__activelanemask_v4_b64_b1 (unsigned int input) __HC__</li>
+ 	<ul><li>Return a bit mask shows which active work-items in the wavefront have a non-zero input. </li></ul>
  
-<li>unsigned int 	hc::__activelanecount_u32_b1 (unsigned int input) __HC__
- 	Count the number of active work-items in the current wavefront that have a non-zero input.</li>
+<li>unsigned int 	hc::__activelanecount_u32_b1 (unsigned int input) __HC__</li>
+ 	<ul><li>Count the number of active work-items in the current wavefront that have a non-zero input.</li></ul>
  
-<li>unsigned int 	hc::__activelanepermute_b32 (unsigned int src, unsigned int laneId, unsigned int identity, unsigned int useIdentity) __HC__
- 	Permute active work-items in the wavefront. </li>
+<li>unsigned int 	hc::__activelanepermute_b32 (unsigned int src, unsigned int laneId, unsigned int identity, unsigned int useIdentity) __HC__</li>
+ 	<ul><li>Permute active work-items in the wavefront. </li></ul>
  
-<li>int 	hc::__any (int predicate) __HC__
- 	Evaluate predicate for all active work-items in the wavefront and return non-zero if and only if predicate evaluates to non-zero for all of them. </li>
+<li>int 	hc::__any (int predicate) __HC__</li>
+ 	<ul><li>Evaluate predicate for all active work-items in the wavefront and return non-zero if and only if predicate evaluates to non-zero for all of them. </li></ul>
  
-<li>int 	hc::__all (int predicate) __HC__
- 	Evaluate predicate for all active work-items in the wavefront and return non-zero if and only if predicate evaluates to non-zero for any of them.</li> 
+<li>int 	hc::__all (int predicate) __HC__</li>
+ 	<ul><li>Evaluate predicate for all active work-items in the wavefront and return non-zero if and only if predicate evaluates to non-zero for any of them.</li></ul> 
  
-<li>uint64_t 	hc::__ballot (int predicate) __HC__
- 	Evaluate predicate for all active work-items in the wavefront and return an integer whose Nth bit is set if and only if predicate evaluates to non-zero for the Nth work-item of the wavefront and the Nth work-item is active. </li>
+<li>uint64_t 	hc::__ballot (int predicate) __HC__</li>
+ 	<ul><li>Evaluate predicate for all active work-items in the wavefront and return an integer whose Nth bit is set if and only if predicate evaluates to non-zero for the Nth work-item of the wavefront and the Nth work-item is active. </li></ul>
  
 <li>unsigned int 	hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA_WAVEFRONT_SIZE__) __HC__ </li>
 
 </ul>
+<a href="http://scchan.github.io/hcc/hc_8hpp.html">To find out more about this HCC Fuctions</a>
 <h3>It’s Time to ROC</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dnKDFci2x2Q" frameborder="0" allowfullscreen></iframe>
 <p>HPC User Forum in Tucson; Gregory Stoner from AMD presents <q>It's Time to ROC.</q></p>
