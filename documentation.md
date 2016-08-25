@@ -35,7 +35,7 @@ Welcome to the the ROCm documentation site where we will be building up Quicksta
 * [GCN Architecture Overview](https://www.amd.com/Documents/GCN_Architecture_whitepaper.pdf)
 * [GCN Architecure Crash Course by Lala Mah](http://www.slideshare.net/DevCentralAMD/gs4106-the-amd-gcn-architecture-a-crash-course-by-layla-mah)
 * [GFX7 GCN ISA Southern Islands manual, Hawaii ]( http://bit.ly/29t5aQP)
-* [GFX8  GCN Version 3 Tonga, Fiji & Polaris ](http://bit.ly/29bup73)
+* [GFX8  GCN Version 3 Tonga, Fiji & Polaris ](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf)
 * [AMD GPU-compute application binary interface (ABI) ](https://github.com/RadeonOpenCompute/ROCm-ComputeABI-Doc/blob/master/AMDGPU-ABI.md)
 * [Documentation covering helper tools for ROCm GCN LLVM assembler](https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra/blob/master/README.md)
 * [GCN Float 16](GCN_Float16.html)
