@@ -33,7 +33,7 @@ Welcome to the the ROCm documentation site where we will be building up Quicksta
 #### GCN ISA, ROCm Object Format, ABI  and Assembly Documentation 
 
 * [GCN Architecture Overview](https://www.amd.com/Documents/GCN_Architecture_whitepaper.pdf)
-* [GCN Architecure Crash Course by Lala Mah] (http://www.slideshare.net/DevCentralAMD/gs4106-the-amd-gcn-architecture-a-crash-course-by-layla-mah)
+* [GCN Architecure Crash Course by Lala Mah](http://www.slideshare.net/DevCentralAMD/gs4106-the-amd-gcn-architecture-a-crash-course-by-layla-mah)
 * [GFX7 GCN ISA Southern Islands manual, Hawaii ]( http://bit.ly/29t5aQP)
 * [GFX8  GCN Version 3 Tonga, Fiji & Polaris ](http://bit.ly/29bup73)
 * [AMD GPU-compute application binary interface (ABI) ](https://github.com/RadeonOpenCompute/ROCm-ComputeABI-Doc/blob/master/AMDGPU-ABI.md)
