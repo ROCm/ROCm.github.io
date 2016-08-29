@@ -39,6 +39,7 @@ Welcome to the the ROCm documentation site where we will be building up Quicksta
 * [AMD GPU-compute application binary interface (ABI) ](https://github.com/RadeonOpenCompute/ROCm-ComputeABI-Doc/blob/master/AMDGPU-ABI.md)
 * [Documentation covering helper tools for ROCm GCN LLVM assembler](https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra/blob/master/README.md)
 * [GCN Float 16](GCN_Float16.html)
+* [ROC Device Library - Open Compute Math Library  Intrinsics](https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md)
 
 #### Development Tools 
 
