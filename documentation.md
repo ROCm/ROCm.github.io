@@ -44,6 +44,7 @@ Welcome to the the ROCm documentation site where we will be building up Quicksta
 #### Development Tools 
 
 * [ROCm profiler: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/README.md)
+* [GPU Performance API (GPUPerfAPI) Provides Access to Performance Counters](https://github.com/GPUOpen-Tools/GPA/blob/master/GPUPerfAPI/doc/GPUPerfAPI-UserGuide.pdf)  
 * [ROCm GDB debugger: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Debugger/blob/master/TUTORIAL.md)
 * [ROCm compiler development: foundation for developing your own compiler](ROCmCompilerKit.html)
 
