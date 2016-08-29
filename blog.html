@@ -59,6 +59,23 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 <h1 id="ROCm-Blog">ROCm Blog Roll</h1>
+
+<h3>Quick Way To Access ROCm GPU Performance Counters Via CodeXL</h3>
+<p>You can get the list of available counters by running the following command:</p>
+
+<li>./CodeXLGpuProfiler --list</li>
+
+<p>To have the list of counters saved to a file, you would use:</p>
+
+<li>./CodeXLGpuProfiler --list --outputfile counters.txt</li>
+
+<p>You would then specify the set of counters to use using the following command line:</p>
+
+<li>./CodeXLGpuProfiler --hsapmc --counterfile</li>
+
+<p>"counters.txt" should have one counter name listed per line.</p>
+
+
 <h3>HCC Getting Little Richer in Low level Optimizations</h3>
 <ul>
 <li> 24-bit integer multiple and multiply-add (__mul24, __mad24)</li>
