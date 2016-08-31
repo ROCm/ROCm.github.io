@@ -67,7 +67,7 @@
 <p>https://github.com/RadeonOpenCompute/ROCm-Device-Libs</p>
 
 <p>The following libraries are provided:</p>
-
+<ul>
 <li> ocml (Open Compute Math Library) contains 250+ optimized math functions for single, double and half precision. See
   https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md#supported-functions
 for the list of currently supported functions.</li>
@@ -82,6 +82,7 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
 <li> oclc libraries allow fine-grained control over library modes (such as relaxed math).</li>
 
 <li> irif is the interface library to AMDGPU backend.</li>
+</ul>
 
 <p>The libraries are intended to be used by language and runtime implementors. They work with open source AMDGPU LLVM backend on GCN architectures and are linked to user bitcode using LLVM linker before code generation.</p>
 
@@ -91,17 +92,17 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
 
 <h3>Quick Way To Access ROCm GPU Performance Counters Via CodeXL</h3>
 <p>You can get the list of available counters by running the following command:</p>
-
+<ul>
 <li>./CodeXLGpuProfiler --list</li>
-
+</ul>
 <p>To have the list of counters saved to a file, you would use:</p>
-
+<ul>
 <li>./CodeXLGpuProfiler --list --outputfile counters.txt</li>
-
+</ul>
 <p>You would then specify the set of counters to use using the following command line:</p>
-
+<ul>
 <li>./CodeXLGpuProfiler --hsapmc --counterfile</li>
-
+</ul>
 <p>"counters.txt" should have one counter name listed per line.</p>
 
 
