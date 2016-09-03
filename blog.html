@@ -68,25 +68,26 @@
 
 <p>The following libraries are provided:</p>
 <ul>
-<li> ocml (Open Compute Math Library) contains 250+ optimized math functions for single, double and half precision. See
+<li> OCML (Open Compute Math Library) contains 250+ optimized math functions for single, double and half precision. See
   https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md#supported-functions
 for the list of currently supported functions.</li>
 
-<li> ockl (Open Compute Kernel Library) contains many useful functions, including work-item/work-group functions,
-integer optimization operations and wavefront reduce algorithms. It also serves as foundation of OpenCL builtin library.</li>
+<li> OCKL (Open Compute Kernel Library) contains many useful functions, including work-item/work-group functions,
+integer optimization operations and wavefront reduce algorithms. It also serves as foundation of a  builtin library for OpenCL enabled compiler.</li>
 
-<li> opencl implements builtin library for OpenCL.</li>
+<li> Implementation of a  Compiler built-in library for the support of OpenCL.</li>
 
-<li> hc implements builtin library for HCC (Heterogeneous Compute Compiler) (http://gpuopen.com/compute-product/hcc-heterogeneous-compute-compiler/).</li>
+<li> Compler builtin library for the HC mode in the HCC (Heterogeneous Compute Compiler) (http://gpuopen.com/compute-product/hcc-heterogeneous-compute-compiler/).</li>
 
-<li> oclc libraries allow fine-grained control over library modes (such as relaxed math).</li>
+<li> OCLC libraries allow fine-grained control over library modes (such as relaxed math).</li>
 
-<li> irif is the interface library to AMDGPU backend.</li>
+<li> IRIF is the interface library to AMDGPU backend.</li>
 </ul>
 
 <p>The libraries are intended to be used by language and runtime implementors. They work with open source AMDGPU LLVM backend on GCN architectures and are linked to user bitcode using LLVM linker before code generation.</p>
 
 <p>ROCm-Device-Libs is currently in developement, so many improvements are expected. As always, contributions or other feedback are welcome.</p>
+
 
 
 
