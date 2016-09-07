@@ -7,7 +7,7 @@ title: ROCm Install
 
 ### Release Notes
 
-Release notes are available [here](releasenotes.html)
+Release notes are available [here](releasenotes.html).
 
 ### Installing From AMD ROCm Repositories
 
@@ -50,19 +50,19 @@ sudo apt-get install rocm
 
 Next, make the ROCm kernel your default kernel. If you’re using Grub2
 as your bootloader, you can edit the GRUB_DEFAULT variable:
+
 ```
 sudo vi /etc/default/grub
 sudo update-grub
 ```
 
-Once complete, reboot your system.
-
-We recommend that you [verify](#verify-installation)  your
+Once complete, reboot your system. We recommend that you [verify](#verify-installation) your
 installation to ensure everything completed successfully.
 
 ##### Uninstall
 
-To uninstall the entire rocm-dev development package, execute:
+To uninstall the entire rocm-dev development package, execute the following command:
+
 ```
 sudo apt-get autoremove rocm
 ```
@@ -105,7 +105,7 @@ sudo dnf install rocm
 ```
 
 As with the Debian packages, you can install rocm-dev or rocm-kernel
-individually. To uninstall them, execute:
+individually. To uninstall them, execute the following:
 
 ```
 sudo dnf remove rocm
@@ -131,8 +131,8 @@ repositories and will eventually either be deprecated or become open
 source. They are available in the hsa-ext-rocr-dev packages.
 
 ### Getting ROCm Source Code
-Refer to the ROCm github project for the latest instructions on how to
-checkout out the code.
+Refer to the ROCm GitHub project for the latest instructions on how to
+check out the code.
 
 [ROCm on
-Github](https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md)
+GitHub](https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md)
