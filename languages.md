@@ -23,7 +23,7 @@ multicore CPU, SIMD and GPU. We’ll be following these developments
 closely, and you’ll see HC move quickly to include standard C++
 capabilities.
 
-The Heterogeneous Compute Compiler (HCC) provides two significant
+The Heterogeneous Compute Compiler (HCC) provides two important
 benefits:
 
 *Ease of development*
@@ -33,7 +33,7 @@ benefits:
    multidimensional-array indexing and automatic data management
  * C++ kernel-launch syntax using parallel_for_each plus C++11 lambda
    functions
- * A single-source C++ programming environment - the host and source
+ * A single-source C++ programming environment---the host and source
    code can be in the same source file and use the same C++ language;
    templates and classes work naturally across the host/device
    boundary
