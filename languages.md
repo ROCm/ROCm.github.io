@@ -52,8 +52,7 @@ benefits:
 
 #### When to Use HC
 
-Use HC when you're targeting the AMD ROCm platform: it delivers an
-easy-to-program, single-source C++ environment without compromising
+Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising
 performance or control of the machine.
 
 ### HIP: Heterogeneous-Computing Interface for Portability
@@ -90,7 +89,7 @@ and Nvidia GPUs support version 1.2 of the specification, as do x86
 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C
 run-time API and C99-based kernel language.
 
-When to Use OpenCL
+#### When to Use OpenCL
 
 Use OpenCL when you have existing code in that language and when you
 need portability to multiple platforms and devices. It runs on
@@ -111,8 +110,8 @@ people who are changing the world.
 Numba gives you the power to speed up your applications with
 high-performance functions written directly in Python. Through a few
 annotations, you can just-in-time compile array-oriented and
-math-heavy Python code to native machine instructions - offering
-performance similar to that of C, C++ and Fortran -without having to
+math-heavy Python code to native machine instructions---offering
+performance similar to that of C, C++ and Fortran---without having to
 switch languages or Python interpreters.
 
 Numba works by generating optimized machine code using the LLVM
@@ -134,7 +133,7 @@ allow you to choose the best language for your application.
 
  * HCC (Heterogeneous Compute Compiler) supports HC dialects
  * HIP is a run-time library that layers on top of HCC (for AMD ROCm platforms; for Nvidia, it uses the NVCC compiler)
- * Soon to offer native GCN ISA compiler support:
+ * The following will soon offer native compiler support for the GCN ISA:
     * OpenCL 1.2+
     * Anaconda (Python) with Numba
 
