@@ -7,7 +7,7 @@ title: ROCm Install
 
 ### Release Notes
 
-Release notes are available [here](releasenotes.html).
+ROCm release notes are available [here](releasenotes.html).
 
 ### Installing From AMD ROCm Repositories
 
@@ -48,7 +48,7 @@ sudo apt-get update
 sudo apt-get install rocm
 ```
 
-Next, make the ROCm kernel your default kernel. If you’re using Grub2
+Make the ROCm kernel your default kernel. If you’re using Grub2
 as your bootloader, you can edit the GRUB_DEFAULT variable:
 
 ```
@@ -134,5 +134,5 @@ source. They are available in the hsa-ext-rocr-dev packages.
 Refer to the ROCm GitHub project for the latest instructions on how to
 check out the code.
 
-[ROCm on
+* [ROCm on
 GitHub](https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md)
