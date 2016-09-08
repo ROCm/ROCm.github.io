@@ -88,7 +88,7 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
 
 
 
-<h3>Quick Way To Access ROCm GPU Performance Counters via CodeXL</h3>
+<h3>Quickly Access ROCm GPU Performance Counters via CodeXL</h3>
 <p>You can get the list of available counters by running the following command:</p>
 <ul>
 <li>./CodeXLGpuProfiler --list</li>
@@ -104,7 +104,7 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
 <p>"counters.txt" should list one counter name per line.</p>
 
 
-<h3>HCC Getting a Little Richer in Low-level Optimizations</h3>
+<h3>HCC Adding Richer Array of Low-level Optimizations</h3>
 <ul>
 <li> 24-bit integer multiply and multiply-add (__mul24 and __mad24)</li>
 <li>Intrinsics for ds_permute and ds_bpermute (__amdgcn_ds_permute and __amdgcn_ds_bpermute)</li>
@@ -115,7 +115,7 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
 <p>Example of HCC Fuctions</p>
 <ul>
 <li>unsigned int 	hc::__activelaneid_u32 () __HC__</li>
- 	<ul><li>Get the number of earlier (in flattened work item order) active work-items in the same wavefront. </li></ul>
+ 	<ul><li>Get the number of earlier (in flattened work-item order) active work items in the same wavefront. </li></ul>
  
 <li>uint64_t 	hc::__activelanemask_v4_b64_b1 (unsigned int input) __HC__</li>
  	<ul><li>Return a bit mask showing which active work items in the wavefront have a nonzero input. </li></ul>
@@ -127,13 +127,13 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
  	<ul><li>Permute the active work items in the wavefront. </li></ul>
  
 <li>int 	hc::__any (int predicate) __HC__</li>
- 	<ul><li>Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if the predicate evaluates to a nonzero value for all of them. </li></ul>
+ 	<ul><li>Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if every predicate evaluates to a nonzero value. </li></ul>
  
 <li>int 	hc::__all (int predicate) __HC__</li>
- 	<ul><li>Evaluate predicate for all active work items in the wavefront and return a nonzero value if and only if the predicate evaluates to a nonzero value for any one of them.</li></ul> 
+ 	<ul><li>Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if any one predicate evaluates to a nonzero value.</li></ul> 
  
 <li>uint64_t 	hc::__ballot (int predicate) __HC__</li>
- 	<ul><li>Evaluate predicate for all active work items in the wavefront and return an integer whose Nth bit is set if and only if the predicate evaluates to a nonzero value for the Nth work item of the wavefront and the Nth work item is active. </li></ul>
+ 	<ul><li>Evaluate the predicate for all active work items in the wavefront and return an integer whose Nth bit is set if and only if the predicate evaluates to a nonzero value for the Nth work item of the wavefront and the Nth work item is active. </li></ul>
  
 <li>unsigned int 	hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA_WAVEFRONT_SIZE__) __HC__ </li>
 
