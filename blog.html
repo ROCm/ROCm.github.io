@@ -60,88 +60,87 @@
       <section id="main_content" class="inner">
 <h1 id="ROCm-Blog">ROCm Blog Roll</h1>
 
-<h3>ROCm Device Libraries are now available!</h3>
+<h3>ROCm Device Libraries Are Now Available!</h3>
 
-<p>We are announcing fully open source bitcode device libraries for ROCm platform.</p>
+<p>We are pleased to announce fully open-source bitcode device libraries for the ROCm platform.</p>
 
 <p><a href="https://github.com/RadeonOpenCompute/ROCm-Device-Libs">https://github.com/RadeonOpenCompute/ROCm-Device-Libs</a></p>
 
-<p>The following libraries are provided:</p>
+<p>The following libraries are available:</p>
 <ul>
-<li> OCML (Open Compute Math Library) contains 250+ optimized math functions for single, double and half precision. See
-  <a href="https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md#supported-functions">OCML documentation</a>
-for the list of currently supported functions.</li>
+<li> Open Compute Math Library (OCML)---contains 250+ optimized math functions for single, double and half precision. See the <a href="https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md#supported-functions">OCML documentation</a>
+for a list of currently supported functions.</li>
 
-<li> OCKL (Open Compute Kernel Library) contains many useful functions, including work-item/work-group functions,
-integer optimization operations and wavefront reduce algorithms. It also serves as foundation of a  builtin library for OpenCL enabled compiler.</li>
+<li> Open Compute Kernel Library (OCKL)---contains many useful functions, including work-item/workgroup functions,
+integer optimization operations and wavefront-reduce algorithms. It also serves as a foundation for the built-in library of the OpenCL-enabled compiler.</li>
 
-<li> Implementation of a  Compiler built-in library for the support of OpenCL.</li>
+<li> Compiler built-in library to support OpenCL.</li>
 
-<li> Compler builtin library for the HC mode in the <a href="http://gpuopen.com/compute-product/hcc-heterogeneous-compute-compiler/">HCC (Heterogeneous Compute Compiler)</a></li>
+<li> Compler built-in library for the HC mode of the <a href="http://gpuopen.com/compute-product/hcc-heterogeneous-compute-compiler/">Heterogeneous Compute Compiler (HCC)</a>.</li>
 
-<li> OCLC libraries allow fine-grained control over library modes (such as relaxed math).</li>
+<li> OCLC libraries---enable fine-grain control over library modes (such as relaxed math).</li>
 
-<li> IRIF is the interface library to AMDGPU backend.</li>
+<li> IRIF---interface library to AMD GPU back end.</li>
 </ul>
 
-<p>The libraries are intended to be used by language and runtime implementors. They work with open source AMDGPU LLVM backend on GCN architectures and are linked to user bitcode using LLVM linker before code generation.</p>
+<p>The libraries are intended for language and run-time implementors. They work with the open-source AMD GPU LLVM back end on GCN architectures and link to user bitcode through the LLVM linker before code generation.</p>
 
-<p>ROCm-Device-Libs is currently in development, so many improvements are expected. As always, contributions or other feedback are welcome.</p>
-
-
+<p>ROCm-Device-Libs is currently under development, so we expect many improvements. As always, contributions and other feedback are welcome.</p>
 
 
-<h3>Quick Way To Access ROCm GPU Performance Counters Via CodeXL</h3>
+
+
+<h3>Quick Way To Access ROCm GPU Performance Counters via CodeXL</h3>
 <p>You can get the list of available counters by running the following command:</p>
 <ul>
 <li>./CodeXLGpuProfiler --list</li>
 </ul>
-<p>To have the list of counters saved to a file, you would use:</p>
+<p>To save the counter list to a file, use</p>
 <ul>
 <li>./CodeXLGpuProfiler --list --outputfile counters.txt</li>
 </ul>
-<p>You would then specify the set of counters to use using the following command line:</p>
+<p>Next, specify the set of counters using the following command:</p>
 <ul>
 <li>./CodeXLGpuProfiler --hsapmc --counterfile</li>
 </ul>
-<p>"counters.txt" should have one counter name listed per line.</p>
+<p>"counters.txt" should list one counter name per line.</p>
 
 
-<h3>HCC Getting Little Richer in Low level Optimizations</h3>
+<h3>HCC Getting a Little Richer in Low-level Optimizations</h3>
 <ul>
-<li> 24-bit integer multiple and multiply-add (__mul24, __mad24)</li>
-<li>intrinsics for ds_permute and ds_bpermute (__amdgcn_ds_permute, __amdgcn_ds_bpermute)</li>
-<li>intrinsics for ds_swizzle  (__amdgcn_ds_swizzle)</li>
-<li>intrinsics for wave shift and rotate by one thread (__amdgcn_wave_*)</li>
-<li>intrinsic for move dpp (__amdgcn_move_dpp)</li>
+<li> 24-bit integer multiply and multiply-add (__mul24 and __mad24)</li>
+<li>Intrinsics for ds_permute and ds_bpermute (__amdgcn_ds_permute and __amdgcn_ds_bpermute)</li>
+<li>Intrinsics for ds_swizzle (__amdgcn_ds_swizzle)</li>
+<li>Intrinsics for wave shift and rotate by one thread (__amdgcn_wave_*)</li>
+<li>Intrinsic for move dpp (__amdgcn_move_dpp)</li>
 </ul>
-<p>Example of the HCC Fuctions</p>
+<p>Example of HCC Fuctions</p>
 <ul>
 <li>unsigned int 	hc::__activelaneid_u32 () __HC__</li>
- 	<ul><li>Get the count of the number of earlier (in flattened work-item order) active work-items within the same wavefront. </li></ul>
+ 	<ul><li>Get the number of earlier (in flattened work item order) active work-items in the same wavefront. </li></ul>
  
 <li>uint64_t 	hc::__activelanemask_v4_b64_b1 (unsigned int input) __HC__</li>
- 	<ul><li>Return a bit mask shows which active work-items in the wavefront have a non-zero input. </li></ul>
+ 	<ul><li>Return a bit mask showing which active work items in the wavefront have a nonzero input. </li></ul>
  
 <li>unsigned int 	hc::__activelanecount_u32_b1 (unsigned int input) __HC__</li>
- 	<ul><li>Count the number of active work-items in the current wavefront that have a non-zero input.</li></ul>
+ 	<ul><li>Count the number of active work items in the current wavefront that have a nonzero input.</li></ul>
  
 <li>unsigned int 	hc::__activelanepermute_b32 (unsigned int src, unsigned int laneId, unsigned int identity, unsigned int useIdentity) __HC__</li>
- 	<ul><li>Permute active work-items in the wavefront. </li></ul>
+ 	<ul><li>Permute the active work items in the wavefront. </li></ul>
  
 <li>int 	hc::__any (int predicate) __HC__</li>
- 	<ul><li>Evaluate predicate for all active work-items in the wavefront and return non-zero if and only if predicate evaluates to non-zero for all of them. </li></ul>
+ 	<ul><li>Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if the predicate evaluates to a nonzero value for all of them. </li></ul>
  
 <li>int 	hc::__all (int predicate) __HC__</li>
- 	<ul><li>Evaluate predicate for all active work-items in the wavefront and return non-zero if and only if predicate evaluates to non-zero for any of them.</li></ul> 
+ 	<ul><li>Evaluate predicate for all active work items in the wavefront and return a nonzero value if and only if the predicate evaluates to a nonzero value for any one of them.</li></ul> 
  
 <li>uint64_t 	hc::__ballot (int predicate) __HC__</li>
- 	<ul><li>Evaluate predicate for all active work-items in the wavefront and return an integer whose Nth bit is set if and only if predicate evaluates to non-zero for the Nth work-item of the wavefront and the Nth work-item is active. </li></ul>
+ 	<ul><li>Evaluate predicate for all active work items in the wavefront and return an integer whose Nth bit is set if and only if the predicate evaluates to a nonzero value for the Nth work item of the wavefront and the Nth work item is active. </li></ul>
  
 <li>unsigned int 	hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA_WAVEFRONT_SIZE__) __HC__ </li>
 
 </ul>
-<a href="http://scchan.github.io/hcc/hc_8hpp.html">To find out more about this HCC Fuctions</a>
+<a href="http://scchan.github.io/hcc/hc_8hpp.html">Find out more about these HCC fuctions.</a>
 <h3>It’s Time to ROC</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dnKDFci2x2Q" frameborder="0" allowfullscreen></iframe>
 <p>HPC User Forum in Tucson; Gregory Stoner from AMD presents <q>It's Time to ROC.</q></p>
@@ -174,12 +173,12 @@ compilation path.</li>
 <li> Set HIP_PATH to install.</li>
 <li> Make hipDevice and hipStream thread-safe.</li>
 <li> Preferred hipStream usage still involves creating new streams for each new thread, but it works even if you don’t.</li>
-<li> Improve automated platform detection: if an AMD GPU is installed and the driver detects it, default HIP_PLATFORM to hcc.</li>
+<li> Improve automatic platform detection: if an AMD GPU is installed and the driver detects it, default HIP_PLATFORM to hcc.</li>
 <li> HIP_TRACE_API now prints arguments to the HIP function (in addition to the function name).</li>
 <li> Deprecate hipDeviceGetProp (replace with hipGetDeviceProp).</li>
 <li> Deprecate hipMallocHost (replace with hipHostMalloc).</li>
 <li> Deprecate hipFreeHost (replace with hipHostFree).</li>
-<li> The mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to Cuda and OpenCL. Let the comparisons begin! See <a href="https://github.com/ekondis/mixbench" target="_blank">mixbench</a> GitHub site for more information.</li>
+<li> The Mixbench benchmark tool for measuring operational intensity now has a HIP target, in addition to Cuda and OpenCL. Let the comparisons begin! See the <a href="https://github.com/ekondis/mixbench" target="_blank">Mixbench</a> GitHub site for more information.</li>
 </ul>
 
 <h4>Related Resources</h4>
