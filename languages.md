@@ -102,7 +102,7 @@ What is Anaconda? It’s a modern open-source analytics platform powered
 by Python. Continuum Analytics, a ROCm platform partner,  is the
 driving force behind it. Anaconda delivers high-performance
 capabilities including acceleration of HSA APUs, as well as
-Boltzmann-enabled discrete GPUs via Numba. It gives superpowers to the
+ROCm-enabled discrete GPUs via Numba. It gives superpowers to the
 people who are changing the world.
 
 ### Numba
@@ -118,7 +118,7 @@ Numba works by generating optimized machine code using the LLVM
 compiler infrastructure at import time, run time or statically
 (through the included Pycc tool). It supports Python compilation to
 run on either CPU or GPU hardware and is designed to integrate with
-Python scientific software stacks, such as NUMpy.
+Python scientific software stacks, such as NumPy.
 
 #### When to Use Anaconda
 
