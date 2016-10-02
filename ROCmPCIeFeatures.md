@@ -63,13 +63,13 @@ ___5___ : Expansion ROM – This is required for the AMD Driver SW to access the
 
 Support SMP-type operations across a PCIe network to allow for things like offloading tasks between CPU cores and accelerators like a GPU. The spec says this enables advanced synchronization mechanisms that are particularly useful with multiple producers or consumers that need to be synchronized in a non-blocking fashion. Three new atomic non-posted requests were added, plus the corresponding completion (the address must be naturally aligned with the operand size or the TLP is malformed):
 
-1.     Fetch and Add – uses one operand as the “add” value. Reads the target location, adds the operand, and then writes the result back to the original location.
+Fetch and Add – uses one operand as the “add” value. Reads the target location, adds the operand, and then writes the result back to the original location.
 
-2.     Unconditional Swap – uses one operand as the “swap” value. Reads the target location and then writes the swap value to it.
+Unconditional Swap – uses one operand as the “swap” value. Reads the target location and then writes the swap value to it.
 
-3.     Compare and Swap – uses 2 operands: first data is compare value, second is swap value. Reads the target location, checks it against the compare value and, if equal, writes the swap value to the target location.
+Compare and Swap – uses 2 operands: first data is compare value, second is swap value. Reads the target location, checks it against the compare value and, if equal, writes the swap value to the target location.
 
-4.     AtomicOpCompletion–newcompletiontogivetheresultsofanatomicrequestand indicate that the atomicity of the transaction has been maintained.
+AtomicOpCompletion–new completion to give the result so far atomic request and indicate that the atomicity of the transaction has been maintained.
 
 Since AtomicOps are not locked they don’t have the performance downsides of the PCI locked protocol. Compared to locked cycles, they provide “lower latency, higher scalability, advanced synchronization algorithms, and dramatically lower impact on other PCIe traffic.” The lock mechanism can still be used across a bridge to PCI or PCI-X to achieve the desired operation.
 
