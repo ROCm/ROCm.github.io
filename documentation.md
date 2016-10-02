@@ -52,6 +52,6 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 
 * [ROCm system-management interface (SMI) documentation](https://github.com/RadeonOpenCompute/ROC-smi/blob/master/README.md)
 * [ROCm Docker: setup and how-to](https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/README.md)
-* [ROCn use of PCIe Atomics and PCIe BAR overivew] (ROCmPCIeFeatures.md)
+* [ROCm use of PCIe Atomics and PCIe BAR overivew] (ROCmPCIeFeatures.md)
 
 
