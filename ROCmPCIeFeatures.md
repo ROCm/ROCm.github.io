@@ -1,8 +1,11 @@
 # ROCm PCIe Feature and Overview BAR Memory. 
 
-ROCm is an extension of  HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents. The full list of HSA system architecture platform requirements are here: http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm
+ROCm is an extension of  HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents. 
+
+The full list of HSA system architecture platform requirements are here: http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm
  
 For ROCm the Platform atomics are used in ROCm in the following ways:
+
 - Update HSA queue’s read_dispatch_id: 64bit atomic add used by the command processor on the GPU agent to update the packet ID it processed.
 - Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
 - Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
@@ -84,7 +87,9 @@ AtomicOps can go from device to device, device to host, or host to device. Each 
 
 ###ID-based Ordering – Goal: 
 
-Improve performance by avoiding stalls caused by ordering rules. For example, posted writes are never normally allowed to pass each other in a queue, but if they are requested by different functions, we can have some confidence that the requests are not dependent on each other. The previously reserved Attribute bit [2] is now combined with the RO bit to indicate ID ordering with or without relaxed ordering. This only has meaning for memory requests, and is reserved for Configuration or IO requests. Completers are not required to copy this bit into a completion, and only use the bit if their enable bit is set for this operation.
+Improve performance by avoiding stalls caused by ordering rules. For example, posted writes are never normally allowed to pass each other in a queue, but if they are requested by different functions, we can have some confidence that the requests are not dependent on each other. The previously reserved Attribute bit [2] is now combined with the RO bit to indicate ID ordering with or without relaxed ordering. 
+
+This only has meaning for memory requests, and is reserved for Configuration or IO requests. Completers are not required to copy this bit into a completion, and only use the bit if their enable bit is set for this operation.
 
 To read more on PCIe Gen 3 new options http://www.mindshare.com/files/resources/PCIe%203-0.pdf 
 -------------------------------------------------------------------------------------------------
