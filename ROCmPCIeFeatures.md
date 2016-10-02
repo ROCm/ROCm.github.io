@@ -33,9 +33,9 @@ Here is how our BAR works.
  
 11:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Fiji [Radeon R9 FURY / NANO Series] (rev c1)
 
-        Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0b35
+       Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0b35
         
-        Flags: bus master, fast devsel, latency 0, IRQ 119
+       Flags: bus master, fast devsel, latency 0, IRQ 119
         
        Memory at bf40000000 (64-bit, prefetchable) [size=256M]
        
