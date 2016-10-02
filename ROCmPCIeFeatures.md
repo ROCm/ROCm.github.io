@@ -32,12 +32,19 @@ Also we find we some time need to do special Vbios to do this since we need disa
 Here is how our BAR works.
  
 11:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Fiji [Radeon R9 FURY / NANO Series] (rev c1)
+
         Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0b35
+        
         Flags: bus master, fast devsel, latency 0, IRQ 119
+        
        1-> Memory at bf40000000 (64-bit, prefetchable) [size=256M]
+       
        2-> Memory at bf50000000 (64-bit, prefetchable) [size=2M]
+       
        3-> I/O ports at 3000 [size=256]
+       
        4-> Memory at c7400000 (32-bit, non-prefetchable) [size=256K]
+       
        5-> Expansion ROM at c7440000 [disabled] [size=128K]
  
 Legend: 
