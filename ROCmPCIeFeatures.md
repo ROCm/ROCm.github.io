@@ -20,6 +20,8 @@ In ROCm, we also take advantage of PCIe ID based ordering technology for P2P whe
 2. then write to system memory to indicate transfer complete. 
 
 They are routed off to different ends of the computer but we want to make sure the write to system memory to indicate transfer complete occurs AFTER P2P write to GPU has complete. 
+
+##BAR Memory Overview 
  
 On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS .
  
