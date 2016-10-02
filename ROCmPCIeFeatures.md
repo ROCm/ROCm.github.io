@@ -37,15 +37,15 @@ Here is how our BAR works.
         
         Flags: bus master, fast devsel, latency 0, IRQ 119
         
-       1-> Memory at bf40000000 (64-bit, prefetchable) [size=256M]
+       Memory at bf40000000 (64-bit, prefetchable) [size=256M]
        
-       2-> Memory at bf50000000 (64-bit, prefetchable) [size=2M]
+       Memory at bf50000000 (64-bit, prefetchable) [size=2M]
        
-       3-> I/O ports at 3000 [size=256]
+       I/O ports at 3000 [size=256]
        
-       4-> Memory at c7400000 (32-bit, non-prefetchable) [size=256K]
+       Memory at c7400000 (32-bit, non-prefetchable) [size=256K]
        
-       5-> Expansion ROM at c7440000 [disabled] [size=128K]
+       Expansion ROM at c7440000 [disabled] [size=128K]
  
 Legend: 
  
