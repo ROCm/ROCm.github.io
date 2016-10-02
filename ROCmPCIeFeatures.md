@@ -26,13 +26,14 @@ They are routed off to different ends of the computer but we want to make sure t
 On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS .
  
 In SuperMicro system in the system bios you need to see the following
-Advanced->PCIe/PCI/PnP configuration-> Above 4G Decoding = Enabled
+
+- Advanced->PCIe/PCI/PnP configuration-> Above 4G Decoding = Enabled
  
-Advanced->PCIe/PCI/PnP Configuration->MMIOH Base = 512G
+- Advanced->PCIe/PCI/PnP Configuration->MMIOH Base = 512G
  
-Advanced->PCIe/PCI/PnP Configuration->MMIO High Size = 256G
+- Advanced->PCIe/PCI/PnP Configuration->MMIO High Size = 256G
  
-Also we find we some time need to do special Vbios to do this since we need disable the displays or IO bar.  
+When we support Large Bar Capbility there is a  Large Bar Vbios which also disable the IO bar.  
  
 Here is how our BAR works.
  
