@@ -21,7 +21,7 @@ In ROCm, we also take advantage of PCIe ID based ordering technology for P2P whe
 
 They are routed off to different ends of the computer but we want to make sure the write to system memory to indicate transfer complete occurs AFTER P2P write to GPU has complete. 
 
-##BAR Memory Overview 
+## BAR Memory Overview 
  
 On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS .
  
@@ -68,11 +68,11 @@ ___5___ : Expansion ROM – This is required for the AMD Driver SW to access the
  
 
 -------------------------------------------------------------------------------------------------
-##Excepts form Overview of Changes to PCI Express 3.0
+## Excepts form Overview of Changes to PCI Express 3.0
 
-###By Mike Jackson, Senior Staff Architect, MindShare, Inc.
+### By Mike Jackson, Senior Staff Architect, MindShare, Inc.
 
-####Atomic Operations – Goal: 
+#### Atomic Operations – Goal: 
 
 Support SMP-type operations across a PCIe network to allow for things like offloading tasks between CPU cores and accelerators like a GPU. The spec says this enables advanced synchronization mechanisms that are particularly useful with multiple producers or consumers that need to be synchronized in a non-blocking fashion. Three new atomic non-posted requests were added, plus the corresponding completion (the address must be naturally aligned with the operand size or the TLP is malformed):
 
@@ -88,7 +88,7 @@ Since AtomicOps are not locked they don’t have the performance downsides of th
 
 AtomicOps can go from device to device, device to host, or host to device. Each completer indicates whether it supports this capability and guarantees atomic access if it does. The ability to route AtomicOps is also indicated in the registers for a given port.
 
-###ID-based Ordering – Goal: 
+### ID-based Ordering – Goal: 
 
 Improve performance by avoiding stalls caused by ordering rules. For example, posted writes are never normally allowed to pass each other in a queue, but if they are requested by different functions, we can have some confidence that the requests are not dependent on each other. The previously reserved Attribute bit [2] is now combined with the RO bit to indicate ID ordering with or without relaxed ordering. 
 
