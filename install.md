@@ -17,7 +17,7 @@ integrity. Below are directions for each repository.
 
 #### Supported CPU's
 
-* Radeon R9 Nano, R9 Fury, R9 Fury X, FirePro S9300x2 need a CPU that support PCIe Gen 3 and PCIe Atomics,  Currently Intel Haswell or newer CPU support this fuctionality. Example Intel Xeon E5 v3, Xeon E3 v3, Core i7, Core i5, Core 3. 
+* Radeon R9 Nano, R9 Fury, R9 Fury X, FirePro S9300x2 need a CPU that support PCIe Gen 3 and PCIe Atomics,  Currently Intel Haswell or newer CPU support this functionality. Example Intel Xeon E5 v3, Xeon E3 v3, Core i7, Core i5, Core 3. 
 * Radeon R9 290, R9 390, FirePro S9150, S9170 can support older CPU's since it does not require PCIe Gen 3 & PCIe Atomics.    Note we do not recommend PCIe Gen 2 enabled CPU since you will cap your overall bandwidth but they will work with these GPU’s   
 
 #### Supported Operating Systems
