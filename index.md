@@ -22,6 +22,7 @@ features that large-scale application, compiler and language-run-time
 development requires.
 
 **HSA Compliant Runtime and Driver** 
+
 ![HSAFoundation Compilant](images/ImageAgentProxy.jpeg)
 
 ### Going to 11: Amping Up the Programming-Language Run-Time Foundation
