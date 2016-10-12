@@ -21,7 +21,7 @@ incorporates RDMA peer-sync support.
 features that large-scale application, compiler and language-run-time
 development requires.
 
-**HSA Compliant Runtime and Driver** 
+**HSA Compliant Runtime and Driver for AMD RADEON GPU's** 
 
 ![HSAFoundation Compilant](images/ImageAgentProxy.jpeg)
 
