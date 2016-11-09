@@ -6,7 +6,7 @@ title: ROCm, a New Era in GPU Computing
 ## Welcome to the ROCm Platform
 
 We are excited to present ROCm, the first open-source
-HPC/ultrascale-class platform for GPU computing that’s also
+HPC/Hyperscale-class platform for GPU computing that’s also
 programming-language independent. We are bringing the UNIX philosophy
 of choice, minimalism and modular software development to GPU
 computing. The new ROCm foundation lets you choose or even develop
