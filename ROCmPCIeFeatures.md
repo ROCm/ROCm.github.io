@@ -23,7 +23,7 @@ They are routed off to different ends of the computer but we want to make sure t
 
 ## BAR Memory Overview 
  
-On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS .
+On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS.
  
 In SuperMicro system in the system bios you need to see the following
 
