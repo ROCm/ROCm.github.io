@@ -65,7 +65,6 @@ ___4___ : MMIO BAR – This is required for the AMD Driver SW to access the conf
  
 ___5___ : Expansion ROM – This is required for the AMD Driver SW to access the GPU’s video-bios. This is currently fixed at 128KB.
  
- 
 -------------------------------------------------------------------------------------------------
 ## Excepts form Overview of Changes to PCI Express 3.0
 
