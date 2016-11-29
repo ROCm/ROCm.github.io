@@ -11,7 +11,7 @@ For ROCm the Platform atomics are used in ROCm in the following ways:
 - Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
 
 The PCIe Platform Atomics are  CAS, FetchADD, SWAP
- 
+
 Here is document on PCIe Atomics https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf
 
 In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:  
@@ -22,7 +22,7 @@ In ROCm, we also take advantage of PCIe ID based ordering technology for P2P whe
 They are routed off to different ends of the computer but we want to make sure the write to system memory to indicate transfer complete occurs AFTER P2P write to GPU has complete. 
 
 ## BAR Memory Overview 
- 
+
 On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS.
  
 In SuperMicro system in the system bios you need to see the following
@@ -54,7 +54,7 @@ Here is how our BAR works.
       Expansion ROM at c7440000 [disabled] [size=128K]
  
 Legend: 
- 
+
 ___1___ : GPU Frame Buffer BAR – In this example it happens to be 256M, but typically this will be size of the GPU memory (typically 4GB+). This BAR has to be placed < 2^40 to allow peer-to-peer access from other current generation AMD GPUs.
  
 ___2___ : Doorbell BAR – The size of the BAR is typically will be < 10MB (currently fixed at 2MB) for this generation GPUs. This BAR has to be placed < 2^40 to allow peer-to-peer access from other current generation AMD GPUs.
