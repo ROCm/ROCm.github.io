@@ -29,8 +29,9 @@ FIJI Family of dGPU, and has expanded to include the Hawaii dGPU Family in ROCm 
 ROCm 1.3 expands this support to include the Polaris Family of ASICS.
 
 #### Supported CPU's 
-ROCm Platform Leverage PCIe Atomics which are only supported on PCIe Gen3 Enabled CPU's and PCIe Switches like Broadcomm PLX. When you install your GPU's Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU's Root I/O controler or PCIe Switch directly attacted to the CPU's Root I/O contorler.  We seen many issue with Consumer motherboard support Physical x16 Conecectors, but the elecitical only conected at PCIe Gen x4 off the southbridge PCIe I/O controler.  
+ROCm Platform Leverage PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion) To find out more about [PCIe atomics](https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md) which are only supported on PCIe Gen3 Enabled CPU's and PCIe Gen3 Switches like Broadcomm PLX. When you install your GPU's Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU's Root I/O controler or PCIe Switch directly attacted to the CPU's Root I/O contorler.  We seen many issue with Consumer motherboard support Physical x16 Conecectors, but the elecitical only conected at PCIe Gen x4 off the southbridge PCIe I/O controler.  
 
+* Our GFX8 GPU's ( FIJI &  Polaris Familiy) use PCIe Gen 3 and PCIe Atomics 
   * Intel Xeon E5 v3 or newer CPU's 
   * Intel Xeon E3 v3 or newer CPU's 
   * Intel Core i7 v3, Core i5 v3, Core i3 v3 or newer CPU's  
