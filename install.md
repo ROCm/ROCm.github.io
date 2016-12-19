@@ -28,33 +28,33 @@ stack for the building of key language support. This support starts with AMD’s
 FIJI Family of dGPU, and has expanded to include the Hawaii dGPU Family in ROCm 1.2
 ROCm 1.3 expands this support to include the Polaris Family of ASICS.
 
-#### Supported CPU's
+#### Supported CPU's 
+ROCm Platform Leverage PCIe Atomics which are only supported on PCIe Gen3 Enabled CPU's and PCIe Switches like Broadcomm PLX. When you install your GPU's Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU's Root I/O controler or PCIe Switch directly attacted to the CPU's Root I/O contorler.  We seen many issue with Consumer motherboard support Physical x16 Conecectors, but the elecitical only conected at PCIe Gen x4 off the southbridge PCIe I/O controler.  
 
-* Our GFX8 GPU's ( FIJI &  Polaris Familiy) use PCIe Gen 3 and PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion) To find out more about [PCIe atomics](https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md)
-Current CPU which support PCIe Gen3 + PCIe Atomics are: 
   * Intel Xeon E5 v3 or newer CPU's 
   * Intel Xeon E3 v3 or newer CPU's 
   * Intel Core i7 v3, Core i5 v3, Core i3 v3 or newer CPU's  
   * AMD Ryzen CPU's
   * AMD Naples Server CPU 
   * Cavium Thunder X Server Processor 
+
 * Our GF7 GPU's Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support PCIe Atomics. For these GPU's we still recommend PCIe Gen3 enabled CPU's. 
 
 
 #### Not Supported or Very Limited Support Under ROCm 
-* We do not support ROCm with PCIe Gen 2 enabled CPU's such as the AMD Opeteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Archtecture CPU's.  
-* We also do not support AMD Carizzo and Kaveri APU with external GPU Attached are not supported by ROCm 
+* We do not support ROCm with PCIe Gen 2 enabled CPU's such as the AMD Opteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Architecture and Pentium CPU's.  
+* We also do not support AMD Carizo and Kaveri APU with external GPU Attached are not supported by ROCm 
 
-* AMD Carizzo based APU have limited support due to OEM & ODM's Carizzo enabled Laptop, All In One System and Desktop system had inconsistancy in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carizzo system to run ROCm.  Your should check the SBIOS to see if has an option to enable IOMMUv2. If this is enable next we need test for  the correct CRAT Table to properly configure the driver.   
+* AMD Carizo based APU have limited support due to OEM & ODM's Carizo enabled Laptop, All In One System and Desktop system had inconsistency in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carizo system to run ROCm.  You should check the SBIOS to see if has an option to enable IOMMUv2. If this is enabled, next we need test for the correct CRAT Table support to properly configure the driver.   
 
 #### Potential Future APU Support
-I know many of you are looking forward to support support ROCm on APU system which support Fine Grained Shared Virtual Memory and cache coherency between the CPU and GPU. In the 2017 we plan on testing commercial AM4 Socketed Bristol Ridge and Raven Ridge motherboard. Just like we still waiting to get access to them, once we get our first board we blog about the experiance and begin building up a list of motherboard that are qualified with ROCm
+I know many of you are looking forward to support ROCm on APU system which support Fine Grained Shared Virtual Memory and cache coherency between the CPU and GPU. In the 2017 we plan on testing commercial AM4 Socketed Bristol Ridge and Raven Ridge motherboard. Just like we still waiting to get access to them, once we get our first board we blog about the experience and begin building up a list of motherboard that are qualified with ROCm
 
 ### New Features to ROCm 
 
 #### Developer preview of the new OpenCl 1.2 compatible language runtime and compiler
 
- * OpenCL 2.0 compatible kernal language support with OpenCL 1.2 compatible runtime 
+ * OpenCL 2.0 compatible kernel language support with OpenCL 1.2 compatible runtime 
  * Supports offline ahead of time compilation today, for Beta we will be adding in-process/in-memory compilation. 
  * Binary Package support for Ubuntu 14.04 and 16.04 
  
