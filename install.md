@@ -38,10 +38,16 @@ Current CPU which support PCIe Gen3 + PCIe Atomics are:
   * AMD Ryzen CPU's
   * AMD Naples Server CPU 
   * Cavium Thunder X Server Processor 
-* Our GF7 GPU's Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support PCIe Atomics, but we do not recomend nor test ROCm with PCIe Gen 2 enabled CPU's such as the AMD Opeteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Archtecture CPU's. 
+* Our GF7 GPU's Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support PCIe Atomics. For these GPU's we still recommend PCIe Gen3 enabled CPU's. 
 
-AMD Carizzo based APU have limited support due to OEM & ODM's Carizzo enabled Laptop, All In One System and Desktop system had inconsistancy in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carizzo system to run ROCm.  Your should check the SBIOS to see if has an option to enable IOMMUv2. If this is enable next we need test for  the correct CRAT Table to properly configure the driver.   
 
+#### Not Supported or Very Limited Support Under ROCm 
+* We do not support ROCm with PCIe Gen 2 enabled CPU's such as the AMD Opeteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Archtecture CPU's.  
+* We also do not support AMD Carizzo and Kaveri APU with external GPU Attached are not supported by ROCm 
+
+* AMD Carizzo based APU have limited support due to OEM & ODM's Carizzo enabled Laptop, All In One System and Desktop system had inconsistancy in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carizzo system to run ROCm.  Your should check the SBIOS to see if has an option to enable IOMMUv2. If this is enable next we need test for  the correct CRAT Table to properly configure the driver.   
+
+#### Potential Future APU Support
 I know many of you are looking forward to support support ROCm on APU system which support Fine Grained Shared Virtual Memory and cache coherency between the CPU and GPU. In the 2017 we plan on testing commercial AM4 Socketed Bristol Ridge and Raven Ridge motherboard. Just like we still waiting to get access to them, once we get our first board we blog about the experiance and begin building up a list of motherboard that are qualified with ROCm
 
 ### New Features to ROCm 
