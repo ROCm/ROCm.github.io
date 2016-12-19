@@ -61,6 +61,43 @@
 
 <p><strong>CPU support:</strong> ROCm requires CPUs with PCIe Gen3 atomics capability, such as the Intel Xeon E5v3 and newer Xeon processors.  It also supports consumer CPUs, Intel Core i3, Intel Core i5, Intel Core i7 CPUs (v3 (Haswell) and newer). We know you’re going to ask&mdash;yes, ROCm is optimized to pull all the rich capabilities out of the new AMD Zen-based processors.</p>
 
+<h4>Supported CPU&#39;s</h4>
+<p>ROCm Platform Leverage PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion) To find out more about <a href='https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md'>PCIe atomics</a> which are only supported on PCIe Gen3 Enabled CPU&#39;s and PCIe Gen3 Switches like Broadcom PLX. When you install your GPU&#39;s Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU&#39;s Root I/O controller or PCIe Switch directly attached to the CPU&#39;s Root I/O controller. We have seen many issue with Consumer motherboard which support Physical x16 Connectors, but the connector is electrically connected as PCIe Gen2 x4, if you see this it is typically hanging off the Southbridge PCIe I/O controller. If you mother is configured this way please do not use this connector for your GPU&#39;s..</p>
+<p>Current CPU which support PCIe Gen3 + PCIe Atomics are: </p>
+<ul><li>
+  Intel Xeon E5 v3 or newer CPU&#39;s </li>
+<li>
+  Intel Xeon E3 v3 or newer CPU&#39;s </li>
+<li>
+ Intel Core i7 v3, Core i5 v3, Core i3 v3 or newer CPU&#39;s  </li>
+<li>
+ AMD Ryzen CPU&#39;s</li>
+<li>
+ AMD Naples Server CPU </li>
+<li>
+ Cavium Thunder X Server Processor </li>
+</ul>
+<p>GPU Support of PCIe Atomics </p>
+<ul><li>
+Our GFX8 GPU&#39;s ( FIJI &amp;  Polaris Familiy) use PCIe Gen 3 and PCIe Atomics </li>
+</ul>
+<ul><li>
+Our GF7 GPU&#39;s Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support PCIe Atomics. For these GPU&#39;s we still recommend PCIe Gen3 enabled CPU&#39;s. </li>
+</ul>
+<h4>Not Supported or Very Limited Support Under ROCm </h4>
+<ul><li>
+We do not support ROCm with PCIe Gen 2 enabled CPU&#39;s such as the AMD Opteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Architecture and Pentium CPU&#39;s.  </li>
+<li>
+We also do not support AMD Carrizo and Kaveri APU with external GPU Attached are not supported by ROCm </li>
+<li>
+Thunderbolt 1 and 2 enabled GPU&#39;s are not Support by ROCm.  Thunderbolt 1 &amp; 2 are PCIe Gen2 based.</li>
+<li>
+AMD Carrizo based APU have limited support due to OEM &amp; ODM&#39;s Carrizo enabled Laptop, All In One System and Desktop system had inconsistency in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carrizo system to run ROCm.  You should check the SBIOS to see if has an option to enable IOMMUv2. If this is enabled, next we need test for the correct CRAT Table support to properly configure the driver.   </li>
+</ul>
+<h4>Potential Future APU Support</h4>
+<p>I know many of you are looking forward to support ROCm on APU system which support Fine Grained Shared Virtual Memory and cache coherency between the CPU and GPU. In the 2017 we plan on testing commercial AM4 Socketed Bristol Ridge and Raven Ridge motherboard. Just like we still waiting to get access to them, once we get our first board we blog about the experience and begin building up a list of motherboard that are qualified with ROCm</p>
+
+     
 <h4>More Information on ROCm-Supported Server-Capable Hardware</h4>
 
 <h5>FirePro S9150</h5>
