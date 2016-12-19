@@ -28,8 +28,8 @@ stack for the building of key language support. This support starts with AMD’s
 FIJI Family of dGPU, and has expanded to include the Hawaii dGPU Family in ROCm 1.2
 ROCm 1.3 expands this support to include the Polaris Family of ASICS.
 
-#### Supported CPU's 
-ROCm Platform Leverage PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion) To find out more about [PCIe atomics](https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md) which are only supported on PCIe Gen3 Enabled CPU's and PCIe Gen3 Switches like Broadcom PLX. When you install your GPU's Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU's Root I/O controller or PCIe Switch directly attached to the CPU's Root I/O controller. We have seen many issue with Consumer motherboard which support Physical x16 Connectors, but the connector is electrically connected as PCIe Gen2 x4, if you see this it is typically hanging off the Southbridge PCIe I/O controller. If you mother is configured this way please do not use this connector for your GPU's.
+#### CPU's Supported on ROCm's 
+To run ROCm Platform you and a CPU that supports PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion) To find out more about [PCIe atomics](https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md) which are only supported on PCIe Gen3 Enabled CPU's and PCIe Gen3 Switches like Broadcom PLX. When you install your GPU's Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU's Root I/O controller or PCIe Switch directly attached to the CPU's Root I/O controller. We have seen many issue with Consumer motherboard which support Physical x16 Connectors, but the connector is electrically connected as PCIe Gen2 x4, if you see this it is typically hanging off the Southbridge PCIe I/O controller. If you mother is configured this way please do not use this connector for your GPU's.
 
 
 * Our GFX8 GPU's ( FIJI &  Polaris Familiy) use PCIe Gen 3 and PCIe Atomics 
