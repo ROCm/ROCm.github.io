@@ -45,9 +45,9 @@ ROCm Platform Leverage PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional S
 
 #### Not Supported or Very Limited Support Under ROCm 
 * We do not support ROCm with PCIe Gen 2 enabled CPU's such as the AMD Opteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Architecture and Pentium CPU's.  
-* We also do not support AMD Carizo and Kaveri APU with external GPU Attached are not supported by ROCm 
+* We also do not support AMD Carrizo and Kaveri APU with external GPU Attached are not supported by ROCm 
 * Thunderbolt 1 and 2 enabled GPU's are not Support by ROCm.  Thunderbolt 1 & 2 are PCIe Gen2 based. 
-* AMD Carizo based APU have limited support due to OEM & ODM's Carizo enabled Laptop, All In One System and Desktop system had inconsistency in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carizo system to run ROCm.  You should check the SBIOS to see if has an option to enable IOMMUv2. If this is enabled, next we need test for the correct CRAT Table support to properly configure the driver.   
+* AMD Carrizo based APU have limited support due to OEM & ODM's Carrizo enabled Laptop, All In One System and Desktop system had inconsistency in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carrizo system to run ROCm.  You should check the SBIOS to see if has an option to enable IOMMUv2. If this is enabled, next we need test for the correct CRAT Table support to properly configure the driver.   
 
 #### Potential Future APU Support
 I know many of you are looking forward to support ROCm on APU system which support Fine Grained Shared Virtual Memory and cache coherency between the CPU and GPU. In the 2017 we plan on testing commercial AM4 Socketed Bristol Ridge and Raven Ridge motherboard. Just like we still waiting to get access to them, once we get our first board we blog about the experience and begin building up a list of motherboard that are qualified with ROCm
