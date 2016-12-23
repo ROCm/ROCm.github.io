@@ -168,7 +168,7 @@ We recommend you [verify your installation](https://github.com/RadeonOpenCompute
 
 #### To intall ROCm with Developer Preview of OpenCL 
 
-#####Start by following the istruction of installing ROCm with Debian Repository:
+##### Start by following the istruction of installing ROCm with Debian Repository:
 
  at the step "sudo apt-get install rocm" replace it with 
  
