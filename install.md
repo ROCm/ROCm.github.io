@@ -3,65 +3,101 @@ layout: default
 title: ROCm Install
 ---
 
-## ROCm Installation Guide
-
-### Release Notes
-
-ROCm release notes are available [here](https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md).  
-
 ## Are You Ready to ROCK?
-The ROCm Platform bringing a rich foundation to advanced computing by better intergrating the CPU and GPU to solve realworld problems.
+The ROCm Platform brings a rich foundation to advanced computing by seamlessly
+ integrating the CPU and GPU with the goal of solving real-world problems.
 
-On April 25th, 2016, we delivered ROCm 1.0 built around three core foundation elements:
+On April 25th, 2016, we delivered ROCm 1.0 built around three pillars:
 
-Open Hetrogenous Computing Platform (Linux(R) Driver and Runtime Stack) optimized for HPC & Ultra-scale class computing
-Heterogeneous C and C++ Single Source to better address the whole system computation not just a gpu device
-HIP acknowledging the need for platform choice when utilizing GPU computing API
+1) Open Heterogeneous Computing Platform (Linux(R) Driver and Runtime Stack), 
+   optimized for HPC & Ultra-scale class computing;
+   
+2) Heterogeneous C and C++ Single Source Compiler, to approach computation 
+   holistically, on a system level, rather than as a discrete GPU artifact;
+   
+3) HIP, acknowledging the need for freedom of choice when it comes to platforms
+   and APIs for GPU computing.
 
 Using our knowledge of the HSA Standards and, more importantly, the HSA
-Runtime we have been able to successfully extended support to the dGPU with
-critical features for NUMA class acceleration. As a result, the ROCK driver is
-composed of several components based on our efforts to develop the
+Runtime, we have been able to successfully extended support to the dGPU with
+critical features for accelerating NUMA computation. As a result, the ROCK
+driver is composed of several components based on our efforts to develop the
 Heterogeneous System Architecture for APUs, including the new AMDGPU driver,
 the Kernel Fusion Driver (KFD), the HSA+ Runtime and an LLVM based compilation
-stack for the building of key language support. This support starts with AMD’s
-FIJI Family of dGPU, and has expanded to include the Hawaii dGPU Family in ROCm 1.2
-ROCm 1.3 expands this support to include the Polaris Family of ASICS.
+stack which provides support for key languages. This support starts with AMD’s
+FIJI Family of dGPUs, and has expanded to include the Hawaii dGPU Family in ROCm
+1.2. ROCm 1.3 further extends support to include the Polaris Family of ASICs.
 
-#### CPU's Supported on ROCm's 
-To run ROCm Platform you and a CPU that supports PCIe Atomics (Fetch ADD,Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion) To find out more about [PCIe atomics](https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md) which are only supported on PCIe Gen3 Enabled CPU's and PCIe Gen3 Switches like Broadcom PLX. When you install your GPU's Make sure you install them on real PCIe Gen3 x16 or x8 lanes directly on CPU's Root I/O controller or PCIe Switch directly attached to the CPU's Root I/O controller. We have seen many issue with Consumer motherboard which support Physical x16 Connectors, but the connector is electrically connected as PCIe Gen2 x4, if you see this it is typically hanging off the Southbridge PCIe I/O controller. If you mother is configured this way please do not use this connector for your GPU's.
+#### Supported CPUs
+The ROCm Platform leverages PCIe Atomics (Fetch ADD, Compare and SWAP, 
+Unconditional SWAP, AtomicsOpCompletion).
+[PCIe atomics](https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md)
+are only supported on PCIe Gen3 Enabled CPUs and PCIe Gen3 Switches like
+Broadcom PLX. When you install your GPUs make sure you install them in a fully
+PCIe Gen3 x16 or x8 slot attached either directly to the CPU's Root I/O 
+controller or via a PCIe switch directly attached to the CPU's Root I/O 
+controller. In our experience many issues stem from trying to use consumer 
+motherboards which provide Physical x16 Connectors that are electrically 
+connected as e.g. PCIe Gen2 x4. This typically occurs when connecting via the 
+Southbridge PCIe I/O controller. If you motherboard is part of this category,
+please do not use this connector for your GPUs, if you intend to exploit ROCm.
 
 
-* Our GFX8 GPU's ( FIJI &  Polaris Familiy) use PCIe Gen 3 and PCIe Atomics 
-  * Intel Xeon E5 v3 or newer CPU's 
-  * Intel Xeon E3 v3 or newer CPU's 
-  * Intel Core i7 v3, Core i5 v3, Core i3 v3 or newer CPU's  
-  * AMD Ryzen CPU's
-  * AMD Naples Server CPU 
-  * Cavium Thunder X Server Processor 
+Our GFX8 GPU's ( Fiji &  Polaris Family) use PCIe Gen 3 and PCIe Atomics. 
 
-* Our GF7 GPU's Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support PCIe Atomics. For these GPU's we still recommend PCIe Gen3 enabled CPU's. 
+Current CPUs which support PCIe Gen3 + PCIe Atomics are: 
+  * Intel Xeon E5 v3 or newer CPUs; 
+  * Intel Xeon E3 v3 or newer CPUs; 
+  * Intel Core i7 v3, Core i5 v3, Core i3 v3 or newer CPUs (i.e. Haswell family
+  or newer).
+  
+Upcoming CPUs which will support PCIe Gen3 + PCIe Atomics are:
+  * AMD Ryzen CPUs;
+  * AMD Naples Server CPUs; 
+  * Cavium Thunder X Server Processor. 
 
+Our GFX7 GPUs Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support or
+take advantage of PCIe Atomics. However, we still recommend that you use a CPU
+from the list provided above. 
 
 #### Not Supported or Very Limited Support Under ROCm 
-* We do not support ROCm with PCIe Gen 2 enabled CPU's such as the AMD Opteron, Phenom, Phenom II, , Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Architecture and Pentium CPU's.  
-* We also do not support AMD Carrizo and Kaveri APU with external GPU Attached are not supported by ROCm 
-* Thunderbolt 1 and 2 enabled GPU's are not Support by ROCm.  Thunderbolt 1 & 2 are PCIe Gen2 based. 
-* AMD Carrizo based APU have limited support due to OEM & ODM's Carrizo enabled Laptop, All In One System and Desktop system had inconsistency in supporting the correct System BIOS configurations for ROCm driver enablement. Before you buy a Carrizo system to run ROCm.  You should check the SBIOS to see if has an option to enable IOMMUv2. If this is enabled, next we need test for the correct CRAT Table support to properly configure the driver.   
+* We do not support ROCm with PCIe Gen 2 enabled CPUs such as the AMD Opteron,
+Phenom, Phenom II, Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel
+Core Architecture and Pentium CPUs.  
+* We also do not support AMD Carrizo and Kaveri APU as host for compliant dGPU
+ attachments.
+* Thunderbolt 1 and 2 enabled GPU's are not supported by ROCm. Thunderbolt 1 & 2
+are PCIe Gen2 based.
+* AMD Carrizo based APUs have limited support due to OEM & ODM's choices when it
+comes to some key configuration parameters. On point, we have observed that
+Carrizo Laptops, AIOs and Desktop systems showed inconsistencies in exposing and
+enabling the System BIOS parameters required by the ROCm stack. Before
+purchasing a Carrizo system for ROCm, please verify that the BIOS provides an
+option for enabling IOMMUv2. If this is the case, the final requirement is
+associated with correct CRAT table support - please inquire with the OEM about 
+the latter.
+* AMD Merlin/Falcon Embedded System is also not currently supported by the public Repo. 
 
-#### Potential Future APU Support
-I know many of you are looking forward to support ROCm on APU system which support Fine Grained Shared Virtual Memory and cache coherency between the CPU and GPU. In the 2017 we plan on testing commercial AM4 Socketed Bristol Ridge and Raven Ridge motherboard. Just like we still waiting to get access to them, once we get our first board we blog about the experience and begin building up a list of motherboard that are qualified with ROCm
+#### Support for future APUs
+We are well aware of the excitement and anticipation built around using ROCm
+with an APU system which fully exposes Shared Virtual Memory alongside and cache
+coherency between the CPU and GPU. To this end, in 2017 we plan on testing 
+commercial AM4 motherboards for the Bristol Ridge and Raven Ridge families of 
+APUs. Just like you, we still waiting for access to them! Once we have the first
+boards in the lab we will detail our experiences via our blog, as well as build
+a list of motherboard that are qualified for use with ROCm.
 
 ### New Features to ROCm 
 
 #### Developer preview of the new OpenCl 1.2 compatible language runtime and compiler
 
- * OpenCL 2.0 compatible kernel language support with OpenCL 1.2 compatible runtime 
- * Supports offline ahead of time compilation today, for Beta we will be adding in-process/in-memory compilation. 
+ * OpenCL 2.0 compatible kernel language support with OpenCL 1.2 compatible
+   runtime 
+ * Supports offline ahead of time compilation today;
+   during the Beta phase we will add in-process/in-memory compilation. 
  * Binary Package support for Ubuntu 14.04 and 16.04 
  
 #### IPC support 
-
 
 ### The Latest ROCm Platform - ROCm 1.4
 The latest tested version of the drivers, tools, libraries and source code for
@@ -77,8 +113,8 @@ of the following GitHub repositories:
 * [HIP](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP)
 * [HIP-Examples](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples)
 
-In addition the following mirror repositories that support the HCC compiler are
-also available on GitHub, and frozen for the roc-1.4.0 release:
+Additionally, the following mirror repositories that support the HCC compiler
+are also available on GitHub, and frozen for the roc-1.4.0 release:
 
 * [llvm](https://github.com/RadeonOpenCompute/llvm/tree/roc-1.4.x)
 * [clang](https://github.com/RadeonOpenCompute/clang/tree/roc-1.4.x)
@@ -105,7 +141,8 @@ follows:
 wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
 sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 ```
-The gpg key might change, so it may need to be updated when installing a new release.
+The gpg key might change, so it may need to be updated when installing a new 
+release.
 
 ##### Install or Update
 Next, update the apt-get repository list and install/update the rocm package:
@@ -189,9 +226,9 @@ If possible, we would recommend starting with a fresh OS install.
 
 #### RPM repository - dnf (yum)
 
-A dnf (yum) repostiory is also available for installation of rpm packages. To configure a
-system to use the ROCm rpm directory create the file /etc/yum.repos.d/rocm.repo with
-the following contents:
+A dnf (yum) repository is also available for installation of rpm packages.
+To configure a system to use the ROCm rpm directory create the file
+/etc/yum.repos.d/rocm.repo with the following contents:
 
 ```shell
 [remote]
@@ -211,21 +248,23 @@ sudo dnf clean all
 sudo dnf install rocm
 ```
 
-As with the debian packages, it is possible to install rocm-dev or rocm-kernel individually.
-To uninstall the packages execute:
+As with the debian packages, it is possible to install rocm-dev or rocm-kernel
+individually. To uninstall the packages execute:
 
 ```shell
 sudo dnf remove rocm
 ```
 #### Manual installation steps for Fedora 23
 
-A fully functional Fedora installation requires a few manual steps to properly setup, including:
+A fully functional Fedora installation requires a few manual steps to properly 
+setup, including:
  * [Building compatible libc++ and libc++abi libraries for Fedora](https://github.com/RadeonOpenCompute/hcc/wiki#fedora)
 
 #### Verify Installation
 
 To verify that the ROCm stack completed successfully you can execute to HSA
-vectory\_copy sample application:
+vectory\_copy sample application (we do recommend that you copy it to a
+separate folder and invoke make therein):
 
 ```shell
 cd /opt/rocm/hsa/sample
@@ -241,7 +280,8 @@ deprecated or become open source components in the future. These components are
 made available in the following packages:
 
 *  hsa-ext-rocr-dev
-*  OpenCL Developer Preview for version 1.4 is closed source for this release only. 
+*  OpenCL Developer Preview for version 1.4 is closed source (applies only to 
+   this release). 
 
 ### Getting ROCm Source Code
 Modifications can be made to the ROCm 1.4 components by modifying the open
@@ -269,4 +309,5 @@ repo sync
 These series of commands will pull all of the open source code associated with
 the ROCm 1.4 release.
 
-* OpenCL Runtime and Compiler will be submited to Khronos Group for conformance prior final release. 
+* OpenCL Runtime and Compiler will be submitted to the Khronos Groupm, prior to
+  the final release, for conformance testing.
