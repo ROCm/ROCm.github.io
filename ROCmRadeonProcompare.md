@@ -1,4 +1,4 @@
-|                                          | Catalyst & AMD GPU Pro             | ROCm 1.0                             |
+|                                          | Catalyst & AMD GPU Pro             | ROCm 1.x                             |
 | ---------------------------------------- | ---------------------------------- | ------------------------------------ |
 | Core Features                            |                                    |                                      |
 | Shared Virtual  Memory                   | Coarse Grained                     | Coarse Grained HSA Memory Allocation |
