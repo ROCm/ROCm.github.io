@@ -1,6 +1,6 @@
 |                                          | Catalyst & AMD GPU Pro             | ROCm 1.x                             |
 | ---------------------------------------- | ---------------------------------- | ------------------------------------ |
-| Core Features                            |                                    |                                      |
+| ##### Core Features                            |                                    |                                      |
 | Shared Virtual  Memory                   | Coarse Grained                     | Coarse Grained HSA Memory Allocation |
 | Memory Allocation                        |                                    |                                      |
 | Page Migration Support                   | NO                                 | NO                                   |
@@ -12,7 +12,7 @@
 | Max Number of Queues  Restrictions       | Theoretical Unlimited Kernel Level | 1024                                 |
 | Max Number of Processes                  | 512                                | >512                                 |
 | Max Number of Concurrent  Independent Processes | 1                                  | 15                                   |
-| Process Preemption                       | NO                                 | YES                                  |
+| ##### Process Preemption                       | NO                                 | YES                                  |
 | User Mode SDMA                           | NO                                 | YES                                  |
 | Defined Memory Model                     | NO                                 | YES                                  |
 | Process Concurrency                      | NO                                 | YES                                  |
