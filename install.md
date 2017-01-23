@@ -172,7 +172,8 @@ We recommend you [verify your installation](https://github.com/RadeonOpenCompute
 
  at the step "sudo apt-get install rocm" replace it with 
  
- sudo apt-get install rocm opencl-rocm
+ sudo apt-get install rocm opencl-rocm-dev
+
  
  Then follow the direction for Debian Repository 
  
