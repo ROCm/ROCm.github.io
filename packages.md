@@ -42,25 +42,25 @@ title: ROCm Optimized Applications and Libraries
 * [Anaconda® with Numba acceleration](http://numba.pydata.org/numba-doc/latest/index.html)
 
 
-#### GCN ISA Assembly Tools
+### GCN ISA Assembly Tools
 
 Our LLVM code generator now supports the GCN ISA disassembler and assembler. 
 
 * [Helper tools for the GCN assembler] (https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra)
 
-#### GCN ISA Manual
+### GCN ISA Manual
 
 
 * [GCN Version 3 ISA manual&mdash;Fiji, Tonga](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf)
 * [GCN ISA Southern Islands manual;Hawaii](http://bit.ly/29t5aQP)
 
-#### Debugger
+### Debugger
 
 * [ROCm debugger binary build](https://github.com/RadeonOpenCompute/ROCm-Debugger)
 * [ROCm GDB source code](https://github.com/RadeonOpenCompute/ROCm-GDB)
 * [ROCm GPU debugger SDK;ROCm debug run time that services GBD](https://github.com/RadeonOpenCompute/ROCm-GPUDebugSDK)
 
-#### Profiling Tools
+### Profiling Tools
 
 
 * [ROCm command-line profiler](https://github.com/RadeonOpenCompute/ROCm-Profiler)
@@ -68,7 +68,7 @@ Our LLVM code generator now supports the GCN ISA disassembler and assembler.
 * [Core-library source for CodeXL](https://github.com/GPUOpen-Tools/CxlCommon)
 * [GPUPerfAPI](https://github.com/GPUOpen-Tools/GPA)
 
-#### Libraries
+### Libraries
 
 
 #### Math Libraries
