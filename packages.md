@@ -63,9 +63,8 @@ Our LLVM code generator now supports the GCN ISA disassembler and assembler.
 ### Profiling Tools
 
 
-* [ROCm command-line profiler](https://github.com/RadeonOpenCompute/ROCm-Profiler)
+* [RCP command-line profiler](https://github.com/GPUOpen-Tools/RCP)
 * [CodeXL;a CPU and GPU profiler in one tool (now fully open source under the BSD license)](https://github.com/GPUOpen-Tools/CodeXL)
-* [Core-library source for CodeXL](https://github.com/GPUOpen-Tools/CxlCommon)
 * [GPUPerfAPI](https://github.com/GPUOpen-Tools/GPA)
 
 ### Libraries
