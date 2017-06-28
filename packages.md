@@ -86,9 +86,9 @@ Our LLVM code generator now supports the GCN ISA disassembler and assembler.
 
 * [HcBLAS optimized for Torch7](https://github.com/ROCmSoftwarePlatform/hcBLAS)
 
-** BLAS Level 3: SGEMM, DGEMM, CGEMM 
-** BLAS Level 2: sgemv, dgemv, sger 
-** BLAS level 1: sasum, dasum, saxpy, scopy, dcopy, Sdot, Ddot, sscal, dscall
+  * BLAS Level 3: SGEMM, DGEMM, CGEMM 
+  * BLAS Level 2: sgemv, dgemv, sger 
+  * BLAS level 1: sasum, dasum, saxpy, scopy, dcopy, Sdot, Ddot, sscal, dscall
 
 * [HcFFT](https://github.com/ROCmSoftwarePlatform/hcFFT)
 * [HcRNG](https://github.com/ROCmSoftwarePlatform/hcRNG)
