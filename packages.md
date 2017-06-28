@@ -68,9 +68,10 @@ Our LLVM code generator now supports the GCN ISA disassembler and assembler.
 * [Core-library source for CodeXL](https://github.com/GPUOpen-Tools/CxlCommon)
 * [GPUPerfAPI](https://github.com/GPUOpen-Tools/GPA)
 
-*** Libraries
+#### Libraries
 
-**** Math Libraries
+
+#### Math Libraries
 
 * [rocBLAS](https://github.com/ROCmSoftwarePlatform/rocBLAS)
 * [rocFFT](https://github.com/ROCmSoftwarePlatform/rocFFT)
