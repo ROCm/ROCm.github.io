@@ -88,18 +88,18 @@ integer optimization operations and wavefront reduce algorithms. It also serves 
 
 
 
-<h3>Quickly Access ROCm GPU Performance Counters via CodeXL</h3>
+<h3>Quickly Access ROCm GPU Performance Counters via Radeon Compute Profiler</h3>
 <p>You can get the list of available counters by running the following command:</p>
 <ul>
-<li>./CodeXLGpuProfiler --list</li>
+<li>./rcprof --list</li>
 </ul>
 <p>To save the counter list to a file, use</p>
 <ul>
-<li>./CodeXLGpuProfiler --list --outputfile counters.txt</li>
+<li>./rcprof --list --outputfile counters.txt</li>
 </ul>
 <p>Next, specify the set of counters using the following command:</p>
 <ul>
-<li>./CodeXLGpuProfiler --hsapmc --counterfile</li>
+<li>./rcprof --hsapmc --counterfile counters.txt</li>
 </ul>
 <p>"counters.txt" should list one counter name per line.</p>
 
