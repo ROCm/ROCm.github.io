@@ -44,7 +44,7 @@ please do not use this connector for your GPUs, if you intend to exploit ROCm.
 
 Our GFX8 GPU's (Fiji & Polaris family) and GFX9 ( VEGA)  use PCIe Gen 3 and PCIe Atomics. 
 
-New for ROCm 1.6 
+New GPU Support for ROCm 1.6 
 
 	Radeon Instinct Family MI25, MI8, MI6 
 	Radeon Vega Frontier Edition 
