@@ -24,7 +24,7 @@ To use ROCm on your system you need the following:
 	* PCIe Gen 3 Enabled CPU with PCIe Platform Atomics 
 	* ROCm enabled GPU's 
 		* Radeon Instinct Family MI25, MI8, MI6 
-		* Radeon Frontier Edition Vega 
+		* Radeon Vega Frontier Edition 
 * Supported Version of Linux with a specified GCC Compiler and ToolChain 
 
 
