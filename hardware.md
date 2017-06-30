@@ -10,7 +10,7 @@ title: Hardware
 
 * GFX8: Radeon RX 480,Radeon RX 470,Radeon RX 460,R9 Nano,Radeon R9 Fury,Radeon R9 Fury X Radeon Pro WX7100, FirePro S9300 x2
 * Radeon Vega Frointer Edition
-* Radeon Instinct: MI6 MI8 and MI25 
+* Radeon Instinct: MI6, MI8, and MI25 
 
 Supported CPU
 
