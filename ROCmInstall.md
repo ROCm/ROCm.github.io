@@ -81,7 +81,7 @@ sudo update-grub
 
 ------------------------------------
 
-####Fedora Install 
+#### Fedora Install 
 Add RPM Repository dnf (yum) 
 A dnf (yum) repository is also available for installation of rpm packages. 
 To configure a system to use the ROCm rpm directory create the file /etc/yum.repos.d/rocm.repo with the following contents:
