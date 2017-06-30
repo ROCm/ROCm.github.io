@@ -42,7 +42,12 @@ connected as e.g. PCIe Gen2 x4. This typically occurs when connecting via the
 Southbridge PCIe I/O controller. If you motherboard is part of this category,
 please do not use this connector for your GPUs, if you intend to exploit ROCm.
 
-Our GFX8 GPU's (Fiji & Polaris family) use PCIe Gen 3 and PCIe Atomics. 
+Our GFX8 GPU's (Fiji & Polaris family) and GFX9 ( VEGA)  use PCIe Gen 3 and PCIe Atomics. 
+
+New for ROCm 1.6 
+
+	Radeon Instinct Family MI25, MI8, MI6 
+	Radeon Vega Frontier Edition 
 
 Current CPUs which support PCIe Gen3 + PCIe Atomics are: 
   * Intel Xeon E5 v3 or newer CPUs; 
