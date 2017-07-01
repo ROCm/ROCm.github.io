@@ -14,8 +14,8 @@ HIP, acknowledging the need for freedom of choice when it comes to platforms and
 Using our knowledge of the HSA Standards and, more importantly, the HSA Runtime, we have been able to successfully extended support to the dGPU with critical features for accelerating NUMA computation. 
 As a result, the ROCK driver is composed of several components based on our efforts to develop the Heterogeneous System Architecture for APUs, including the new AMDGPU driver, the Kernel Fusion Driver (KFD), 
 the HSA+ Runtime and an LLVM based compilation stack which provides support for key languages. 
-This support starts with AMD’s FIJI Family of dGPUs, and has expanded to include the Hawaii dGPU Family in ROCm 1.2. 
-ROCm 1.3 further extends support to include the Polaris Family of ASICs.
+
+This support starts with AMD’s FIJI Family of dGPUs. ROCm 1.3 further extends support to include the Polaris Family of ASICs. With ROCm 1.6 we add Vega Family of products. 
 
 ### System Requirements 
 
