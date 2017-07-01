@@ -21,10 +21,10 @@ ROCm compiler foundation can be used to build static and dynamic compiler
 
 ### GCN ISA Documentation 
 
-[GCN Version 3 ISA Manual](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf)
-[GCN Version 1.2 ISA Manual](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_Southern_Islands_Instruction_Set_Architecture1.pdf)
+* [GCN Version 3 ISA Manual](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf)
+* [GCN Version 1.2 ISA Manual](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_Southern_Islands_Instruction_Set_Architecture1.pdf)
 
 
 ### Standardized loader and Code Object Format 
 
-[ROCm Code Object Format  Documentation](https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md)
+* [ROCm Code Object Format  Documentation](https://github.com/RadeonOpenCompute/ROCm-Docs/blob/master/AMDGPU-ABI.md)
