@@ -34,9 +34,9 @@ sudo apt-get install miopengemm miopen-hip
 
 ## Deep Learning Framework support for ROCm 
 
-|Framework.   |Status.       | MIOpen Enabled. |Upstreamed      | Current Repository 
+|Framework.   |Status.       | MIOpen Enabled. |Upstreamed      | Current Repository                                  |
 |-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
-|Caffe.       |Public.       | Yes             |                | https://github.com/ROCmSoftwarePlatform/hipCaffe
+|Caffe.       |Public.       | Yes             |                | https://github.com/ROCmSoftwarePlatform/hipCaffe.   |
 |-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
 |Tensorflow   |Development   | Yes             | CLA in Progress|Notes: Working on NCCL and XLA enablement, Running   | 
 |-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
