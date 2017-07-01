@@ -1,3 +1,8 @@
+---
+layout: default
+title: ROCm Install
+---
+
 ## ROCm GPU Server Driver Installation Guide for Linux 
 
 ### Introduction 
