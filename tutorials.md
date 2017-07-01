@@ -3,7 +3,7 @@ layout: default
 title: Tutorials
 ---
 
-#ROCm-tutorials">ROCm Tutorials
+# ROCm Tutorials
 ROCm comes with a set of tutorials designed to help you understand how you can use and extend the platform.
 
 * [Vector-Add](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/master/vectorAdd)
