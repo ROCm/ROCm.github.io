@@ -8,16 +8,6 @@ title: ROCm Install
 ### Introduction 
 The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems.
 
-On April 25th, 2016, we delivered ROCm 1.0 built around three pillars:
-
-Open Heterogeneous Computing Platform (Linux(R) Driver and Runtime Stack), optimized for HPC & Ultra-scale class computing;
-
-ROCm for the first time give you developer choice of programing languges on a AMD Radeon GPU computing platform.  We continue to support OpenCL with richer foundation which lets you more direct access to hardware. From here we bring Heterogeneous C and C++ Single Source Compiler, to approach computation holistically, on a system level, rather than as a discrete GPU artifact.  We also know there is need for focused  C++ Kernel language with C runtime to bring simpler path to bring your investment in CUDA based application, libraries and frameworks to AMDGPU Platform. We do this with our new HIP programing foundation.  ROCm is solid foundation that acknowledges the need for freedom of choice when it comes to platforms and APIs for GPU computing.
-
-Using our knowledge of the HSA Standards and, more importantly, the HSA Runtime, we have been able to successfully extended support to the dGPU with critical features for accelerating NUMA computation. 
-As a result, the ROCK driver is composed of several components based on our efforts to develop the Heterogeneous System Architecture for APUs, including the new AMDGPU driver, the Kernel Fusion Driver (KFD), 
-the HSA+ Runtime and an LLVM based compilation stack which provides support for key languages. 
-
 This support starts with AMD’s FIJI Family of dGPUs. ROCm 1.3 further extends support to include the Polaris Family of ASICs. With ROCm 1.6 we add Vega Family of products. 
 
 ### System Requirements 
