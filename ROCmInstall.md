@@ -158,13 +158,13 @@ Run it:
 ### To Uninstall the a Package 
 * Ubuntu 
 ```shell
-	* sudo apt-get purge libhsakmt
-	* sudo apt-get purge radeon-firmware
-	* sudo apt-get purge $(dpkg -l | grep 'kfd\|rocm' | grep linux | grep -v libc | awk '{print $2}')
+sudo apt-get purge libhsakmt
+sudo apt-get purge radeon-firmware
+sudo apt-get purge $(dpkg -l | grep 'kfd\|rocm' | grep linux | grep -v libc | awk '{print $2}')
 ```
 * Fedora 
 ```shell
-	* $ sudo dnf remove ROCm   
+sudo dnf remove ROCm   
 ```	
 
 ### Installing development packages for cross compilation
