@@ -93,6 +93,8 @@ C++ unsigned int hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA
 [Find out more about these HCC fuctions.](http://scchan.github.io/hcc/hc_8hpp.html)
 
 ### It’s Time to ROC
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dnKDFci2x2Q" frameborder="0" allowfullscreen></iframe>
+
 HPC User Forum in Tucson; Gregory Stoner from AMD presents It's Time to ROC and overivew on ROCm SOftware Platform.
 
