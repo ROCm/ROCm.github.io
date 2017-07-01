@@ -8,15 +8,18 @@ Announcing our new Foundation for Deep Learning acceleration  MIOpen 1.0 which i
 
 ## This release includes the following:
 
-Deep Convolution Solvers  optimized for both forward and backward propagation
-Optimized Convolutions including Winograd and FFT transformations
-Optimized GEMM’s for Deep Learning
-Pooling, Softmax, Activations, Gradient Algorithms Batch Normalization, and LR Normalization
-MIOpen describes data as 4-D tensors ‒ Tensors 4D NCHW format
-Support for OpenCL and HIP enabled frameworks
-MIOpen Driver enables to testing forward/backward network of any particular layer in MIOpen.
-Binary Package support for Ubuntu  16.04 and Fedora 24
-Source code at https://github.com/ROCmSoftwarePlatform/MIOpen
+* Deep Convolution Solvers  optimized for both forward and backward propagation
+* Optimized Convolutions including Winograd and FFT transformations
+* Optimized GEMM’s for Deep Learning
+* Pooling, Softmax, Activations, Gradient Algorithms Batch Normalization, and LR Normalization
+* MIOpen describes data as 4-D tensors ‒ Tensors 4D NCHW format
+* Support for OpenCL and HIP enabled frameworks API's 
+* MIOpen Driver enables to testing forward/backward network of any particular layer in MIOpen.
+* Binary Package support for Ubuntu  16.04 and Fedora 24
+* Source code at https://github.com/ROCmSoftwarePlatform/MIOpen
+* Documentation 
+  * [MIOpen](https://rocmsoftwareplatform.github.io/MIOpen/doc/html/apireference.html)
+  * [MIOpenGemm](https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/index.html)
 
 ## The  ROCm 1.6 has prebuilt packages for MIOpen 
 
