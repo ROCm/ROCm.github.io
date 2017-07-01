@@ -1,3 +1,8 @@
+---
+layout: default
+title: Quickstart OpenCL 
+---
+
 # Overview
 
 ## ROCm 1.6 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack!
