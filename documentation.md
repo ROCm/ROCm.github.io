@@ -51,8 +51,9 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 * [ROCm compiler development: foundation for creating your own compiler](ROCmCompilerKit.html)
 
 #### MIOpen
-[MIOpen Documentation](https://rocmsoftwareplatform.github.io/MIOpen/doc/html/) 
-[MIOpen GEMM - Deep Learning Optimized Gemm Library](https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/) 
+
+* [MIOpen Documentation](https://rocmsoftwareplatform.github.io/MIOpen/doc/html/) 
+* [MIOpen GEMM - Deep Learning Optimized Gemm Library](https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/) 
 
 #### DevOps and System Management 
 
