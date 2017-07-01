@@ -32,7 +32,7 @@ Current CPU which support PCIe Gen3 + PCIe Atomics are:
   
  * Cavium Thunder X Server Processor </li>
 
-Curnetly Not supported 
+Curently Not supported 
 * AMD Carrizo and Kaveri APU with external GPU Attached are not supported by ROCm 
 * Thunderbolt 1 and 2 enabled GPU's are not Support by ROCm.  Thunderbolt 1 &amp; 2 are PCIe Gen2 based.
 
