@@ -93,5 +93,11 @@ Our LLVM code generator now supports the GCN ISA disassembler and assembler.
 
 * [HcFFT](https://github.com/ROCmSoftwarePlatform/hcFFT)
 * [HcRNG](https://github.com/ROCmSoftwarePlatform/hcRNG)
+* [Eigen C++ Math Library ported to HIP/ROCm](https://github.com/ROCmSoftwarePlatform/hipeigen)  
 
+#### Deep Learning Solutions 
+* [MIOpen](https://github.com/ROCmSoftwarePlatform/MIOpen) 
+* [MIOpenGemm](https://github.com/ROCmSoftwarePlatform/MIOpenGEMM) 
+* [Caffe ported to HIP/ROCm](https://github.com/ROCmSoftwarePlatform/hipCaffe) 
+* [Caffe2 ported to HIP/ROCm](https://github.com/ROCmSoftwarePlatform/hipCaffe)
 
