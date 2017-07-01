@@ -82,8 +82,8 @@ f0d739836a9094004b0a39058d046349aacc1178  rocm.gpg.key
 ##### Install or update ROCm 
 
 ```shell
-$ sudo apt-get update
-$ sudo apt-get install rocm rocm-opencl-dev
+sudo apt-get update
+sudo apt-get install rocm rocm-opencl-dev
 ```
 
 Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
