@@ -80,15 +80,19 @@ Evaluate the predicate for all active work items in the wavefront and return a n
 
 Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if any one predicate evaluates to a nonzero value.
 
-```C++ uint64_t hc::__ballot (int predicate) __HC__ ~~~~
+```C++ 
+uint64_t hc::__ballot (int predicate) __HC__ 
+```
 
 Evaluate the predicate for all active work items in the wavefront and return an integer whose Nth bit is set if and only if the predicate evaluates to a nonzero value for the Nth work item of the wavefront and the Nth work item is active.
 
-```C++ unsigned int hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA_WAVEFRONT_SIZE__) __HC__ ~~~~
+```C++
+C++ unsigned int hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA_WAVEFRONT_SIZE__) __HC__ 
+```
 
-Find out more about these HCC fuctions.
+[Find out more about these HCC fuctions.](http://scchan.github.io/hcc/hc_8hpp.html)
 
-It’s Time to ROC
-
-HPC User Forum in Tucson; Gregory Stoner from AMD presents It's Time to ROC.
+### It’s Time to ROC
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dnKDFci2x2Q" frameborder="0" allowfullscreen></iframe>
+HPC User Forum in Tucson; Gregory Stoner from AMD presents It's Time to ROC and overivew on ROCm SOftware Platform.
 
