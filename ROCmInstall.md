@@ -66,25 +66,44 @@ Ubuntu uses Debian  and Fedora RPM Packages
 #### Ubuntu Install 
 
 ##### Add the Repo Server
-$ wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add - sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+For Debian based systems, like Ubuntu, configure the Debian ROCm repository as
+follows:
+
+```shell
+wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+```
+The gpg key might change, so it may need to be updated when installing a new 
+release. The current rocm.gpg.key is not avialable in a standard key ring distribution,
+but has the following sha1sum hash:
+
+f0d739836a9094004b0a39058d046349aacc1178  rocm.gpg.key
 
 ##### Install or update ROCm 
+
+```shell
 $ sudo apt-get update
 $ sudo apt-get install rocm rocm-opencl-dev
+```
 
 Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
 
+```shell
 sudo nano /etc/default/grub
+```
 set the GRUB_Default 
 Edit: GRUB_DEFAULT="Advanced options for Ubuntu>Ubuntu, with Linux 4.9.0-kfd-compute-rocm-rel-1.6-77"
+```shell
 sudo update-grub
-
+```
 ------------------------------------
 
 #### Fedora Install 
-Add RPM Repository dnf (yum) 
-A dnf (yum) repository is also available for installation of rpm packages. 
-To configure a system to use the ROCm rpm directory create the file /etc/yum.repos.d/rocm.repo with the following contents:
+Use the  dnf (yum) repository for installation of rpm packages.
+To configure a system to use the ROCm rpm directory create the file
+/etc/yum.repos.d/rocm.repo with the following contents:
+
+```shell
 [remote]
 
 name=ROCm Repo
@@ -94,11 +113,13 @@ baseurl=http://repo.radeon.com/rocm/yum/rpm/
 enabled=1
 
 gpgcheck=0
+```
 
 Execute the following commands:
-$ sudo dnf clean all
-$ sudo dnf install rocm rocm-opencl-dev
-
+```shell
+sudo dnf clean all
+sudo dnf install rocm rocm-opencl-dev
+```
 
 Post Install Manual installation steps for Fedora to support HCC compiler 
 
@@ -147,5 +168,7 @@ It is often useful to develop and test on different systems. In this scenario, y
 
 In this case, install the development subset of packages:
 
+```shell
 sudo apt-get update
 sudo apt-get install rocm-dev
+```
