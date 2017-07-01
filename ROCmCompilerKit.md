@@ -9,19 +9,19 @@ ROCm compiler foundation can be used to build static and dynamic compiler
 
 ### LLVM Native Code Generator
 
-[AMDGPU LLVM Codegenerator Documentation](http://llvm.org/docs/AMDGPUUsage.html)
+* [AMDGPU LLVM Codegenerator Documentation](http://llvm.org/docs/AMDGPUUsage.html)
  [AMD GPU LLVM Source Code](https://github.com/RadeonOpenCompute/llvm)
 
 
 ### GCN ISA Assembler and Disassembler
 
-[GCN Assembler and Disassembler Overview](https://radeonopencompute.github.io/GCN_asm_tutorial.html)
+* [GCN Assembler and Disassembler Overview](https://radeonopencompute.github.io/GCN_asm_tutorial.html)
 [Assembler Helper Tools ](https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra/blob/master/README.md)
 
 
 ### GCN ISA Documentation 
 
-http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf">GCN Version 3 ISA Manual
+[GCN Version 3 ISA Manual](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_GCN3_Instruction_Set_Architecture.pdf)
 [GCN Version 1.2 ISA Manual](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_Southern_Islands_Instruction_Set_Architecture1.pdf)
 
 
