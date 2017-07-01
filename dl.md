@@ -34,4 +34,20 @@ sudo apt-get install miopengemm miopen-hip
 
 ## Deep Learning Framework support for ROCm 
 
-First MultiGPU enabled Deep Learning Framework is Caffe 
+|Framework.   |Status.       | MIOpen Enabled. |Upstreamed      | Current Repository 
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|Caffe.       |Public.       | Yes             |                | https://github.com/ROCmSoftwarePlatform/hipCaffe
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|Tensorflow   |Development   | Yes             | CLA in Progress|Notes: Working on NCCL and XLA enablement, Running   | 
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|Caffe2       |Upstreaming   | Yes             | CLA in Progress| https://github.com/ROCmSoftwarePlatform/caffe       |                       
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|Torch 7      |Upstreaming   | Devevlopment    |In process      | https://github.com/ROCmSoftwarePlatform/cutorch_hip |
+|.            |              |                 |.               | https://github.com/ROCmSoftwarePlatform/cunn_hip    |
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|PyTorch      |Development   | Devevlopment    |                | Comming Soon                                        |
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|MxNet        |Development.  | Development.    |                | https://github.com/ROCmSoftwarePlatform/mxnet       |
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
+|CNTK         |Development.  | Development.    |                |                                                     |
+|-------------|:------------:|:---------------:|:--------------:|----------------------------------------------------:|
