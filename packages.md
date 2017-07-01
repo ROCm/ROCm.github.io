@@ -3,8 +3,10 @@ layout: default
 title: ROCm Optimized Applications and Libraries
 ---
 
-#### You can perform a simplified ROCm install using our repository server. The package installs the driver, run time, HCC compiler and HIP language run time, as well as test apps to get you ready to start development in about 5&ndash;10 minutes. 
-* [ROCm Install Instructions] (https://github.com/RadeonOpenCompute/ROCm)
+#### ROCm Install 
+You can perform a simplified ROCm install using our repository server. The package installs the driver, run time, HCC compiler and HIP language run time, as well as test apps to get you ready to start development in about 5&ndash;10 minutes. 
+* [ROCm Install Instructions] (ROCmInstall.md)
+* [ROCm Instal FAQ](install_issues.md) 
 
 
 #### Source-Code Repositories for Kernel Driver + Thunk + Run Time
@@ -46,7 +48,7 @@ title: ROCm Optimized Applications and Libraries
 
 Our LLVM code generator now supports the GCN ISA disassembler and assembler. 
 
-* [Helper tools for the GCN assembler] (https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra)
+* [Helper tools for the GCN assembler](https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra)
 
 ### GCN ISA Manual
 
