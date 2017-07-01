@@ -1,3 +1,8 @@
+---
+layout: default
+title: Install FAQ
+---
+
 ### Determining if the video card is installed correctly
 The ROCm software stack has specific requirements regarding the type
 of GPU supported and how it is installed in the system. The card
