@@ -96,14 +96,14 @@ rpm -qa | grep kfd | xargs sudo rpm –e
 sudo dnf install rocm
 ```
 
-###Installing from an archived repository
+### Installing from an archived repository
 
 The Radeon repo server stores several archived releases, supporting both debian
 and rpm repositories. These archives are located here at http://radeon.repo.com/rocm/archive.
 Users can install with an archive by downloading the desired archive and then updating
 the package configuration file to point at the localized repo.
 
-####Debian Archive Example
+#### Debian Archive Example
 
 ```shell
 cd /temp && wget http://radeon.repo.com/rocm/archive/apt_1.6.0.tar.bz2
@@ -114,7 +114,7 @@ sudo apt-get update && sudo apt-get install rocm
 
 Users should make sure that no other list files contain another rocm repo configuration.
 
-####RPM Archive Example
+#### RPM Archive Example
 Add a /etc/yum.d/rocm.local.repo file with the following contents:
 
 ```shell
