@@ -46,21 +46,36 @@ Next, specify the set of counters using the following command:
 * Intrinsics for wave shift and rotate by one thread (__amdgcn_wave_*)
 * Intrinsic for move dpp (__amdgcn_move_dpp)
 * Example of HCC Fuctions
+
 ~~~~ unsigned int hc::__activelaneid_u32 () __HC__ ~~~~
+
 Get the number of earlier (in flattened work-item order) active work items in the same wavefront.
 ~~~~ uint64_t hc::__activelanemask_v4_b64_b1 (unsigned int input) __HC__ ~~~~
+
 Return a bit mask showing which active work items in the wavefront have a nonzero input.
+
 ~~~~ unsigned int hc::__activelanecount_u32_b1 (unsigned int input) __HC__ ~~~~
+
 Count the number of active work items in the current wavefront that have a nonzero input.
+
 ~~~~ unsigned int hc::__activelanepermute_b32 (unsigned int src, unsigned int laneId, unsigned int identity, unsigned int useIdentity) __HC__ ~~~~
+
 Permute the active work items in the wavefront.
+
 ~~~~ int hc::__any (int predicate) __HC__ ~~~~
+
 Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if every predicate evaluates to a nonzero value.
+
  ~~~~ int hc::__all (int predicate) __HC__ ~~~~
+
 Evaluate the predicate for all active work items in the wavefront and return a nonzero value if and only if any one predicate evaluates to a nonzero value.
+
 ~~~~ uint64_t hc::__ballot (int predicate) __HC__ ~~~~
+
 Evaluate the predicate for all active work items in the wavefront and return an integer whose Nth bit is set if and only if the predicate evaluates to a nonzero value for the Nth work item of the wavefront and the Nth work item is active.
+
 ~~~~ unsigned int hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA_WAVEFRONT_SIZE__) __HC__ ~~~~
+
 Find out more about these HCC fuctions.
 
 It’s Time to ROC
