@@ -8,11 +8,11 @@ title: ROCm Documentation
 The ROCm documentation site is where we assemble quick-start guides, installation guides, programming guides, API reference documentation, tool documentation and whitepapers.
 
 ### ROCm Install  
-##### [ROCm Install Quick Start Guide](ROCmInstall.md)
-##### [ROCm Instal FAQ](install_issues.md)
-##### [ROCm Supported Hardware](hardware.md) 
+* [ROCm Install Quick Start Guide](ROCmInstall.md)
+* [ROCm Instal FAQ](install_issues.md)
+* [ROCm Supported Hardware](hardware.md) 
 
-##### [ROCm and AMDGPU Pro Driver Comparison](ROCmRadeonProcompare.md)
+#### [ROCm and AMDGPU Catalyst Driver Comparison](ROCmRadeonProcompare.md)
 
 #### ROCr Run-Time Documentation 
 
