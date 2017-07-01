@@ -11,6 +11,7 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 * [ROCm Install Quick Start Guide](ROCmInstall.md)
 * [ROCm Install FAQ](install_issues.md)
 * [ROCm Supported Hardware](hardware.md) 
+* [Quick Start OpenCL](QuickStartOCL.md)
 
 #### [ROCm and AMDGPU Catalyst Driver Comparison](ROCmRadeonProcompare.md)
 
