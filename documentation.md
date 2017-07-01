@@ -50,6 +50,10 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 * [ROCm GDB debugger: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Debugger/blob/master/TUTORIAL.md)
 * [ROCm compiler development: foundation for creating your own compiler](ROCmCompilerKit.html)
 
+#### MIOpen
+[MIOpen Documentation](https://rocmsoftwareplatform.github.io/MIOpen/doc/html/) 
+[MIOpen GEMM - Deep Learning Optimized Gemm Library](https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/) 
+
 #### DevOps and System Management 
 
 * [ROCm system-management interface (SMI) documentation](https://github.com/RadeonOpenCompute/ROC-smi/blob/master/README.md)
