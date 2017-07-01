@@ -120,17 +120,14 @@ Execute the following commands:
 sudo dnf clean all
 sudo dnf install rocm rocm-opencl-dev
 ```
+Just like Ubuntu installs, the ROCm kernel must be the default kernel used at boot time.
 
 Post Install Manual installation steps for Fedora to support HCC compiler 
 
-A fully functional Fedora installation requires a few manual steps to properly setup, including:
+A fully functional Fedora installation requires a few manual steps to properly 
+setup, including:
+ * [Building compatible libc++ and libc++abi libraries for Fedora](https://github.com/RadeonOpenCompute/hcc/wiki#fedora)
 
-[Building compatible libc++ and libc++abi libraries for Fedora](https://github.com/RadeonOpenCompute/hcc/wiki#fedora)
-
-Download the ROCm Compressed Tar Package from repo.radeon.com 
-........add documentation 
-* Ubuntu 
-* Fedora 
 
 
 ##### Post install verification 
