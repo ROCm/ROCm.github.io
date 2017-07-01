@@ -16,9 +16,8 @@ You can perform a simplified ROCm install using our repository server. The packa
 
 #### Peer-to-Peer RDMA Source
 
-
-[ROCnRDMA](https://github.com/RadeonOpenCompute/ROCnRDMA)
-[RDMA performance test](https://github.com/RadeonOpenCompute/rdma-perftest)
+* [ROCnRDMA](https://github.com/RadeonOpenCompute/ROCnRDMA)
+* [RDMA performance test](https://github.com/RadeonOpenCompute/rdma-perftest)
 
 ### Development Tools
 
