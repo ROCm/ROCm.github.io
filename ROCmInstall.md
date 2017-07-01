@@ -134,30 +134,38 @@ setup, including:
 
 Verify you have the correct Kernel Post install 
 
+```shell
 $ uname -r
 4.9.0-kfd-compute-rocm-rel-1.6-77
+```
 
 Test the driver is installed correctly 
+```shell
 cd /opt/rocm/hsa/sample
 make
 ./vector_copy
-
+```
 Test if OpenCL is working based on default ROCm OpenCL include and library locations:
-
+```shell
 g++ -I /opt/rocm/opencl/include/ ./HelloWorld.cpp -o HelloWorld -L/opt/rocm/opencl/lib/x86_64 -lOpenCL
-Run it:
+```
 
+Run it:
+```shell
 ./HelloWorld
+```
 
 ### To Uninstall the a Package 
 * Ubuntu 
+```shell
 	* sudo apt-get purge libhsakmt
 	* sudo apt-get purge radeon-firmware
 	* sudo apt-get purge $(dpkg -l | grep 'kfd\|rocm' | grep linux | grep -v libc | awk '{print $2}')
-
-* Fedora 	
+```
+* Fedora 
+```shell
 	* $ sudo dnf remove ROCm   
-	
+```	
 
 ### Installing development packages for cross compilation
 
