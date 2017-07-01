@@ -6,7 +6,7 @@ title: Tutorials
 # ROCm Tutorials
 ROCm comes with a set of tutorials designed to help you understand how you can use and extend the platform.
 
-* [Vector-Add](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/master/vectorAdd)
+* [Vector-Add](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/master/vectorAdd) Vector Add in HIP
 * [Mini N-body](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/master/mini-nbody)
 This sample demonstrates the use of the HIP API for a mini n-body problem.
 * [Assembly Sample](GCN_asm_tutorial.html) The Art of AMDGCN Assembly:How to Bend the Machine to Your Will.  This tutorial demonstrates GCN assembly with ROCm application development.
