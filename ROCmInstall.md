@@ -159,6 +159,7 @@ sudo apt-get purge $(dpkg -l | grep 'kfd\|rocm' | grep linux | grep -v libc | aw
 ```shell
 sudo dnf remove ROCm   
 ```	
+[List of ROCm Packages for Ubuntu and Fedora](ROCmLinuxpackages.md)
 
 ### Installing development packages for cross compilation
 
