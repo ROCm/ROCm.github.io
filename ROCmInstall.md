@@ -22,6 +22,7 @@ To use ROCm on your system you need the following:
 
 
 Table 1. Native Linux Distribution Support in ROCm  1.6
+
 |Distribution	|Kernel	|GCC	|GLIBC	|
 |:--------------|:------|:------|:------|
 |x86_64		|	|	|       |
