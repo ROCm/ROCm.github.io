@@ -31,12 +31,12 @@ Table 1. Native Linux Distribution Support in ROCm  1.6
 	
 ### Pre Install Directions 
 
-#####Verify You Have ROCm Capable GPU Installed int the System 
+##### Verify You Have ROCm Capable GPU Installed int the System 
 
 ```shell
 lspci | grep -i AMD
 ```
-######You will see list of AMD GPU's 
+###### You will see list of AMD GPU's 
 
 ##### Verify You Have a Supported Version of Linux 
 
