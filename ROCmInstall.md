@@ -31,33 +31,36 @@ Table 1. Native Linux Distribution Support in ROCm  1.6
 	
 ### Pre Install Directions 
 
-Verify You Have ROCm Capable GPU Installed int the System 
+#####Verify You Have ROCm Capable GPU Installed int the System 
 
 ```shell
 lspci | grep -i AMD
 ```
-You will see list of AMD GPU's 
+######You will see list of AMD GPU's 
 
-Verify You Have a Supported Version of Linux 
+##### Verify You Have a Supported Version of Linux 
 
 ```shell
 uname - m && cat /etc/*release
 ```
 
-You will see some thing like for Ubuntu 
+###### You will see some thing like for Ubuntu 
+
+```shell
 x86_64
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=16.04
 DISTRIB_CODENAME=xenial
 DISTRIB_DESCRIPTION="Ubuntu 16.04.2 LTS"
+```
 
-Verify version of GCC 
+##### Verify version of GCC 
 
 ```shell
 gcc --version 
 ```
 
-You will see 
+###### You will see 
 
 ```shell
 gcc (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609 
