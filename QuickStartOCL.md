@@ -5,9 +5,9 @@ title: Quickstart OpenCL
 
 # Overview
 
-## ROCm 1.6 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack!
+### ROCm 1.6 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack!
 
-## This developer release includes the following:
+#### This developer release includes the following:
 
 * OpenCL 2.0 compatible kernel language support with OpenCL 1.2 compatible runtime
 * OpenCL compiler also has assembler and disassembler support,  inline assembly support is now in place. 
@@ -18,11 +18,11 @@ title: Quickstart OpenCL
 * Supports offline ahead of time compilation and in-process/in-memory compilation.
 * Binary Package support for Ubuntu  16.04 and Fedora 24
 
-## Quickstart Instructions
+#### Quickstart Instructions
 
-### Here's a simple workflow to get you quickly up and running with OpenCL on ROCm --
+#### Here's a simple workflow to get you quickly up and running with OpenCL on ROCm --
 
-#### Install the ROCm OpenCL implementation (assuming you already have the 'rocm' package installed):
+##### Install the ROCm OpenCL implementation (assuming you already have the 'rocm' package installed):
 
 ```shell
 sudo apt-get install rocm-opencl-dev
@@ -44,9 +44,9 @@ make \
 
 ./vadd
 ```
-#### That's it!  Super easy.
+##### That's it!  Super easy.
 
-## Related Resources
+#### Related Resources
 
 ROCm Developer website will have more information: http:/rocm.github.io
 
