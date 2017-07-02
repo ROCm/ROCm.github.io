@@ -33,7 +33,7 @@ sudo apt-get install miopengemm miopen-opencl
 ```shell
 sudo apt-get install miopengemm miopen-hip
 ```     
-### Or you can build from [source code](https://github.com/ROCmSoftwarePlatform/MIOpen) following the instructions at 
+### Or you can build from [source code](https://github.com/ROCmSoftwarePlatform/MIOpen)  
 
 ## Deep Learning Framework support for ROCm 
 
