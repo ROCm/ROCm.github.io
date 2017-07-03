@@ -7,7 +7,7 @@ If your here you know ROCm profides a rich parallel computation foundation with 
 
 One of biggest contribution you can help is reporting issues, please use our [bug reporting guide](bugs.md). Thanks in advance!
 
-ROCm Software Plaform and core ROCm Server drive is an expansive set of projects, the most prominent of which are maintained by The AMD ROCm Project Developers on GitHub. Newcomers may be interested in the project’s will want to find out more on [how to contribute](CONTRIBUTING.md), which explains the mechanics of contributing to ROCm Project.
+ROCm Software Plaform and core ROCm Server drive is an expansive set of projects, the most prominent of which are maintained by The AMD ROCm Project Developers on GitHub. Newcomers may be interested in the project’s will want to find out more on [how to contribute](contributing.md), which explains the mechanics of contributing to ROCm Project.
 
 ### There are many ways to contribute to the success of ROCm. This guide focuses on area you can help as a new contributor:
 
