@@ -31,7 +31,7 @@ link](https://github.com/RadeonOpenCompute/ROCm/issues/new) and filling out the 
 Here's a template that you can use to file a bug, though it's not necessary to
 use it exactly:
 
-    <Summary of your hardware:CPU,GPU,WHich PCIe lane your GPU are inserted>
+    <Summary of your hardware:CPU,GPU, Which PCIe lane your GPU are inserted>
     
     <short summary of the bug>
 
