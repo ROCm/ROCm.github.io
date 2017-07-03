@@ -79,6 +79,8 @@ Experimental support for our GFX7 GPUs Radeon R9 290, R9 390, AMD FirePro S9150,
 take advantage of PCIe Atomics. However, we still recommend that you use a CPU
 from the list provided above. 
 
+[Broader Set of Tested Hardware](hardware.md)
+
 #### Not Supported or Very Limited Support Under ROCm 
 * We do not support ROCm with PCIe Gen 2 enabled CPUs such as the AMD Opteron,
 Phenom, Phenom II, Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel
