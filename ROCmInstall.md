@@ -147,7 +147,7 @@ setup, including:
 Verify you have the correct Kernel Post install 
 
 ```shell
-$ uname -r
+uname -r
 4.9.0-kfd-compute-rocm-rel-1.6-77
 ```
 
