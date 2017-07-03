@@ -18,6 +18,7 @@ To use ROCm on your system you need the following:
 	* ROCm enabled GPU's 
 		* Radeon Instinct Family MI25, MI8, MI6 
 		* Radeon Vega Frontier Edition 
+		* [Broader Set of Tested Hardware](hardware.md)
 * Supported Version of Linux with a specified GCC Compiler and ToolChain 
 
 
