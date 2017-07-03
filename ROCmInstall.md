@@ -41,7 +41,7 @@ lspci | grep -i AMD
 ##### Verify You Have a Supported Version of Linux 
 
 ```shell
-uname - m && cat /etc/*release
+uname -m && cat /etc/*release
 ```
 
 ###### You will see some thing like for Ubuntu 
