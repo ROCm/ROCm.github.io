@@ -31,21 +31,22 @@ link](https://github.com/RadeonOpenCompute/ROCm/issues/new) and filling out the 
 Here's a template that you can use to file a bug, though it's not necessary to
 use it exactly:
 
-    <Summary of your hardware:CPU,GPU, Which PCIe lane your GPU are inserted>
-    
+    Summary of your hardware: < CPU, GPU, Motherboard Vendor, Make and Model of the system>
+
+    PCIe Information <PCIe Version GPU is inserted in how many PCIe Lanes, Which PCIe lane your GPU are inserted>
+
     <short summary of the bug>
 
     I tried this:
 
-    <code sample that causes the bug>
+    <code sample or applications that cause the bug>
 
     I expected to see this happen: <explanation>
 
     Instead, this happened: <explanation>
 
-    ROCm,  HIP, HCC, OpenCL,
-    
-    OS Distro and Version 
+    Is the issue with the <ROCm,  HIP, HCC, OpenCL,>
+
     
 
 ## Pull Requests
