@@ -20,6 +20,10 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 * [HSA Runtime specification---HSA Foundation online documents](http://www.hsafoundation.com/html_spec11/HSA_Library.htm)
 * [ROCr error codes](ROCmRTec.html)
 
+#### AMDGPU LLVM Compiler 
+
+* [Doucmentation for AMDGPU Code Generator in LVVM](http://llvm.org/docs/AMDGPUUsage.html)
+
 #### HCC
 
 * [HCC overview](https://github.com/RadeonOpenCompute/hcc/wiki)
