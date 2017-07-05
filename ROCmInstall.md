@@ -151,13 +151,6 @@ Verify you have the correct Kernel Post install
 uname -r
 4.9.0-kfd-compute-rocm-rel-1.6-77
 ```
-
-Test the driver is installed correctly 
-```shell
-cd /opt/rocm/hsa/sample
-make
-./vector_copy
-```
 Test if OpenCL is working based on default ROCm OpenCL include and library locations:
 ```shell
 g++ -I /opt/rocm/opencl/include/ ./HelloWorld.cpp -o HelloWorld -L/opt/rocm/opencl/lib/x86_64 -lOpenCL
