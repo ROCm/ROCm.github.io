@@ -30,3 +30,11 @@ ROCm Web Site Index for Site version 2
  * Forums
  * News and PR
  
+Themes to look at 
+https://jekyll-demos.github.io/DopeTrope-Jekyll-Theme/index.html
+ 
+https://jekyll-demos.github.io/Arcana-Jekyll-Theme/index.html
+ 
+http://jekyll-demos.github.io/Horizons-Jekyll-Theme/index.html
+ 
+http://ojs.xyz/solid-jekyll/
