@@ -50,7 +50,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2>The Art of AMDGCN Assembly: How to Bend the Machine to Your Will</h2>
+        <h3>The Art of AMDGCN Assembly: How to Bend the Machine to Your Will</h3>
 
 
 The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a <a href="http://gpuopen.com/rocm-with-harmony-combining-opencl-hcc-hsa-in-a-single-program/" target="_blank">previous blog</a> we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post.
@@ -76,7 +76,7 @@ The test kernel is simple: read the initial data and indices from memory into GP
 }
 </pre>
 </codebox>
-<h2>Passing Parameters to a Kernel</h2>
+<h3>Passing Parameters to a Kernel</h3>
 Formal HSA arguments are passed to a kernel using a special read-only memory segment called <code>kernarg</code>. Before a wavefront starts, the base address of the <code>kernarg</code> segment is written to an SGPR pair. The memory layout of variables in <code>kernarg</code> must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier.
 
 The example host program must create the <code>kernarg</code> segment and fill it with the buffer base addresses. The HSA host code might look like the following:
@@ -269,13 +269,7 @@ In a future post we will cover DPP, another GCN cross-lane feature that allows v
 <i>Ilya Perminov is a software engineer at Luxoft. He earned his PhD in computer graphics in 2014 from ITMO University in Saint Petersburg, Russia. Ilya interned at AMD in 2015, during which time he worked on graphics-workload tracing and performance modeling. His research interests include real-time rendering techniques, GPUs architecture and GPGPU.</i>
 </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p> © 2016 AMD Corporation <a href="legal.html">Disclaimer and Legal Information</a> </p> 
-      </footer>
-    </div>
+ 
 
-  
-
+ 
   </body>
