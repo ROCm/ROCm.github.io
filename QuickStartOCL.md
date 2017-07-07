@@ -27,10 +27,7 @@ title: Quickstart OpenCL
 ```shell
 sudo apt-get install rocm-opencl-dev
 ```
-Set an environment variable that points to the installation directory for OpenCL:
-```shell
-export OPENCL_ROOT=/opt/rocm/opencl
-```
+
 For a sample OpenCL application, let's use a simple vector-add example from the University of Bristol's very nice "Hands On OpenCL" lectures.
 
 ```shell
