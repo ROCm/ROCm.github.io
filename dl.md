@@ -41,10 +41,10 @@ sudo apt-get install miopengemm miopen-hip
 |:------------|:-------------|:----------------|:---------------|:----------------------------------------------------|
 |Caffe        |Public        |Yes              |                |https://github.com/ROCmSoftwarePlatform/hipCaffe     |
 |Tensorflow   |Development   |Yes              |CLA in Progress |Notes: Working on NCCL and XLA enablement, Running   | 
-|Caffe2       |Upstreaming   |Yes              |CLA in Progress |https://github.com/ROCmSoftwarePlatform/caffe        |                       
+|Caffe2       |Upstreaming   |Yes              |CLA in Progress |https://github.com/ROCmSoftwarePlatform/caffe2       |                       
 |Torch HIP    |Upstreaming   |Development      |In process      |https://github.com/ROCmSoftwarePlatform/cutorch_hip  |
 |HIPnn        |Upstreaming   |Development      |                |https://github.com/ROCmSoftwarePlatform/cunn_hip     |
-|PyTorch      |Development   |Development      |                |                                        |
+|PyTorch      |Development   |Development      |                |                                                     |
 |MxNet        |Development   |Development      |                |https://github.com/ROCmSoftwarePlatform/mxnet        |
 |CNTK         |Development   |Development      |                |                                                     |
 
