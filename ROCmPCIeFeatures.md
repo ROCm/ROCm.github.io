@@ -35,7 +35,7 @@ In SuperMicro system in the system bios you need to see the following
  
 When we support Large Bar Capbility there is a  Large Bar Vbios which also disable the IO bar.  
  
-Here is how our BAR works.
+Here is how our BAR works on GFX 8 GPU's with 40 bit Physical Address Limit. Note GFX9 GPU's address up 44 bit Physical Address. 
  
       11:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Fiji [Radeon R9 FURY / NANO Series] (rev c1)
 
