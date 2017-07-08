@@ -44,6 +44,27 @@ Fiji family of dGPUs, and has expanded to include the Hawaii dGPU family in ROCm
 * [Radeon Compute Profiler](https://github.com/GPUOpen-Tools/RCP) Formally called the ROCm Profiler
 * New Package Server repo.radeon.com to give you better download performance 
 
+### System Requirements 
+
+To use ROCm on your system you need the following: 
+* ROCm Capable CPU and GPU 
+	* PCIe Gen 3 Enabled CPU with PCIe Platform Atomics 
+		* [More about how ROCm uses PCIe Atomics](https://rocm.github.io/ROCmPCIeFeatures.html)
+	* ROCm enabled GPU's 
+		* Radeon Instinct Family MI25, MI8, MI6 
+		* Radeon Vega Frontier Edition 
+		* [Broader Set of Tested Hardware](hardware.md)
+* Supported Version of Linux with a specified GCC Compiler and ToolChain 
+
+
+Table 1. Native Linux Distribution Support in ROCm  1.6
+
+|Distribution	|Kernel	|GCC	|GLIBC	|
+|:--------------|:------|:------|:------|
+|x86_64		|	|	|       |
+|Fedora 24 	|4.9	|5.40	|2.23   |		
+|Ubuntu 16.04	|4.9	|5.40	|2.23   |
+
 #### Supported CPUs
 The ROCm Platform leverages PCIe Atomics (Fetch ADD, Compare and SWAP, 
 Unconditional SWAP, AtomicsOpCompletion).
@@ -58,13 +79,6 @@ connected as e.g. PCIe Gen2 x4. This typically occurs when connecting via the
 Southbridge PCIe I/O controller. If you motherboard is part of this category,
 please do not use this connector for your GPUs, if you intend to exploit ROCm.
 
-Our GFX8 GPU's (Fiji & Polaris family) and GFX9 ( VEGA)  use PCIe Gen 3 and PCIe Atomics. 
-
-New GPU Support for ROCm 1.6 
-
-	Radeon Instinct Family MI25, MI8, MI6 
-	Radeon Vega Frontier Edition 
-
 Current CPUs which support PCIe Gen3 + PCIe Atomics are: 
   * Intel Xeon E5 v3 or newer CPUs; 
   * Intel Xeon E3 v3 or newer CPUs; 
@@ -74,6 +88,15 @@ Current CPUs which support PCIe Gen3 + PCIe Atomics are:
 Upcoming CPUs which will support PCIe Gen3 + PCIe Atomics are:
   * AMD Naples Server CPUs; 
   * Cavium Thunder X Server Processor. 
+  
+#### GPU Supported 
+
+Our GFX8 GPU's (Fiji & Polaris family) and GFX9 (VEGA). 
+
+New GPU Support for ROCm 1.6 
+
+	Radeon Instinct Family MI25, MI8, MI6 
+	Radeon Vega Frontier Edition 
 
 Experimental support for our GFX7 GPUs Radeon R9 290, R9 390, AMD FirePro S9150, S9170 do not support or
 take advantage of PCIe Atomics. However, we still recommend that you use a CPU
