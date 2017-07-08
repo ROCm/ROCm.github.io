@@ -15,6 +15,7 @@ This support starts with AMD’s FIJI Family of dGPUs. ROCm 1.3 further extends 
 To use ROCm on your system you need the following: 
 * ROCm Capable CPU and GPU 
 	* PCIe Gen 3 Enabled CPU with PCIe Platform Atomics 
+		* [More about how ROCm uses PCIe Atomics](https://rocm.github.io/ROCmPCIeFeatures.html)
 	* ROCm enabled GPU's 
 		* Radeon Instinct Family MI25, MI8, MI6 
 		* Radeon Vega Frontier Edition 
