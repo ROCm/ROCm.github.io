@@ -18,6 +18,7 @@ You can perform a simplified ROCm install using our repository server. The packa
 
 * [ROCnRDMA](https://github.com/RadeonOpenCompute/ROCnRDMA)
 * [RDMA performance test](https://github.com/RadeonOpenCompute/rdma-perftest)
+* [OpenUCX ROCm support](https://github.com/openucx/ucx/tree/master/src/uct/rocm)
 
 ### Development Tools
 
