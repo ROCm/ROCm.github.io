@@ -9,7 +9,7 @@ Key Packages Names for ROCm 1.6
 |Package                                  |Debian           |RPM                                        |
 |:----------------------------------------|:----------------|:------------------------------------------|
 |ROCm Master Package                      |rocm             |rocm-1.6.77-Linux.rpm                      |
-|ROCm Devloper Master Package             |rocm-dev         |rocm-dev-1.6.77-Linux.rpm                  |
+|ROCm Developer Master Package            |rocm-dev         |rocm-dev-1.6.77-Linux.rpm                  |
 |ROCm Libraries Master Package            |rocm-libs        |rocm-libs-1.6.77-Linux.rpm                 |
 |ATMI                                     |atmi             |atmi-0.3.7-45-gde867f2-Linux.rpm           | 
 |HCC                                      |hcc              |hcc-1.0.17262-Linux.rpm                    |
@@ -17,7 +17,7 @@ Key Packages Names for ROCm 1.6
 |hcFFT                                    |hcfft.           |hcfft-master-1a96022-Linux.rpm             |
 |hcRNG                                    |hcrng.           |hcrng-master-c2ada99-Linux.rpm             |
 |HIP Core                                 |hip_base         |hip_base-1.2.17263.rpm                     |
-|HIP Documnets                            |hip_doc          |hip_doc-1.2.17263.rpm                      |
+|HIP Documents                            |hip_doc          |hip_doc-1.2.17263.rpm                      |
 |HIP Compiler                             |hip_hcc          |hip_hcc-1.2.17263.rpm                      |
 |HIP Samples                              |hip_samples      |hip_samples-1.2.17263.rpm.                 |
 |HIPBLAS                                  |hipblas          |hipblas-0.4.0.3-Linux.rpm                  |
