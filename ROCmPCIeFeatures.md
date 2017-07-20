@@ -34,8 +34,17 @@ In SuperMicro system in the system bios you need to see the following
 - Advanced->PCIe/PCI/PnP Configuration->MMIO High Size = 256G
  
 When we support Large Bar Capbility there is a  Large Bar Vbios which also disable the IO bar.  
+
+
+For GFX9 and Vega10 which have Physical Address address up 44 bit and 48 bit Virtual addressing.
  
-Here is how our BAR works on GFX 8 GPU's with 40 bit Physical Address Limit. Note GFX9 GPU's address up 44 bit Physical Address. 
+- BAR0-1 registers: 64bit, prefetchable, GPU memory. 8GB or 16GB depending on Vega10 SKU. Must be placed < 2^44 to support P2P access from other Vega10.
+- BAR2-3 registers: 64bit, prefetchable, Doorbell. Must be placed < 2^44 to support P2P access from other Vega10.
+- BAR4 register: Optional, not a boot device.
+- BAR5 register: 32bit, non-prefetchable, MMIO. Must be placed < 4GB.
+ 
+ 
+Here is how our BAR works on GFX 8 GPU's with 40 bit Physical Address Limit
  
       11:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Fiji [Radeon R9 FURY / NANO Series] (rev c1)
 
