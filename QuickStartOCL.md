@@ -47,11 +47,11 @@ If your built all your code with the AMDAPPSDK you do not need to download anyth
 
 Example 1 for AMDAPPSDKROOT
 ```shell
-export AMDAPPSDKROOT= /opt/rocm/opencl 
+export AMDAPPSDKROOT=/opt/rocm/opencl 
 ```
 Example 2 for AMDAPPSDK
 ```shell
-export AMDAPPSDK= /opt/rocm/opencl
+export AMDAPPSDK=/opt/rocm/opencl
 ```
 Where is clinfo? 
 ```shell
