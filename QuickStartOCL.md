@@ -41,6 +41,23 @@ make \
 
 ./vadd
 ```
+Not for all your application that supported the AMDGPU SDK for OpenCL to get the Header,  rocm-opencl-dev now included the headerfiles. 
+
+If your built all your code with the AMDAPPSDK you do not need to download anything else,  you can just export envrioment varible to  /opt/rocm/opencl 
+
+Example 1 for AMDAPPSDKROOT
+```shell
+export AMDAPPSDKROOT= /opt/rocm/opencl 
+```
+Example 2 for AMDAPPSDK
+```shell
+export AMDAPPSDK= /opt/rocm/opencl
+```
+Where is clinfo? 
+```shell
+/opt/rocm/opencl/bin/x86_64/clinfo 
+```
+
 ##### That's it!  Super easy.
 
 #### Related Resources
