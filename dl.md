@@ -51,3 +51,8 @@ sudo apt-get install miopengemm miopen-hip
 |PyTorch      |Development   |Development      |                |                                                     |
 |MxNet        |Development   |Development      |                |https://github.com/ROCmSoftwarePlatform/mxnet        |
 |CNTK         |Development   |Development      |                |                                                     |
+## Tutorials
+
+### hipCaffe
+
+* [hipCaffe Quickstart](ROCmHipCaffeQuickstart.md)
