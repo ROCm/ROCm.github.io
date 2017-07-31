@@ -55,4 +55,4 @@ sudo apt-get install miopengemm miopen-hip
 
 ### hipCaffe
 
-* [hipCaffe Quickstart](https://rocm.github.io/ROCmHipCaffeQuickstart.md)
+* [hipCaffe Quickstart](ROCmHipCaffeQuickstart.md)
