@@ -6,6 +6,7 @@ title: Tutorials
 # ROCm Tutorials
 ROCm comes with a set of tutorials designed to help you understand how you can use and extend the platform.
 
+* [hipCAFFE](ROCmHipCaffeQuickstart.md)How use Caffe on ROCm 
 * [Vector-Add](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/master/vectorAdd) Vector Add example ussing the HIP Programing Language 
 * [Mini N-body](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/master/mini-nbody)
 This sample demonstrates the use of the HIP API for a mini n-body problem.
