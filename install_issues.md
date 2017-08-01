@@ -73,6 +73,38 @@ For RPM – ‘sudo dnf remove <kernel package name>’
 
 The rpm or dpkg command can also be used, but isn't recommended.
 
+### Updating firmware may not trigger a rebuilding of ramfs
+If a device isn't detected by the ROCm kernel drivers, it is possible
+there is an issue loading required device firmware. This can happen
+if the system has downlevel firmware or if the firmware is updated,
+but the ramfs hasn't been initialized with the new firmware images.
+To see if this is a problem, check the dmesg of the system: 
+
+```shell
+dmesg | grep amdgpu
+[    4.434129] [drm] amdgpu kernel modesetting enabled.
+[    4.517484] amdgpu 0000:05:00.0: enabling device (0100 -> 0103)
+[    4.517690] amdgpu 0000:05:00.0: Direct firmware load for amdgpu/vega10_gpu_info.bin failed with error -2
+[    4.517692] amdgpu 0000:05:00.0: Failed to load gpu_info firmware "amdgpu/vega10_gpu_info.bin"
+[    4.517733] amdgpu 0000:05:00.0: Fatal error during GPU init
+[    4.517757] [drm] amdgpu: finishing device.
+[    4.517914] amdgpu: probe of 0000:05:00.0 failed with error -2
+```
+
+If the firmware version isn't correct, please install updated firmware packages,
+which should be available on the repository server. If the correct firmware
+is installed, reinitialize the ramfs as follows:
+
+## Ubuntu
+```shell
+update-initramfs -u
+```
+
+## Fedora
+```shell
+sudo dracut --regenerate-all --force
+```
+
 ### /boot filesystem too small for installation
 This problem can occur on Fedora installation if several previous kernels are
 currently installed. The dnf installation will fail with the following message:
@@ -108,7 +140,7 @@ the package configuration file to point at the localized repo.
 ```shell
 cd /temp && wget http://radeon.repo.com/rocm/archive/apt_1.6.0.tar.bz2
 tar -xvf apt_1.6.0.tar.bz2
-sudo echo “deb [amd64] file://temp/apt_1.6.0 xenial main” > /etc/apt/sources.lists.d/rocm.local.list
+sudo echo 'deb [amd64] file://temp/apt_1.6.0 xenial main'
 sudo apt-get update && sudo apt-get install rocm
 ```
 
