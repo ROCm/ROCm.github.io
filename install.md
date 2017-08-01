@@ -33,7 +33,7 @@ Fiji family of dGPUs, and has expanded to include the Hawaii dGPU family in ROCm
 * Brings Radeon Instinct Family MI25, MI8, MI6 and Radeon Vega Frontier Edition hardware support. 
 * OpenCL 2.0 compatible kernel language support with OpenCL 1.2 compatible runtime
 * OpenCL compiler also has assembler and disassembler support,  inline assembly support.
-* OpenCL implementation is not yet OpenCL conformance.
+* OpenCL implementation is not yet OpenCL conformant.
 * Big improvements in the base Native LLVM code generator with new large number of optimization.
 * HCC Compiler Upgrade with New Gid Dispatch foundation 
 * HIP new APIs: hipMemcpy2DAsync, hipMallocPitch, hipHostMallocCoherent, hipHostMallocNonCoherent

@@ -91,16 +91,18 @@ dmesg | grep amdgpu
 [    4.517914] amdgpu: probe of 0000:05:00.0 failed with error -2
 ```
 
+The error displayed above indicates the kernel is having trouble loading the firmware.
+
 If the firmware version isn't correct, please install updated firmware packages,
 which should be available on the repository server. If the correct firmware
 is installed, reinitialize the ramfs as follows:
 
-## Ubuntu
+#### Ubuntu
 ```shell
 update-initramfs -u
 ```
 
-## Fedora
+#### Fedora
 ```shell
 sudo dracut --regenerate-all --force
 ```
