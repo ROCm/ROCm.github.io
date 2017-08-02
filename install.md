@@ -330,17 +330,7 @@ A fully functional Fedora installation requires a few manual steps to properly
 setup, including:
  * [Building compatible libc++ and libc++abi libraries for Fedora](https://github.com/RadeonOpenCompute/hcc/wiki#fedora)
 
-#### Verify Installation
 
-To verify that the ROCm stack completed successfully you can execute to HSA
-vectory\_copy sample application (we do recommend that you copy it to a
-separate folder and invoke make therein):
-
-```shell
-cd /opt/rocm/hsa/sample
-make
-./vector_copy
-```
 
 #### Closed Source Components
 The ROCm platform relies on a few closed source components to provide legacy
