@@ -160,7 +160,7 @@ of the following GitHub repositories:
 * [HIP-Examples](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-1.6.0)
 * [atmi](https://github.com/RadeonOpenCompute/atmi/tree/0.3.7)
 * [MIOpen](https://github.com/ROCmSoftwarePlatform/MIOpen)
-* [MIOpenGEMM(https://github.com/ROCmSoftwarePlatform/MIOpenGEMM)
+* [MIOpenGEMM](https://github.com/ROCmSoftwarePlatform/MIOpenGEMM)
 
 Additionally, the following mirror repositories that support the HCC compiler
 are also available on GitHub, and frozen for the rocm-1.6.0 release:
