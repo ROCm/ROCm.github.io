@@ -106,7 +106,7 @@ Then, make the ROCm kernel your default kernel. If using grub2 as your bootloade
 sudo nano /etc/default/grub
 ```
 set the GRUB_Default 
-Edit: GRUB_DEFAULT="Advanced options for Ubuntu>Ubuntu, with Linux 4.9.0-kfd-compute-rocm-rel-1.6-77"
+Edit: GRUB_DEFAULT="Advanced options for Ubuntu>Ubuntu, with Linux 4.11.0-kfd-compute-rocm-rel-1.6-115"
 ```shell
 sudo update-grub
 ```
@@ -150,7 +150,7 @@ Verify you have the correct Kernel Post install
 
 ```shell
 uname -r
-4.9.0-kfd-compute-rocm-rel-1.6-77
+4.11.0-kfd-compute-rocm-rel-1.6-115
 ```
 Test if OpenCL is working based on default ROCm OpenCL include and library locations:
 ```shell
