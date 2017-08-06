@@ -54,6 +54,9 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 * [GCN float16](GCN_Float16.html)
 * [ROC device library---Open Compute Math Library  intrinsics](https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md)
 
+#### MultiGPU Programing In-node P2P and Out of Node P2P 
+[ROCm P2P Documentation and Solution for In-node P2P and Network RDMA based P2P](/ROCmMultiGPU.md)
+
 #### Development Tools 
 
 * [ROCm profiler: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/README.md)
