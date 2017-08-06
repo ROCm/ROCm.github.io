@@ -1,6 +1,6 @@
 
 
-## MultiGPU In-node and Out of Node Solutions
+## MultiGPU In-node and Out of Node P2P Solutions
 
 #### In-node			
 
