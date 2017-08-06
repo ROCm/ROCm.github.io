@@ -11,7 +11,7 @@
 * [HIP Language Runtime support of P2P	P2P API's model after CUDA P2P API's](http://rocm-developer-tools.github.io/HIP/group__PeerToPeer.html)
 * OpenCL Language Runtime P2P API	Peer-to-Peer API  with Autocopy support over Intel QPI bus 
   * API name -  clEnqueueBufferCopyP2PAMD releasing in ROCm 1.6.2 OpenCl	
-Communication Primitives Library	Helper Library to make it easier to use P2P  Via Communication Primitives	In Development	
+* HIP based Communication Primitives Helper Library to make it easier to use P2P - In Development	
 * ROCr level IPC 	Inter Process Communication 	API 
  * IPC is Suppported in HIP API 
 
