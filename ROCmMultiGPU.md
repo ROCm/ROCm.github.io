@@ -20,9 +20,8 @@ Communication Primitives Library	Helper Library to make it easier to use P2P  V
 
 #### Standard Frameworks for Out of Node Communication			
 
-* [OpenUCX	UCX is a communication library implementing high-performance messaging for MPI/PGAS frameworks	In Development](http://www.openucx.org. [Source for ROCm](https://github.com/openucx/ucx/tree/master/src/uct/rocm)
+* [OpenUCX	UCX is a communication library implementing high-performance messaging for MPI/PGAS frameworks	In Development](http://www.openucx.org.) [Source for ROCm](https://github.com/openucx/ucx/tree/master/src/uct/rocm)
 * [OpenMPI	Open MPI Project is an open source Message Passing Interface https://www.open-mpi.org	In Development](https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX)
-* [ MPICH	MPICH is a high-performance and widely portable implementation of the Message Passing Interface (MPI) standard (MPI-1, MPI-2 and MPI-3)](https://www.mpich.org/about/overview/)	
-  * [In Development](https://www.mpich.org/2016/08/30/mpich-3-3a1-released/)  UCX support
+* [ MPICH	MPICH is a high-performance and widely portable implementation of the Message Passing Interface (MPI) standard (MPI-1, MPI-2 and MPI-3)](https://www.mpich.org/about/overview/)	 [In Development](https://www.mpich.org/2016/08/30/mpich-3-3a1-released/)  UCX support
 * [OpenSHMEM	Partitioned Global Address Space & Communication Library	In Development](https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX)
 * [OSU benchmark to test performance](https://github.com/ROCm-Developer-Tools/OSU_Microbenchmarks)
