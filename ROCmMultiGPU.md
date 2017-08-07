@@ -14,7 +14,7 @@
   * Releasing in OpenCL with ROCm 1.6.2	
 * HIP based Communication Primitives Helper Library to make it easier to use P2P - In Development	
 * ROCr level IPC 	Inter Process Communication 	API 
- * IPC is Suppported in HIP API 
+ * IPC is Supported in HIP API 
 
 #### Out of Node			
 
