@@ -7,6 +7,8 @@ title: ROCm Documentation
 
 The ROCm documentation site is where we assemble quick-start guides, installation guides, programming guides, API reference documentation, tool documentation and whitepapers.
 
+* [Beta Online ROCm Documentation](http://rocm-documentation.readthedocs.io/en/latest/index.html)
+
 ### ROCm Install  
 * [ROCm Install Quick Start Guide](ROCmInstall.md)
 * [ROCm Install FAQ](install_issues.md)
