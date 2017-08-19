@@ -45,6 +45,11 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 * [HIP kernel-language overview](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md)
 * [HIP FAQ](https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/blob/master/docs/markdown/hip_faq.md)
 
+#### OpenCL 
+
+* [Quick Start for OpenCL](QuickStartOCL.md)
+* ROCm support OpenCl 1.2 & 2.0 minus PIPES and Device Enqueue. 
+
 #### GCN ISA, ROCm Object Format, ABI and Assembly Documentation 
 
 * [GCN Architecture overview](https://www.amd.com/Documents/GCN_Architecture_whitepaper.pdf)
