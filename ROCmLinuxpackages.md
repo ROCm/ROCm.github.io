@@ -13,7 +13,6 @@ Key Packages Names for ROCm 1.6
 |ROCm Libraries Master Package            |rocm-libs        |rocm-libs-1.6.77-Linux.rpm                 |
 |ATMI                                     |atmi             |atmi-0.3.7-45-gde867f2-Linux.rpm           | 
 |HCC                                      |hcc              |hcc-1.0.17262-Linux.rpm                    |
-|hcBLAS                                   |hcblas           |hcblas-master-482646f-Linux.rpm            |
 |hcFFT                                    |hcfft.           |hcfft-master-1a96022-Linux.rpm             |
 |hcRNG                                    |hcrng.           |hcrng-master-c2ada99-Linux.rpm             |
 |HIP Core                                 |hip_base         |hip_base-1.2.17263.rpm                     |
