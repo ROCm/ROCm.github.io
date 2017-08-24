@@ -66,8 +66,8 @@ The ROCm documentation site is where we assemble quick-start guides, installatio
 
 #### Development Tools 
 
-* [ROCm profiler: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/README.md)
-* [GPU Performance API (GPUPerfAPI), including access to performance counters](https://github.com/GPUOpen-Tools/GPA/blob/master/GPUPerfAPI/doc/GPUPerfAPI-UserGuide.pdf)  
+* [ROCm profiler: overview and how-to](http://gpuopen.com/getting-up-to-speed-with-the-codexl-gpu-profiler-and-radeon-open-compute/)
+* [GPU Performance API (GPUPerfAPI), including access to performance counters](https://github.com/GPUOpen-Tools/GPA/blob/master/Doc/GPUPerfAPI-UserGuide.pdf)  
 * [ROCm GDB debugger: overview and how-to](https://github.com/RadeonOpenCompute/ROCm-Debugger/blob/master/TUTORIAL.md)
 * [ROCm compiler development: foundation for creating your own compiler](ROCmCompilerKit.html)
 
