@@ -17,6 +17,13 @@ title: Hardware
 ROCm Platform leverages modern CPUs supporting PCI Express 3.0 or greater, exploiting advanced capabilities including PCIe Atomics (Fetch and Add, Compare and Swap, Unconditional Swap, AtomicOp Completion). To find out more; [PCIe Atomics and Large Bar Overview](/ROCmPCIeFeatures.md)
  
 To support ROCm programming model, the GPUs are installed in PCIe slots with PCI Express 3.0 or higher capabilities with transfer rates of 8.0 GT/s in either x16 or x8 lanes. The system configuration can have the PCIe slots directly on CPU’s root port or a PCIe switch port. The CPU root must indicate PCIe AtomicOp Completion capabilities and any intermediate switch must indicate PCIe AtomicOp Routing capabilities.
+
+PCIe root port must report and support
+* 32-bit AtomicOp Completer Supported = 1
+* 64-bit AtomicOp Completer Supported = 1
+ 
+All PCIe switches between GPU End Point and Root Point must report and support
+* AtomicOp Routing Supported = 1
  
 Note that the physical PCIe slot size does not guarantee support for ROCm. We have reports of few consumer motherboards which support physical x16 PCIe slots, but the PCIe connector is electrically connected as x4 PCIe Express 2.0 from the Southbridge. Since the PCIe slot connector matters to the GPU, care must be taken to not place them in on motherboards configured this way.
  
