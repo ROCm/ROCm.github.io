@@ -14,7 +14,7 @@ title: Hardware
 
 ##### Supported CPU
 
-ROCm Platform leverages modern CPUs supporting PCI Express 3.0 or greater, exploiting advanced capabilities including PCIe Atomics (Fetch and Add, Compare and Swap, Unconditional Swap, AtomicOp Completion). To find out more; https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md
+ROCm Platform leverages modern CPUs supporting PCI Express 3.0 or greater, exploiting advanced capabilities including PCIe Atomics (Fetch and Add, Compare and Swap, Unconditional Swap, AtomicOp Completion). To find out more; [PCIe Atomics and Large Bar Overview](/ROCmPCIeFeatures.md)
  
 To support ROCm programming model, the GPUs are installed in PCIe slots with PCI Express 3.0 or higher capabilities with transfer rates of 8.0 GT/s in either x16 or x8 lanes. The system configuration can have the PCIe slots directly on CPU’s root port or a PCIe switch port. The CPU root must indicate PCIe AtomicOp Completion capabilities and any intermediate switch must indicate PCIe AtomicOp Routing capabilities.
  
