@@ -2,11 +2,11 @@
 
 ROCm is an extension of  HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents. 
 
-The full list of HSA system architecture platform requirements are here: [HSA Sys Arch Features](http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm)
+The full list of HSA system architecture platform requirements is here: [HSA Sys Arch Features](http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm)
 
-Thes ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0)  fetures for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations. 
+The ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0)  features for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations. 
 
-The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the I/O device which support 32-, 64- and 128-bit operand which target address have to be naturaly algined to operation sizes.  
+The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the I/O device which support 32-, 64- and 128-bit operand which target address have to be naturally aligned to operation sizes.  
 
 Currently ROCm use this capability as following:
 
@@ -14,8 +14,8 @@ Currently ROCm use this capability as following:
 - Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
 - Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
 
-The PCIe 3.0 AtomicOp (6.15) feature allows atomic transctions to be requested by, routed through and completed by PCIe components. Routing and completion do not require software support. Component support for each is detectable via
-the DEVCAP2 register. Upstream bridges need to have AtomicOp routing enabled or the Atomic Operations will fall even though PCIe endpoint and and PCIe I/O Devices has the capability to Atomics Operations. 
+The PCIe 3.0 AtomicOp (6.15) feature allows atomic transactions to be requested by, routed through and completed by PCIe components. Routing and completion do not require software support. Component support for each is detectable via
+the DEVCAP2 register. Upstream bridges need to have AtomicOp routing enabled or the Atomic Operations will fall even though PCIe endpoint and PCIe I/O Devices has the capability to Atomics Operations. 
 
 To do AtomicOp routing capability between two or more Root Ports, each associated Root Port must indicate that capability via the AtomicOp Routing Supported bit in the Device Capabilities 2 register.
 
