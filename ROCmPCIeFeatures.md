@@ -2,17 +2,35 @@
 
 ROCm is an extension of  HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents. 
 
-The full list of HSA system architecture platform requirements are here: http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm
+The full list of HSA system architecture platform requirements are here: [HSA Sys Arch Features](http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm)
 
-For ROCm the Platform atomics are used in ROCm in the following ways:
+Thes ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0)  fetures for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations. The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the I/O device which support 32-, 64- and 128-bit operand which target address have to be naturaly algined to operation sizes.  
+
+Currently ROCm use this capability as following:
 
 - Update HSA queue’s read_dispatch_id: 64bit atomic add used by the command processor on the GPU agent to update the packet ID it processed.
 - Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
 - Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
 
-The PCIe Platform Atomics are  CAS, FetchADD, SWAP
+To understand more about how PCIe Atomic operations work  [PCIe Atomics](https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf)
 
-Here is document on PCIe Atomics https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf
+There are also a number of papers which talk about these new capabilities:
+- [Atomic Read Modify Write Primatives by Intel](https://www.intel.es/content/dam/doc/white-paper/atomic-read-modify-write-primitives-i-o-devices-paper.pdf)
+- [PCI express 3 Accelerator Whitepaper by Intel](https://www.intel.sg/content/dam/doc/white-paper/pci-express3-accelerator-white-paper.pdf)
+
+Other I/O devices with PCIe Atomics support 
+- [Mellanox ConnectX-5 Infiniband Card](http://www.mellanox.com/related-docs/prod_adapter_cards/PB_ConnectX-5_VPI_Card.pdf)
+- [Cray Aries Interconect](http://www.hoti.org/hoti20/slides/Bob_Alverson.pdf)
+- [Xilinx PCIe Ultrascale Whitepaper](https://www.xilinx.com/support/documentation/white_papers/wp464-PCIe-ultrascale.pdf)
+- [Xilinx 7 Serries Devices](https://www.xilinx.com/support/documentation/ip_documentation/pcie_7x/v3_1/pg054-7series-pcie.pdf)
+
+Future bus technology with richer I/O  Atomics Operation Support 
+- [GenZ](http://genzconsortium.org/faq/gen-z-technology/#33)
+
+New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU's with PCIe Generation 3.0 support. 
+- [Mellanox Bluefield SOC](http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf)
+- [Cavium Thunder X2](http://www.cavium.com/ThunderX2_ARM_Processors.html) 
+
 
 In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:  
 
