@@ -25,19 +25,19 @@ Atomic Operation is a Non-Posted transaction supporting 32- and 64-bit address f
 
 To understand more about how PCIe Atomic operations work  [PCIe Atomics](https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf)
 
-[Linux Kerenl Patch to pci_enable_atomic_request](https://patchwork.kernel.org/patch/7261731/)
+[Linux Kernel Patch to pci_enable_atomic_request](https://patchwork.kernel.org/patch/7261731/)
 
 There are also a number of papers which talk about these new capabilities:
-- [Atomic Read Modify Write Primatives by Intel](https://www.intel.es/content/dam/doc/white-paper/atomic-read-modify-write-primitives-i-o-devices-paper.pdf)
+- [Atomic Read Modify Write Primitives by Intel](https://www.intel.es/content/dam/doc/white-paper/atomic-read-modify-write-primitives-i-o-devices-paper.pdf)
 - [PCI express 3 Accelerator Whitepaper by Intel](https://www.intel.sg/content/dam/doc/white-paper/pci-express3-accelerator-white-paper.pdf)
 - [Intel PCIe Generation 3 Hotchips Paper](https://www.hotchips.org/wp-content/uploads/hc_archives/hc21/1_sun/HC21.23.1.SystemInterconnectTutorial-Epub/HC21.23.131.Ajanovic-Intel-PCIeGen3.pdf)
 - [PCIe Generation 4 Base Specification includes Atomics Operation](http://composter.com.ua/documents/PCI_Express_Base_Specification_Revision_4.0.Ver.0.3.pdf) 
 
 Other I/O devices with PCIe Atomics support 
-- [Mellanox ConnectX-5 Infiniband Card](http://www.mellanox.com/related-docs/prod_adapter_cards/PB_ConnectX-5_VPI_Card.pdf)
-- [Cray Aries Interconect](http://www.hoti.org/hoti20/slides/Bob_Alverson.pdf)
+- [Mellanox ConnectX-5 InfiniBand Card](http://www.mellanox.com/related-docs/prod_adapter_cards/PB_ConnectX-5_VPI_Card.pdf)
+- [Cray Aries Interconnect](http://www.hoti.org/hoti20/slides/Bob_Alverson.pdf)
 - [Xilinx PCIe Ultrascale Whitepaper](https://www.xilinx.com/support/documentation/white_papers/wp464-PCIe-ultrascale.pdf)
-- [Xilinx 7 Serries Devices](https://www.xilinx.com/support/documentation/ip_documentation/pcie_7x/v3_1/pg054-7series-pcie.pdf)
+- [Xilinx 7 Series Devices](https://www.xilinx.com/support/documentation/ip_documentation/pcie_7x/v3_1/pg054-7series-pcie.pdf)
 
 Future bus technology with richer I/O  Atomics Operation Support 
 - [GenZ](http://genzconsortium.org/faq/gen-z-technology/#33)
