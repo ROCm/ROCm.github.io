@@ -4,7 +4,9 @@ ROCm is an extension of  HSA platform architecture, so it shares the queueing mo
 
 The full list of HSA system architecture platform requirements are here: [HSA Sys Arch Features](http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm)
 
-Thes ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0)  fetures for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations. The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the I/O device which support 32-, 64- and 128-bit operand which target address have to be naturaly algined to operation sizes.  
+Thes ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0)  fetures for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations. 
+
+The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the I/O device which support 32-, 64- and 128-bit operand which target address have to be naturaly algined to operation sizes.  
 
 Currently ROCm use this capability as following:
 
@@ -12,11 +14,26 @@ Currently ROCm use this capability as following:
 - Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
 - Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
 
+The PCIe 3.0 AtomicOp (6.15) feature allows atomic transctions to be requested by, routed through and completed by PCIe components. Routing and completion do not require software support. Component support for each is detectable via
+the DEVCAP2 register. Upstream bridges need to have AtomicOp routing enabled or the Atomic Operations will fall even though PCIe endpoint and and PCIe I/O Devices has the capability to Atomics Operations. 
+
+To do AtomicOp routing capability between two or more Root Ports, each associated Root Port must indicate that capability via the AtomicOp Routing Supported bit in the Device Capabilities 2 register.
+
+If your system has a PCIe Express Switch it needs to support AtomicsOp routing. Again AtomicOp requests are permitted only if a component's DEVCTL2.ATOMICOP_REQUESTER_ENABLE field is set. These requests can only be serviced if the upstream components support AtomicOp completion and/or routing to a component which does. 
+
+Atomic Operation is a Non-Posted transaction supporting 32- and 64-bit address formats, there must be a response for Completion containing the result of the operation. Errors associated with the operation (uncorrectable error accessing the target location or carrying out the Atomic operation) are signaled to the requester by setting the Completion Status field in the completion descriptor, they are set to to Completer Abort (CA) or Unsupported Request (UR).
+
+If your system has a PCIe Express Switch it needs to support AtomicsOp routing. 
+
 To understand more about how PCIe Atomic operations work  [PCIe Atomics](https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf)
+
+[Linux Kerenl Patch to pci_enable_atomic_request](https://patchwork.kernel.org/patch/7261731/)
 
 There are also a number of papers which talk about these new capabilities:
 - [Atomic Read Modify Write Primatives by Intel](https://www.intel.es/content/dam/doc/white-paper/atomic-read-modify-write-primitives-i-o-devices-paper.pdf)
 - [PCI express 3 Accelerator Whitepaper by Intel](https://www.intel.sg/content/dam/doc/white-paper/pci-express3-accelerator-white-paper.pdf)
+- [Intel PCIe Generation 3 Hotchips Paper](https://www.hotchips.org/wp-content/uploads/hc_archives/hc21/1_sun/HC21.23.1.SystemInterconnectTutorial-Epub/HC21.23.131.Ajanovic-Intel-PCIeGen3.pdf)
+- [PCIe Generation 4 Base Specification includes Atomics Operation](http://composter.com.ua/documents/PCI_Express_Base_Specification_Revision_4.0.Ver.0.3.pdf) 
 
 Other I/O devices with PCIe Atomics support 
 - [Mellanox ConnectX-5 Infiniband Card](http://www.mellanox.com/related-docs/prod_adapter_cards/PB_ConnectX-5_VPI_Card.pdf)
@@ -38,6 +55,8 @@ In ROCm, we also take advantage of PCIe ID based ordering technology for P2P whe
 2. then write to system memory to indicate transfer complete. 
 
 They are routed off to different ends of the computer but we want to make sure the write to system memory to indicate transfer complete occurs AFTER P2P write to GPU has complete. 
+
+[Good Paper on Understanding PCIe Generation 3 Throughput](https://www.altera.com/en_US/pdfs/literature/an/an690.pdf)
 
 ## BAR Memory Overview 
 
