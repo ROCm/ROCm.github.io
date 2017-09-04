@@ -1,4 +1,4 @@
-# ROCm PCIe Feature and Overview BAR Memory. 
+# ROCm Use of Advanced PCIe Features and Overview of How BAR Memory is Used In ROCm Enabled System. 
 
 ROCm is an extension of  HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents. 
 
