@@ -28,8 +28,8 @@ Table 1. Native Linux Distribution Support in ROCm  1.6
 |Distribution	|Kernel	|GCC	|GLIBC	|
 |:--------------|:------|:------|:------|
 |x86_64		|	|	|       |
-|Fedora 24 	|4.9	|5.40	|2.23   |		
-|Ubuntu 16.04	|4.9	|5.40	|2.23   |		
+|Fedora 24 	|4.11	|5.40	|2.23   |		
+|Ubuntu 16.04	|4.11	|5.40	|2.23   |		
 	
 ### Pre Install Directions 
 

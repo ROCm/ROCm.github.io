@@ -1,4 +1,4 @@
----
+--
 layout: default
 title: Install FAQ
 ---
@@ -140,9 +140,9 @@ the package configuration file to point at the localized repo.
 #### Debian Archive Example
 
 ```shell
-cd /temp && wget http://radeon.repo.com/rocm/archive/apt_1.6.0.tar.bz2
+cd /tmp && wget http://repo.radeon.com/rocm/archive/apt_1.6.0.tar.bz2
 tar -xvf apt_1.6.0.tar.bz2
-sudo echo 'deb [amd64] file://temp/apt_1.6.0 xenial main'
+sudo sh -c "echo deb [amd64] file://tmp/apt_1.6.0 xenial main" > /etc/apt/sources.list.d/rocm.list
 sudo apt-get update && sudo apt-get install rocm
 ```
 
@@ -154,13 +154,13 @@ Add a /etc/yum.d/rocm.local.repo file with the following contents:
 ```shell
 [remote]
 name=ROCm Repo
-baseurl=file://packages.amd.com/rocm/yum/rpm/
+baseurl=file://tmp/yum_1.6.0/
 enabled=1
 gpgcheck=0
 ```
 
 ```shell
-cd /temp && wget http://radeon.repo.com/rocm/archive/yum_1.6.0.tar.bz2
+cd /tmp && wget http://radeon.repo.com/rocm/archive/yum_1.6.0.tar.bz2
 tar –xvf yum_1.6.0.tar.bz2
 ```
 
