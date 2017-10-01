@@ -150,7 +150,7 @@ Verify you have the correct Kernel Post install
 
 ```shell
 uname -r
-4.11.0-kfd-compute-rocm-rel-1.6-115
+4.11.0-kfd-compute-rocm-rel-1.6-148
 ```
 Test if OpenCL is working based on default ROCm OpenCL include and library locations:
 ```shell
