@@ -23,7 +23,7 @@ development requires.
 
 **HSA Compliant Runtime and Driver for AMD RADEON GPU's** 
 
-![HSAFoundation Compilant](images/ImageAgentProxy.jpeg)
+
 
 ### Going to 11: Amping Up the Programming-Language Run-Time Foundation
 
