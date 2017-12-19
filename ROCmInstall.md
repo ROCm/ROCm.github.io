@@ -8,7 +8,14 @@ title: ROCm Install
 ### Introduction 
 The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems.
 
-This support starts with AMD’s FIJI Family of dGPUs. ROCm 1.3 further extends support to include the Polaris Family of ASICs. With ROCm 1.6 we add Vega Family of products. 
+ROCm started  with just the support of AMD’s FIJI Family of dGPUs. Starting with ROCm 1.3 we further extends support to include the Polaris Family of ASICs. With ROCm 1.6 we added Vega Family of products. 
+
+#### New too ROCm 1.7 is the DKMS driver installation
+
+ * New driver installation uses Dynamic Kernel Module Support (DKMS)
+ * Only amdkfd and amdgpu kernel modules are installed to support AMD hardware
+ * Currently only Debian packages are provided for DKMS (no Fedora suport available)
+ * See the [ROCT-Thunk-Interface](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.7.x) and [ROCK-Kernel-Driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.7.x) for additional documentation on driver setup
 
 ### System Requirements 
 
@@ -23,12 +30,11 @@ To use ROCm on your system you need the following:
 * Supported Version of Linux with a specified GCC Compiler and ToolChain 
 
 
-Table 1. Native Linux Distribution Support in ROCm  1.6
+Table 1. Native Linux Distribution Support in ROCm  1.7
 
 |Distribution	|Kernel	|GCC	|GLIBC	|
 |:--------------|:------|:------|:------|
-|x86_64		|	|	|       |
-|Fedora 24 	|4.11	|5.40	|2.23   |		
+|x86_64		|	|	|       |		
 |Ubuntu 16.04	|4.11	|5.40	|2.23   |		
 	
 ### Pre Install Directions 
@@ -94,86 +100,51 @@ but has the following sha1sum hash:
 f0d739836a9094004b0a39058d046349aacc1178  rocm.gpg.key
 
 ##### Install or update ROCm 
+Next, update the apt-get repository list and install/update the rocm package:
+
+>**Warning**: Before proceeding, make sure to completely
+>[uninstall any previous ROCm package](https://github.com/RadeonOpenCompute/ROCm#removing-pre-release-packages):
 
 ```shell
 sudo apt-get update
-sudo apt-get install rocm rocm-opencl-dev
+sudo apt-get install rocm-dkms rocm-opencl-dev
 ```
+Once complete, reboot your system.
 
-Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
+We recommend you [verify your installation](https://github.com/RadeonOpenCompute/ROCm#verify-installation) to make sure everything completed successfully.
 
-```shell
-sudo nano /etc/default/grub
-```
-set the GRUB_Default 
-Edit: GRUB_DEFAULT="Advanced options for Ubuntu>Ubuntu, with Linux 4.11.0-kfd-compute-rocm-rel-1.6-115"
-```shell
-sudo update-grub
-```
 ------------------------------------
-
-#### Fedora Install 
-Use the  dnf (yum) repository for installation of rpm packages.
-To configure a system to use the ROCm rpm directory create the file
-/etc/yum.repos.d/rocm.repo with the following contents:
-
-```shell
-[remote]
-
-name=ROCm Repo
-
-baseurl=http://repo.radeon.com/rocm/yum/rpm/
-
-enabled=1
-
-gpgcheck=0
-```
-
-Execute the following commands:
-```shell
-sudo dnf clean all
-sudo dnf install rocm rocm-opencl-dev
-```
-Just like Ubuntu installs, the ROCm kernel must be the default kernel used at boot time.
-
-Post Install Manual installation steps for Fedora to support HCC compiler 
-
-A fully functional Fedora installation requires a few manual steps to properly 
-setup, including:
- * [Building compatible libc++ and libc++abi libraries for Fedora](https://github.com/RadeonOpenCompute/hcc/wiki#fedora)
-
 
 
 ##### Post install verification 
 
-Verify you have the correct Kernel Post install 
+###### Upon restart, To test your OpenCL instance 
 
-```shell
-uname -r
-4.11.0-kfd-compute-rocm-rel-1.6-148
+ Build and run Hello World OCL app..
+
+HelloWorld sample:
 ```
-Test if OpenCL is working based on default ROCm OpenCL include and library locations:
-```shell
+ wget https://raw.githubusercontent.com/bgaster/opencl-book-samples/master/src/Chapter_2/HelloWorld/HelloWorld.cpp
+ wget https://raw.githubusercontent.com/bgaster/opencl-book-samples/master/src/Chapter_2/HelloWorld/HelloWorld.cl
+```
+
+ Build it using the default ROCm OpenCL include and library locations:
+```
 g++ -I /opt/rocm/opencl/include/ ./HelloWorld.cpp -o HelloWorld -L/opt/rocm/opencl/lib/x86_64 -lOpenCL
 ```
 
-Run it:
-```shell
-./HelloWorld
+ Run it:
+ ```
+ ./HelloWorld
 ```
 
-### To Uninstall the a Package 
+##### Un-install ROCm 
+To un-install the entire rocm development package execute:
 * Ubuntu 
 ```shell
-sudo apt-get purge libhsakmt
-sudo apt-get purge radeon-firmware
-sudo apt-get purge $(dpkg -l | grep 'kfd\|rocm' | grep linux | grep -v libc | awk '{print $2}')
-```
-* Fedora 
-```shell
-sudo dnf remove ROCm   
-```	
-[List of ROCm Packages for Ubuntu and Fedora](ROCmLinuxpackages.md)
+sudo apt-get autoremove rocm-dkms
+
+
 
 ### Installing development packages for cross compilation
 
