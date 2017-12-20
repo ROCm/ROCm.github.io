@@ -114,8 +114,8 @@ With move to upstreaming the KFD driver and the support of DKMS,  for all Consol
 
 ```shell
 sudo usermod -a -G video <username>
-Once complete, reboot your system.
 ```
+Once complete, reboot your system.
 
 We recommend you [verify your installation](https://github.com/RadeonOpenCompute/ROCm#verify-installation) to make sure everything completed successfully.
 
