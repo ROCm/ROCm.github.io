@@ -120,6 +120,8 @@ We recommend you [verify your installation](https://github.com/RadeonOpenCompute
 
 ###### Upon restart, To test your OpenCL instance 
 
+Post Install all user need to part of the member of “video” group so set your Unix permisions for this. 
+
  Build and run Hello World OCL app..
 
 HelloWorld sample:
