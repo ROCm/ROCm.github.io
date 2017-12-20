@@ -100,7 +100,7 @@ but has the following sha1sum hash:
 f0d739836a9094004b0a39058d046349aacc1178  rocm.gpg.key
 
 ##### Install or update ROCm 
-Next, update the apt-get repository list and install/update the rocm package:
+Next, update the apt-get repository list and install/update the ROCm package:
 
 >**Warning**: Before proceeding, make sure to completely
 >[uninstall any previous ROCm package](https://github.com/RadeonOpenCompute/ROCm#removing-pre-release-packages):
