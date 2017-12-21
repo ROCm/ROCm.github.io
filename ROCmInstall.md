@@ -108,9 +108,9 @@ Next, update the apt-get repository list and install/update the ROCm package:
 ```shell
 sudo apt-get update
 sudo apt-get install rocm-dkms rocm-opencl-dev
-```
+```permisions
 
-With move to upstreaming the KFD driver and the support of DKMS,  for all Console aka headless user you will need  add all  your users to the  'video" group by setting the unix permisions
+With move to upstreaming the KFD driver and the support of DKMS, for all Console aka headless user, you will need to add all your users to the ‘video” group by setting the Unix permissions
 
 ```shell
 sudo usermod -a -G video <username>
