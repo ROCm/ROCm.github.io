@@ -39,6 +39,14 @@ Table 1. Native Linux Distribution Support in ROCm  1.7
 	
 ### Pre Install Directions 
 
+##### First make sure your system is up to date 
+
+```shell
+sudo apt update
+sudo apt dist-upgrade
+sudo reboot
+```
+
 ##### Verify You Have ROCm Capable GPU Installed int the System 
 
 ```shell
