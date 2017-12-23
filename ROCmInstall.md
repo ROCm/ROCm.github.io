@@ -108,13 +108,25 @@ Next, update the apt-get repository list and install/update the ROCm package:
 ```shell
 sudo apt-get update
 sudo apt-get install rocm-dkms rocm-opencl-dev
-```permisions
+```
 
-With move to upstreaming the KFD driver and the support of DKMS, for all Console aka headless user, you will need to add all your users to the ‘video” group by setting the Unix permissions
+Setting Permisions to Use ROCm 
+
+With move to upstreaming the KFD driver and the support of DKMS,  for all Console aka headless user, you will need to add all  your users to the  'video" group by setting the Unix permissions
+
+Configure 
+Ensure that your user account is a member of the "video" group prior to using the ROCm driver. You can find which groups you are a member of with the following command:
 
 ```shell
-sudo usermod -a -G video <username>
+groups
 ```
+
+To add yourself to the video group you will need the sudo password and can use the following command:
+
+```shell
+sudo usermod -a -G video $LOGNAME 
+``` 
+
 Once complete, reboot your system.
 
 We recommend you [verify your installation](https://github.com/RadeonOpenCompute/ROCm#verify-installation) to make sure everything completed successfully.
