@@ -78,7 +78,7 @@ Our LLVM code generator now supports the GCN ISA disassembler and assembler.
 * [rocFFT](https://github.com/ROCmSoftwarePlatform/rocFFT)
 * [Tensile](https://github.com/ROCmSoftwarePlatform/Tensile)
 
-* [Egien C++ Math Library with HIP Based GPU Acceleration](https://github.com/ROCmSoftwarePlatform/hipeigen) 
+* [Eigen C++ Math Library with HIP Based GPU Acceleration](https://github.com/ROCmSoftwarePlatform/hipeigen) 
 
 * [clBLAS](https://github.com/clMathLibraries/clBLAS)
 * [clFFT](https://github.com/clMathLibraries/clFFT)
