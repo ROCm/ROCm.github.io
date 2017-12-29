@@ -115,6 +115,7 @@ Next, update the apt-get repository list and install/update the ROCm package:
 
 ```shell
 sudo apt-get update
+sudo apt-get install libnuma-dev
 sudo apt-get install rocm-dkms rocm-opencl-dev
 ```
 
