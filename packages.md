@@ -24,7 +24,7 @@ You can perform a simplified ROCm install using our repository server. The packa
 
 #### HCC Compiler
 
-* [HCC compiler source](href="https://github.com/RadeonOpenCompute/hcc)
+* [HCC compiler source](https://github.com/RadeonOpenCompute/hcc)
 * [HCC Clang source](https://github.com/RadeonOpenCompute/hcc-clang)
 
 #### HIP
