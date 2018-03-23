@@ -141,6 +141,21 @@ Once complete, reboot your system.
 We recommend you [verify your installation](https://github.com/RadeonOpenCompute/ROCm#verify-installation) to make sure everything completed successfully.
 
 ------------------------------------
+######## If you Plan to Run with X11 - we are seeing X freezes under load
+
+ROCm 1.7.1 a kernel parameter noretry has been set to 1 to improve overall system performance. However it has been proven to bring instability to graphics driver shipped with Ubuntu. This is an ongoing issue and we are looking into it.
+
+Before that, please try apply this change by changing noretry bit to 0.
+
+echo 0 | sudo tee /sys/module/amdkfd/parameters/noretry
+Files under /sys won't be preserved after reboot so you'll need to do it every time.
+
+One way to keep noretry=0 is to change /etc/modprobe.d/amdkfd.conf and make it be:
+
+options amdkfd noretry=0
+
+Once it's done, run sudo update-initramfs -u. Reboot and verify /sys/module/amdkfd/parameters/noretry stays as 0.
+
 
 
 ##### Post install verification 
