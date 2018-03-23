@@ -141,6 +141,7 @@ Once complete, reboot your system.
 We recommend you [verify your installation](https://github.com/RadeonOpenCompute/ROCm#verify-installation) to make sure everything completed successfully.
 
 ------------------------------------
+
 ######## If you Plan to Run with X11 - we are seeing X freezes under load
 
 ROCm 1.7.1 a kernel parameter noretry has been set to 1 to improve overall system performance. However it has been proven to bring instability to graphics driver shipped with Ubuntu. This is an ongoing issue and we are looking into it.
