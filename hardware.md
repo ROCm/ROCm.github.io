@@ -47,7 +47,7 @@ When you install your GPU's Make sure you install them on real PCIexpress Gen3 (
   * Xeon E3 v3 or newer CPU's
   * Core i7 v3, Core i5 v3, Core i3 v3 or newer CPU's  
   
- * Cavium Thunder X Server Processor </li>
+
 
 ###### Curently Not supported 
 * AMD Carrizo and Kaveri APU with external GPU Attached are not supported by ROCm 
