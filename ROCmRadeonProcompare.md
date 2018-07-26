@@ -50,8 +50,6 @@
 | Intel Xeon  E5 & E7                      | Supported                          | Optimized for version V3 or newer    |
 | AMD Ryzen                                | Supported                          | Optimized                            |
 | AMD Naples                               | Supported                          | Optimized                            |
-| OpenPower                                | NO                                 | IBM Power 8                          |
-| ARM                                      | NO                                 | ARM AArch64 /Cavium Tunder X         |
 | GPU ASIC Support                         |                                    |                                      |
 | Hawaii ( S9150, S9170, S9100,  W9100, W8100) | YES                                | YES                                  |
 | Fiji ( Fiji Nano,  S9300x2)              | YES                                | YES                                  |
