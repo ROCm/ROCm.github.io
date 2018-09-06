@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83146017-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="AMD Tutorial on AMD GCN GPUs, ROCm, and MIOpen at MICRO 51">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>AMD Tutorial on AMD GCN GPUs, ROCm, and MIOpen at MICRO 51</title>
+  </head>
+
+  <body>
+  <div id="header_wrap" class="outer">
+      <header class="inner">
+          <a id="forkme_banner" href="https://github.com/RadeonOpenCompute">View on GitHub</a>
+          <img class="wrap" src="images/ROCm_Logo_128.png" alt="ROCm_Logo" />
+          <h2 id="project_title">ROCm, A New Era in Open GPU Computing</h2>
+          <h3 id="project_tagline">Platform for GPU Enabled HPC and UltraScale Computing </h3>
+
+      </header>
+      
+    </div>
+    <div id="nav">
+        <div id="nbar">
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="install.html">Install</a></li>
+                <li><a href="languages.html">Languages</a></li>
+                <li><a href="http://rocm-documentation.readthedocs.io/en/latest/index.html">Documentation</a></li>
+                <li><a href="packages.html">ROCm Solutions </a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="hardware.html">ROCm Hardware</a></li>
+                <li><a href="blog.html">ROCm BLOG</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <h2>AMD Radeon Open Compute and Machine Intelligence:<br />Hardware and Software</h2>
+            <h3><a href="https://www.microarch.org/micro51/Program/Workshop/index.html">Full-day Tutorial</a>
+            <br /><b>Saturday, October 20, 2018</b>
+            <br />Co-located with <a href="https://www.microarch.org/micro51/index.html">MICRO 51</a>
+            <br />Fukuoka, Japan</h3>
+
+            <p>This tutorial will provide in-depth coverage of AMD's GPU computing technology stack.
+            We will discuss technical details of AMD's GPGPU hardware and software, as well as materials to enable computer architecture, computer systems, and application-level researchers to use AMD technologies in their research on high-performance compute architecture, GPU-accelerated computation, and machine learning.</p>
+            <p>In particular, this tutorial will provide deep details of AMD's modern commercial GPU microarchitectures.
+            Academic hardware researchers may find this information helpful in understanding how modern high-performance GPUs differ from typical GPUs modeled in academic simulators.
+            Application developers and software researchers may be able to use this information to optimize their software's performance and test user- and kernel-level performance and power optimization techniques.</p>
+
+            <p>This tutorial will also cover the <a href="https://github.com/RadeonOpenCompute/ROCm">Radeon Open Compute Platform (ROCm)</a>, AMD's <i>fully open-sourced</i> GPU-compute software stack.
+            ROCm provides an exciting platform for academic researchers in computer architecture and systems to modify, customize, and otherwise pursue research in ways otherwise not possible without full access to the entire software stack.
+            We will detail AMD's open source GPU drivers, compute runtimes, compilers, developer tools, and libraries.
+            These details may be especially interesting to systems software researchers and programmers who want to optimize the software stack for their codes of interest.
+            Hardware researchers may be interested to learn about the numerous parts of a commercial software stack that are rarely modeled in hardware simulations.</p>
+
+            <p>Finally, we will cover AMD's library and software support for running popular machine learning frameworks on AMD GPUs.
+            In particular, we will discuss the internals of AMD's <a href="https://github.com/ROCmSoftwarePlatform/MIOpen">MIOpen library</a> of high-performance machine intelligence kernels.
+            We will describe how some of the high-performance kernels in this software are written to take advantage of many of the deep details of our GPU hardware and software that will be discussed earlier in this tutorial.
+            In addition, we will discuss how MIOpen is being integrated into popular machine learning frameworks like TensorFlow, and how academics can use and test this software.</p>
+
+            <h2>Tutorial Topics</h2>
+            <ul>
+                <li>
+                <b>Session 1: AMD "Graphics Compute Next" (GCN) architecture deep dive</b>
+                <ul>
+                    <li>This session will detail the microarchitecture of AMD's modern GCN-based GPUs.</li>
+                    <li>We will describe the journal of GPGPU kernels from being launched from a CPU to running on the compute units (CUs) in a GCN GPU, and we will then dive into deep details of how these CUs are build and how GPU code runs on them.</li>
+                    <li>This will include details of the asynchronous compute engines, memory and cache architectures, vector and scalar ALUs, scratchpad memories, and wavefront scheduling logic.</li>
+                    <li>We will also discuss the details and differences between generations of AMD GPUs including <a href="http://developer.amd.com/wordpress/media/2013/07/AMD_Sea_Islands_Instruction_Set_Architecture.pdf">Sea Islands</a>, <a href="http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf">GCN3</a>, and <a href="https://developer.amd.com/wp-content/resources/Vega_Shader_ISA_28July2017.pdf">"Vega" ISA</a> devices.
+                </ul>
+                </li>
+                <li><b>Session 2: AMD Radeon Open Compute platform (ROCm)</b>
+                <ul>
+                    <li>This session will introduce ROCm, AMD's open-source GPU-compute software stack.</li>
+                    <li>We will describe the multitude of software layers used run compute kernels on a modern GPU. This includes <a href="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver">ROCK</a> (kernel driver), <a href="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface">ROCT</a> (kernel-user interface), <a href="https://github.com/RadeonOpenCompute/ROCR-Runtime">ROCr</a> (user-level language-agnostic runtime), and our language-specific runtimes like <a href="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/">OpenCL</a></li>
+                    <li>We will also describe our developer tools, such as our LLVM-based <a href="https://github.com/RadeonOpenCompute/hcc">HCC compiler</a>, our portable C++ kernel language <a href="https://github.com/ROCm-Developer-Tools/HIP">HIP</a> that allows many CUDA applications to run in our software stack, and profiling tools such as <a href="https://github.com/ROCmSoftwarePlatform/rocprofiler">ROCprofiler</a> and <a href="https://github.com/ROCmSoftwarePlatform/roctracer">ROCtracer</a>.</li>
+                    <li>This session will also detail our open-source and vendor-optimized libraries, such as <a href="https://github.com/ROCmSoftwarePlatform/rocBLAS/">rocBLAS</a>, <a href="https://github.com/ROCmSoftwarePlatform/rocRAND">rocRAND</a>, <a href="https://github.com/ROCmSoftwarePlatform/rocFFT">rocFFT</a>, <a href="https://github.com/ROCmSoftwarePlatform/rocPRIM">rocPRIM</a>, and <a href="https://github.com/ROCmSoftwarePlatform/Tensile">Tensile</a>.</li>
+                    <li>This session will introduce these many layers of software to educate researchers about the many ways that software can affect modern heterogeneous applications. We hope to enable novel and innovative research by making all of this software open source. In addition, developers can use the added visibility into this software to help optimize their code against a known (and understandable) target.</li>
+                </ul>
+                </li>
+                <li><b>Session 3: AMD's Machine Intelligence Library: MIOpen.</b>
+                <ul>
+                    <li>This session will cover <a href="https://github.com/ROCmSoftwarePlatform/MIOpen">MIOpen</a>, AMD's open source Machine Intelligence libraries for deep learning, and its integration into popular ML frameworks like TensorFlow.</li>
+                    <li>MIOpen is built on top of ROCm, and this session will describe our optimized algorithms for performing ML operations GPUs. We hope to use this library as a demonstration of how to take advantage of the hardware and software descriptions provided earlier in the tutorial to create high-performance ML software that pushes the hardware to its limit.</li>
+                    <li>We will describe the implementation of various deep-learning algorithms and will detail hand-tuned high-performance implementations of important kernels that take advantage of deep microarchitectural knowledge to maximize performance. This information may be of special interest to researchers who are interested in optimizing hardware designs for ML algorithms and software writers who want to know how to take advantage of everything the hardware can offer.</li>
+                    <li>We will also demonstrate the integration of MIOpen with various popular ML frameworks such as TensorFlow, so that researchers and users can take advantage of MIOpen and ROCm for the ML problems they are interested in.</li>
+                </ul>
+                </li>
+                <li><b>Session 4: Useful Tools and Techniques for Researchers; Open Research Questions</b>
+                <ul>
+                    <li>This session will tie the tutorial together for attendees who are interested in using ROCm and AMD GPUs in their research.</li>
+                    <li>We will demonstrate a number of useful tools and techniques that ROCm enables. This includes demonstrations of how to obtain the assembly code for kernels of interest and how to perform low-level hardware interactions with GPU assembly code, examples of modifying various levels of the GPU scheduler, tools to observe low-level information about wavefronts as they execute on the GPU, and techniques for monitoring and controlling power using standard Linux file operations.</li>
+                    <li>We will wrap up this session and the tutorial by discussing open research questions in this field. We hope that these will inspire researchers to explore interesting topics related on machine learning and GPU hardware and software.</li>
+                </ul>
+                </li>
+            </ul>
+
+            <h2>Organizers</h2>
+            <ul>
+                <li><a href="http://computermachines.org/joe/">Joseph Greathouse</a> (AMD Radeon Technologies Groups)</li>
+                <li><a href="https://sites.google.com/site/lohgabe/">Gabriel Loh</a> (AMD Research)</li>
+            </ul>
+
+            <h3>Contact</h3>
+            If you have any questions regarding the tutorial, please contact the organizers, either of which can be reached at firstname.lastname@amd.com.
+
+        </section>
+    </div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <p> © 2018 Advanced Micro Devices, Inc. <a href="legal.html">Disclaimer and Legal Information</a> </p> 
+        </footer>
+    </div>
+</body>
+</html>
