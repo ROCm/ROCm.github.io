@@ -48,11 +48,11 @@ ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPU
 
 
 ### GPUs that may work, but which AMD does not officially support
-ROCm is a collection of software ranging from drivers and runtimnes to libraries and developer tools.
+ROCm is a collection of software ranging from drivers and runtimes to libraries and developer tools.
 Some of this software may work with more GPUs than the "officially supported" list above, though AMD does not make any official claims of support for these devices on the ROCm software platform.
 
 #### GFX7 GPUs
-ROCm has code to enable one chip from AMD's "gfx7" generation of GPUs. These GPUs do not reuqire PCIe atomics.
+ROCm has code to enable one chip from AMD's "gfx7" generation of GPUs. These GPUs do not require PCIe atomics.
 
 * "Hawaii" chips, including the following GPUs:
   * AMD Radeon R9 290
@@ -89,7 +89,7 @@ The following GPU is known *not to work* with ROCm 1.9 and before because of a b
   * FirePro S7100X
   * FirePro S7150x2
 
-The following APUs are not fully supported by the ROCm stack. They may work in the the [kernel driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver) and [Thunk](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface), but support for them is not enabled in our [HCC compiler](https://github.com/RadeonOpenCompute/hcc) or libraries. In addition, because ROCm is currently focused on discrete GPUs, AMD does not make any claims of continued support in the ROCm stack for these integrated GPUs.
+The following APUs are not fully supported by the ROCm stack. They may work in the [kernel driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver) and [Thunk](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface), but support for them is not enabled in our [HCC compiler](https://github.com/RadeonOpenCompute/hcc) or libraries. In addition, because ROCm is currently focused on discrete GPUs, AMD does not make any claims of continued support in the ROCm stack for these integrated GPUs.
 * "Kaveri" and "Godavari" APUs
 * "Carrizo" and "Bristol Ridge" APUs
 * "Raven Ridge" APUs
@@ -103,7 +103,7 @@ You should check with your system vendor to see if these options are available b
 As described above, GFX8 and GFX9 GPUs require PCI Express 3.0 with PCIe atomics in the default ROCm configuration.
 The ROCm Platform leverages these advanced capabilities ( including PCIe atomic Fetch and Add, Compare and Swap, Unconditional Swap, AtomicOp Completion) to allow features such as user-level submission of work from the host to the GPU.  To find out more; [PCIe Atomics and Large Bar Overview](/ROCmPCIeFeatures.md)
  
-As such, by default ROCm requires that these GPUs be installed in PCIe slots with PCI Express 3.0 or higher capabilities with transfer rates of 8.0 GT/s in either x16 or x8 lanes. The system configuration can have the PCIe slots directly on CPU’s root port or a PCIe switch, but the everthing between the CPU and the GPU must support atomics. The CPU root must indicate PCIe AtomicOp Completion capabilities and any intermediate switch must indicate PCIe AtomicOp Routing capabilities.
+As such, by default ROCm requires that these GPUs be installed in PCIe slots with PCI Express 3.0 or higher capabilities with transfer rates of 8.0 GT/s in either x16 or x8 lanes. The system configuration can have the PCIe slots directly on CPU's root port or a PCIe switch, but everything between the CPU and the GPU must support atomics. The CPU root must indicate PCIe AtomicOp Completion capabilities and any intermediate switch must indicate PCIe AtomicOp Routing capabilities.
 
 PCIe root port must report and support
 * 32-bit AtomicOp Completer Supported = 1
@@ -157,7 +157,7 @@ If you are using gfx9 GPUs, you can bypass this requirement by setting the envir
     * "Coffee Lake" CPUs such as the Core i7 8700K
   * Xeon CPUs from "v3" and newer
   
-###### Curently Not supported 
+###### Currently NOT supported 
 The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supported ROCm host platforms for gfx8 GPUs. gfx9 GPUs may work with these platforms with the environment variable `HSA_ENABLE_SDMA=0`
 
 * AMD Phenom CPUs
