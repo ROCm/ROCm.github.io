@@ -191,54 +191,13 @@ Once the fusion plan object is destroyed, all the operations created are destroy
 ## Supported Fusions
 The table below outlines the supported fusions as well as any applicable constraints; C is convolutions, B is a bias operator, N is a batch norm operator, and A signifies activations. Currently, only convolutions with unit stride and unit dilation are supported. Currently, the fusion API is in the initial phases of development and may change.
 
-<table border=0 cellpadding=0 cellspacing=0 width=713 style='border-collapse:
- collapse;table-layout:fixed;width:534pt'>
- <col width=108 style='mso-width-source:userset;mso-width-alt:3456;width:81pt'>
- <col width=87 style='width:65pt'>
- <col width=221 style='mso-width-source:userset;mso-width-alt:7082;width:166pt'>
- <col width=87 style='width:65pt'>
- <col width=123 style='mso-width-source:userset;mso-width-alt:3925;width:92pt'>
- <col width=87 style='width:65pt'>
- <tr height=45 style='height:34.0pt'>
-  <td height=45 class=xl65 width=108 style='height:34.0pt;width:81pt'>Combination</td>
-  <td class=xl65 width=87 style='width:65pt'>Conv Algo</td>
-  <td class=xl65 width=221 style='width:166pt'>Filter Dims</td>
-  <td class=xl65 width=87 style='width:65pt'>N Mode</td>
-  <td class=xl65 width=123 style='width:92pt'>Activations</td>
-  <td class=xl65 width=87 style='width:65pt'>Other Constraints</td>
- </tr>
- <tr height=45 style='height:34.0pt'>
-  <td height=45 class=xl66 width=108 style='height:34.0pt;width:81pt'>CBNA</td>
-  <td class=xl66 width=87 style='width:65pt'>Direct</td>
-  <td class=xl66 width=221 style='width:166pt'>1x1, 3x3, 5x5, 7x7, 9x9, 11x11</td>
-  <td class=xl66 width=87 style='width:65pt'>All</td>
-  <td class=xl66 width=123 style='width:92pt'>All</td>
-  <td class=xl66 width=87 style='width:65pt'>Padding not supported</td>
- </tr>
- <tr height=23 style='height:17.0pt'>
-  <td rowspan=2 height=46 class=xl67 width=108 style='height:34.0pt;width:81pt'>CBA</td>
-  <td class=xl66 width=87 style='width:65pt'>Direct</td>
-  <td class=xl66 width=221 style='width:166pt'>1x1, 3x3, 5x5, 7x7, 9x9, 11x11</td>
-  <td class=xl66 width=87 style='width:65pt'></td>
-  <td class=xl66 width=123 style='width:92pt'>All</td>
-  <td class=xl66 width=87 style='width:65pt'></td>
- </tr>
- <tr height=23 style='height:17.0pt'>
-  <td height=23 class=xl66 width=87 style='height:17.0pt;width:65pt'>Winograd</td>
-  <td class=xl66 width=221 style='width:166pt'>3x3</td>
-  <td class=xl66 width=87 style='width:65pt'>N/A</td>
-  <td class=xl66 width=123 style='width:92pt'>Relu, Leaky Relu</td>
-  <td class=xl66 width=87 style='width:65pt'>c &gt;= 18</td>
- </tr>
- <tr height=45 style='height:34.0pt'>
-  <td height=45 class=xl66 width=108 style='height:34.0pt;width:81pt'>NA</td>
-  <td class=xl66 width=87 style='width:65pt'>-</td>
-  <td class=xl66 width=221 style='width:166pt'>-</td>
-  <td class=xl66 width=87 style='width:65pt'>All</td>
-  <td class=xl66 width=123 style='width:92pt'>All</td>
-  <td class=xl66 width=87 style='width:65pt'>Padding not supported</td>
- </tr>
-</table>
+| Combination | Conv Algo | Filter Dims | N Mode | Activations | Other Constraints |
+|-------------|-----------|-------------|--------|-------------|-------------------|
+| CBNA        | Direct    | 1x1, 3x3, 5x5, 7x7, 9x9, 11x11 | all | all | padding = 0 |
+| CBA         | Direct    | 1x1, 3x3, 5x5, 7x7, 9x9, 11x11 | -- | all | |
+|             | Winograd  | 3x3 | -- | Relu, Leaky Relu | c >= 18 |
+| NA          | --        | --  | all | all | |
+
 
 
 ## Performance Comparison to Non-Fused Kernels
