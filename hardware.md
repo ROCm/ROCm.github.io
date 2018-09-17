@@ -30,6 +30,7 @@ ROCm offers support for three chips from AMD's "gfx8" generation of GPUs. Note t
 * "Polaris 11" chips, including the following GPUs:
   * AMD Radeon RX 460
   * AMD Radeon RX 560
+    * Note that some AMD Radeon RX 560 GPUs are actually "Polaris 12"/"Lexa" chips, and thus are not supported. Please check with your device vendor for details on the chip your card uses.
   * AMD Radeon Pro WX 4100
 
 #### GFX9 GPUs
