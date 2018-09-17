@@ -4,17 +4,18 @@ title: Deep Learning
 ---
 # Deep Learning on ROCm
 
-Announcing our new Foundation for Deep Learning acceleration MIOpen 1.0 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
+Announcing our new Foundation for Deep Learning acceleration MIOpen 1.5 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
 
 ## This release includes the following:
 
+* [Layer fusion API](FusionGuide.md) for inference with convolution, bias, batch norm, and activation operators
 * Deep Convolution Solvers optimized for both forward and backward propagation
 * Optimized Convolutions including Winograd and FFT transformations
 * Optimized GEMM’s for Deep Learning
 * Pooling, Softmax, Activations, Gradient Algorithms Batch Normalization, and LR Normalization
 * MIOpen describes data as 4-D tensors ‒ Tensors 4D NCHW format
 * Support for OpenCL and HIP enabled frameworks API's
-* MIOpen Driver enables to testing forward/backward network of any particular layer in MIOpen.
+* MIOpen Driver enables the testing of forward/backward calls of any particular layer in MIOpen.
 * Binary Package support for Ubuntu 16.04 and Fedora 24
 * Source code at https://github.com/ROCmSoftwarePlatform/MIOpen
 * Documentation
@@ -25,7 +26,7 @@ Announcing our new Foundation for Deep Learning acceleration MIOpen 1.0 which in
 
 The [porting guide](https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf) highlights the key differences between the current cuDNN and MIOpen APIs.
 
-## The  ROCm 1.6 has prebuilt packages for MIOpen
+## The  ROCm 1.9 has prebuilt packages for MIOpen
 
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’  and ‘rocm-opencl-dev” package installed):
 
