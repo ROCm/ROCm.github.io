@@ -1,8 +1,8 @@
 # Contributing to ROCm
 
 Thank you for your interest in contributing to ROCm! There are many ways to
-contribute, and we appreciate all of them. This document is a bit long, so here's
-links to the major sections:
+contribute, and we appreciate all of them. This document is a bit long, so here
+are links to the major sections:
 
 * [Feature Requests](#feature-requests)
 * [Bug Reports](#bug-reports)
@@ -13,14 +13,14 @@ links to the major sections:
 
 ## Feature Requests
 
-To request a change to the way that the ROCm Platform, it's language or libraries works, please open an
+To request a change to the way that the ROCm Platform, its languages or libraries work, please open an
 issue in the [RFCs repository](https://github.com/RadeonOpenCompute/rfcs/issues)
 rather than this one. New features and other significant changes
 need to go through the RFC process.
 
 ## Bug Reports
 
-The fun part of software admitting we not perfect, if you see an issue please report it only way we can make ROCm better. 
+The fun part of software is admitting we are not perfect. If you see an issue, please report it -- that is the only way we can make ROCm better. 
 
 If you have the chance, before reporting a bug, please [search existing
 issues](https://github.com/RadeonOpenCompute/ROCm/issues),
@@ -71,11 +71,11 @@ To find documentation-related issues, sort by the [Bug_Documentation label][Bug_
 
 [Bug_Documentation ]: https://github.com/RadeonOpenCompute/ROCm/labels/Bug_Documentation
 
-We are currently working on our documentation style guidelines, are open to suggestions. 
+We are currently working on our documentation style guidelines, and are open to suggestions.
 
-The documentation system we are using for the project is Sphinx based. We 
+The documentation system we are using for the project is Sphinx based.
 
-All documentation can writtern Markdown or reStructuredText  
+All documentation can be written in Markdown or reStructuredText.
 
 [Master Documentation Project Source Repository](https://github.com/RadeonOpenCompute/ROCm_Documentation)
 
