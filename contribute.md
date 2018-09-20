@@ -3,11 +3,11 @@
 
 If you are here, you will probably know ROCm provides a rich parallel computation foundation with the support of a diverse set of high-level programming languages (C, C++, OpenCL, Python, etc.) creating a solid foundation for heterogeneous computing.
 
-### Your ready to contribute but you are not sure how to get involved, then this page will help.
+### You are ready to contribute but you are not sure how to get involved, then this page will help.
 
-One of biggest contributions you can give is reporting issues, please use our [bug reporting guide](contributing.md#bug-reports). Thanks in advance!
+One of biggest contributions you can give is reporting issues. Please use our [bug reporting guide](contributing.md#bug-reports). Thanks in advance!
 
-ROCm Software Platform and core ROCm Server drive is an expansive set of projects, the most prominent of which are maintained by The AMD ROCm Project Developers on GitHub. Newcomers may be interested in the aim of the project may find out more on [how to contribute](contributing.md), which explains the mechanism of contributing to ROCm Project.
+ROCm Software Platform and core ROCm Server drive is an expansive set of projects, the most prominent of which are maintained by The AMD ROCm Project Developers on GitHub. Newcomers who may be interested in the aim of the project may find out more on [how to contribute](contributing.md), which explains the mechanism of contributing to the ROCm Project.
 
 ### There are many ways to contribute to the success of ROCm. This guide focuses on area you can help as a new contributor:
 
