@@ -34,7 +34,7 @@ ROCm offers support for three chips from AMD's "gfx8" generation of GPUs. Note t
   * AMD Radeon Pro WX 4100
 
 #### GFX9 GPUs
-ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPUs. By default, these GPUs require a host CPU and platform with PCIe gen 3 with support for PCIe atomics. This is detailed further in the following section on CPU requirements. However, as of ROCm 1.8, we have enabled a mode of operation that does not require PCIe atomics at the expense of lower performance. If you want to run any of these gfx9 GPUs on a system that does not support PCIe gen 3 with atomics, please set the environment variable `HSA_ENABLE_SDMA=0`.
+ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPUs. By default, these GPUs require a host CPU and platform with PCIe gen 3 with support for PCIe atomics. This is detailed further in the following section on CPU requirements. However, as of ROCm 1.8, we have enabled a mode of operation that does not require PCIe atomics at the expense of lower performance. In ROCm 1.8.x, if you want to run any of these gfx9 GPUs on a system that does not support PCIe gen 3 with atomics, please set the environment variable `HSA_ENABLE_SDMA=0`. This is not required in ROCm 1.9.x.
 
 * "Vega 10" chips, including the following GPUs:
   * AMD Radeon RX Vega 56
@@ -121,7 +121,6 @@ Example text from kernel log:
 ```
 kfd: skipped device 1002:7300, PCI rejects atomics
 ```
-If you are using gfx9 GPUs, you can bypass this requirement by setting the environment variable `HSA_ENABLE_SDMA=0`. However, this disables the use of DMA engines to move data between the CPU and GPU memory. This can reduce performance.
 
 ###### Current CPU which support PCIe Gen3 + PCIe Atomics are known to be supported: 
 
@@ -145,11 +144,6 @@ If you are using gfx9 GPUs, you can bypass this requirement by setting the envir
     * Epyc 7601
 
 * INTEL 
-  * "Haswell" CPUs, including:
-    * Core i3, i5, and i7 from ranges such as "Core i7 4790K"
-    * Xeon E5
-  * "Broadwell" CPUs, including
-  * "Skylake"
   * Intel Core i3, i5, and i7 CPUs from "Haswell" and beyond. This includes:
     * "Haswell" CPUs such as the Core i7 4790K
     * "Broadwell" CPUs such as the Core i7 5775C
@@ -159,7 +153,7 @@ If you are using gfx9 GPUs, you can bypass this requirement by setting the envir
   * Xeon CPUs from "v3" and newer
   
 ###### Currently NOT supported 
-The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supported ROCm host platforms for gfx8 GPUs. gfx9 GPUs may work with these platforms with the environment variable `HSA_ENABLE_SDMA=0`
+The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supported ROCm host platforms for gfx8 GPUs. gfx9 GPUs may work with these platforms, though they may run slower due to the lack of PCIe atomics.
 
 * AMD Phenom CPUs
 * AMD FX CPUs
