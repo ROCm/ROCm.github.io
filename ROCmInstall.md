@@ -5,7 +5,7 @@ title: ROCm Install
 
 ## ROCm Platform Installation Guide for Linux 
 
-### Current ROCm Version: 1.9.0
+### Current ROCm Version: 1.9.1
 
 - [Hardware Support](#hardware-support)
   * [Supported GPUs](#supported-gpus)
@@ -86,7 +86,7 @@ from the list provided above for compatibility purposes.
 
 ###### Not supported 
 
-* "Tonga", "Iceland", "Polaris 12", and "Vega M" GPUs are not supported in ROCm 1.9.0
+* "Tonga", "Iceland", "Polaris 12", and "Vega M" GPUs are not supported in ROCm 1.9.x
 * We do not support GFX8-class GPUs (Fiji, Polaris, etc.) on CPUs that do not have PCIe Gen 3 with PCIe atomics.
   * As such, do not support AMD Carrizo and Kaveri APUs as hosts for such GPUs..
   * Thunderbolt 1 and 2 enabled GPUs are not supported by GFX8 GPUs on ROCm. Thunderbolt 1 & 2 are PCIe Gen2 based.
@@ -97,7 +97,7 @@ from the list provided above for compatibility purposes.
 ### Software Support
 
 The latest tested version of the drivers, tools, libraries and source code for
-the ROCm platform have been released and are available under the roc-1.9.0 or rocm-1.9.x tag
+the ROCm platform have been released and are available under the roc-1.9.1 or rocm-1.9.x tag
 of the following GitHub repositories:
 
 * [ROCK-Kernel-Driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.9.x)
@@ -120,14 +120,14 @@ are also available on GitHub, and frozen for the rocm-1.9.0 release:
 
 #### Supported Operating Systems - New operating systems available
 
-The ROCm 1.9.0 platform has been tested on the following operating systems:
- * Ubuntu 16.04 &. 18.04
+The ROCm 1.9.x platform has been tested on the following operating systems:
+ * Ubuntu 16.04 &. 18.04 (Version 16.04.3 and newer or kernels 4.13 and newer)
  * CentOS 7.4 &. 7.5 (Using devetoolset-7 runtime support)
  * RHEL 7.4. &. 7.5  (Using devetoolset-7 runtime support)
 
 ### Installing from AMD ROCm repositories
 
-AMD is hosting both Debian and RPM repositories for the ROCm 1.9.0 packages at this time.
+AMD is hosting both Debian and RPM repositories for the ROCm 1.9.1 packages at this time.
 
 The packages in the Debian repository have been signed to ensure package integrity.
 
@@ -394,10 +394,6 @@ sudo yum autoremove rocm-dkms
 ```
 
 ### Known Issues / Workarounds
-
-#### Radeon Compute Profiler does not run
-
-rcprof -A <HSA_application> fails with error message: Radeon Compute Profiler could not be enabled. Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1.
 
 #### Running OCLPerfCounters test results in LLVM ERROR: out of memory
 
