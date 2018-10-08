@@ -5,10 +5,10 @@ title: Deep Learning
 # Deep Learning on ROCm
 
 ## ROCm Tensorflow v1.10 Release
-We are excited to announce the release of ROCm enabled TensorFlow v1.10 for AMD GPUs.
+We are excited to announce the release of ROCm enabled TensorFlow v1.11 for AMD GPUs.
 
 ### Tensorflow Installation
-First, you’ll need to install the open-source ROCm 1.9.0 stack. Details can be found here: https://rocm.github.io/ROCmInstall.html
+First, you’ll need to install the open-source ROCm 1.9.1 stack. Details can be found here: https://rocm.github.io/ROCmInstall.html
 Then, install these other relevant ROCm packages:
 ```
 sudo apt update
@@ -20,7 +20,7 @@ sudo apt install wget python3-pip
 # Pip3 install the whl package from PyPI
 pip3 install --user tensorflow-rocm
 ```
-Now that Tensorflow v1.10 is installed!
+Now that Tensorflow v1.11 is installed!
 
 ### Tensorflow More Resources
 Tensorflow docker images are also publicly available, more details can be found here:
