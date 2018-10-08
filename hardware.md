@@ -48,7 +48,7 @@ ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPU
   * Note that ROCm does *not* support the Radeon Pro SSG
 
 
-### GPUs that may work, but which AMD does not officially support
+### GPUs that are enabled, but which AMD does not officially support
 ROCm is a collection of software ranging from drivers and runtimes to libraries and developer tools.
 Some of this software may work with more GPUs than the "officially supported" list above, though AMD does not make any official claims of support for these devices on the ROCm software platform.
 
