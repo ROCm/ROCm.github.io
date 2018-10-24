@@ -122,7 +122,7 @@ Example text from kernel log:
 kfd: skipped device 1002:7300, PCI rejects atomics
 ```
 
-###### Current CPU which support PCIe Gen3 + PCIe Atomics are known to be supported: 
+###### Current CPUs with support PCIe Gen3 + PCIe Atomics: 
 
 * AMD
   * Ryzen CPUs (Family 17h Model 01h-0Fh -- previously code-named Zen) such as:
@@ -151,6 +151,7 @@ kfd: skipped device 1002:7300, PCI rejects atomics
     * "Kaby Lake" CPUs such as the Core i7 7740X
     * "Coffee Lake" CPUs such as the Core i7 8700K
   * Xeon CPUs from "v3" and newer
+  * Some models of "Ivy Bridge-E" processors
   
 ###### Currently NOT supported 
 The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supported ROCm host platforms for gfx8 GPUs. gfx9 GPUs may work with these platforms, though they may run slower due to the lack of PCIe atomics.
@@ -160,6 +161,6 @@ The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supp
 * AMD Opteron CPUs
 * AMD Kaveri APUs
 * AMD Carrizo APUs
-* Intel CPUs that were released before "Haswell"
+* Intel CPUs that were released before "Haswell" and "Ivy Bridge-E"
 
 In addition, connecting gfx8 GPUs to the host through Thunderbolt 1 or Thunderbolt 2 adapters is not supported because these are based on PCIe gen 2.
