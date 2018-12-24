@@ -29,6 +29,7 @@ In order to focus our development efforts on these domains of interest, ROCm sup
 Because the ROCm Platform has a focus on particular computational domains, we offer official support for a selection of AMD GPUs that are designed to offer good performance and price in these domains.
 
 ROCm officially supports AMD GPUs that use following chips:
+
   * GFX8 GPUs
     * "Fiji" chips, such as on the AMD Radeon R9 Fury X and Radeon Instinct MI8
     * "Polaris 10" chips, such as on the AMD Radeon RX 580 and Radeon Instinct MI6
@@ -41,6 +42,7 @@ ROCm officially supports AMD GPUs that use following chips:
 ROCm is a collection of software ranging from drivers and runtimes to libraries and developer tools.
 Some of this software may work with more GPUs than the "officially supported" list above, though AMD does not make any official claims of support for these devices on the ROCm software platform.
 The following list of GPUs are enabled in the ROCm software, though full support is not guaranteed:
+
   * GFX7 GPUs
     * "Hawaii" chips, such as the AMD Radeon R9 390X and FirePro W9100
 
