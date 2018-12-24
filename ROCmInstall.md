@@ -10,7 +10,7 @@ title: ROCm Install
 - [Hardware Support](#hardware-support)
   * [Supported GPUs](#supported-gpus)
   * [Supported CPUs](#supported-cpus)
-  * [Not supported or very limited support under ROCm](#not-supported-or-very-limited-support-under-rocm)
+  * [Not supported or limited support under ROCm](#not-supported-or-limited-support-under-rocm)
 - [The latest ROCm platform - ROCm 2.0](#the-latest-rocm-platform---rocm-20)
   * [Supported Operating Systems](#supported-operating-systems---new-operating-systems-available)
   * [ROCm support in upstream Linux kernels](#rocm-support-in-upstream-linux-kernels)
@@ -47,6 +47,9 @@ The following list of GPUs are enabled in the ROCm software, though full support
 As described in the next section, GFX8 GPUs require PCI Express 3.0 (PCIe 3.0) with support for PCIe atomics. This requires both CPU and motherboard support. GFX9 GPUs, by default, also require PCIe 3.0 with support for PCIe atomics, but they can operate in most cases without this capability.
 
 At this time, the integrated GPUs in AMD APUs are not officially supported targets for ROCm.
+As descried [below](#limited-support), "Carrizo", "Bristol Ridge", and "Raven Ridge" APUs are enabled in our upstream drivers and OpenCL runtime.
+However, they are not enabled in our HCC or HIP runtimes, and may not work due to motherboard or OEM hardware limitations.
+As such, they are not yet officially supported targets for ROCm.
 
 For a more detailed list of hardware support, please see [the following documentation](https://rocm.github.io/hardware.html).
 
@@ -86,23 +89,25 @@ Experimental support for our Hawaii (GFX7) GPUs (Radeon R9 290, R9 390, FirePro 
 does not require or take advantage of PCIe Atomics. However, we still recommend that you use a CPU
 from the list provided above for compatibility purposes.
 
-#### Not supported or very limited support under ROCm 
-###### Limited support 
+#### Not supported or limited support under ROCm 
+##### Limited support 
 
 * ROCm 2.0.x should support PCIe 2.0 enabled CPUs such as the AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and older Intel Xeon and Intel Core Architecture and Pentium CPUs. However, we have done very limited testing on these configurations, since our test farm has been catering to CPUs listed above. This is where we need community support. _If you find problems on such setups, please report these issues_.
 * Thunderbolt 1, 2, and 3 enabled breakout boxes should now be able to work with ROCm. Thunderbolt 1 and 2 are PCIe 2.0 based, and thus are only supported with GPUs that do not require PCIe 3.0 atomics (e.g. Vega 10). However, we have done no testing on this configuration and would need community support due to limited access to this type of equipment.
-* AMD "Carrizo" and "Bristol Ridge" APUs are enabled to run OpenCL, but do not yet support HCC, HIP, or our libraries built on top of these compilers and runtimes
+* AMD "Carrizo" and "Bristol Ridge" APUs are enabled to run OpenCL, but do not yet support HCC, HIP, or our libraries built on top of these compilers and runtimes.
+  * As of ROCm 2.0, "Carrizo" and "Bristol Ridge" require the use of upstream kernel drivers.
   * In addition, various "Carrizo" and "Bristol Ridge" platforms may not work due to OEM and ODM choices when it comes to key configurations parameters such as inclusion of the required CRAT tables and IOMMU configuration parameters in the system BIOS.
   * Before purchasing such a system for ROCm, please verify that the BIOS provides an option for enabling IOMMUv2 and that the system BIOS properly exposes the correct CRAT table. Inquire with your vendor about the latter.
-* AMD "Raven Ridge" APUs are enabled to run OpenCL, but do not yet support HCC, HIP, or our libraries built on top of these compilers and runtimes
+* AMD "Raven Ridge" APUs are enabled to run OpenCL, but do not yet support HCC, HIP, or our libraries built on top of these compilers and runtimes.
+  * As of ROCm 2.0, "Raven Ridge" requires the use of upstream kernel drivers.
   * In addition, various "Raven Ridge" platforms may not work due to OEM and ODM choices when it comes to key configurations parameters such as inclusion of the required CRAT tables and IOMMU configuration parameters in the system BIOS.
   * Before purchasing such a system for ROCm, please verify that the BIOS provides an option for enabling IOMMUv2 and that the system BIOS properly exposes the correct CRAT table. Inquire with your vendor about the latter.
   
-###### Not supported 
+##### Not supported 
 
 * "Tonga", "Iceland", "Vega M", and "Vega 12" GPUs are not supported in ROCm 2.0.x
 * We do not support GFX8-class GPUs (Fiji, Polaris, etc.) on CPUs that do not have PCIe 3.0 with PCIe atomics.
-  * As such, do not support AMD Carrizo and Kaveri APUs as hosts for such GPUs.
+  * As such, we do not support AMD Carrizo and Kaveri APUs as hosts for such GPUs.
   * Thunderbolt 1 and 2 enabled GPUs are not supported by GFX8 GPUs on ROCm. Thunderbolt 1 & 2 are based on PCIe 2.0.
 
 ### The latest ROCm platform - ROCm 2.0
@@ -155,6 +160,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
 #### Supported Operating Systems - New operating systems available
 
 The ROCm 2.0.x platform supports the following operating systems:
+
  * Ubuntu 16.04.x and 18.04.x (Version 16.04.3 and newer or kernels 4.13 and newer)
  * CentOS 7.4, 7.5, and 7.6 (Using devtoolset-7 runtime support)
  * RHEL 7.4, 7.5, and 7.6 (Using devtoolset-7 runtime support)
@@ -165,6 +171,7 @@ As of ROCm 1.9.0, the ROCm user-level software is compatible with the AMD driver
 As such, users have the option of either using the ROCK kernel driver that are part of AMD's ROCm repositories or using the upstream driver and only installing ROCm user-level utilities from AMD's ROCm repositories.
 
 These releases of the upstream Linux kernel support the following GPUs in ROCm:
+
  * 4.17: Fiji, Polaris 10, Polaris 11
  * 4.18: Fiji, Polaris 10, Polaris 11, Vega10
 
@@ -198,6 +205,7 @@ This allows users to install only the packages they need, if they do not wish to
 These packages will install most of the ROCm software into `/opt/rocm/` by default.
 
 The packages for each of the major ROCm components are:
+
 * ROCm Core Components
   - ROCk Kernel Driver: `rock-dkms`
   - ROCr Runtime: `hsa-rocr-dev`, `hsa-ext-rocr-dev`
