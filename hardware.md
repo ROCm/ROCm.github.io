@@ -9,7 +9,7 @@ title: Hardware
 Because the ROCm Platform has a focus on particular computational domains, we offer official support for a selection of AMD GPUs that are designed to offer good performance and price in these domains. This section details the GPUs that ROCm Supports.
 
 #### GFX8 GPUs
-ROCm offers support for three chips from AMD's "gfx8" generation of GPUs. Note that these GPUs all require a host CPU and platform with PCIe gen 3 with support for PCIe atomics. This is detailed further in the following section on CPU requirements.
+ROCm offers support for three chips from AMD's "gfx8" generation of GPUs. Note that these GPUs all require a host CPU and platform with PCIe 3.0 with support for PCIe atomics. This is detailed further in the following section on CPU requirements.
 
 * "Fiji" chips, which include the following GPUs:
   * AMD Radeon R9 Fury
@@ -30,11 +30,15 @@ ROCm offers support for three chips from AMD's "gfx8" generation of GPUs. Note t
 * "Polaris 11" chips, including the following GPUs:
   * AMD Radeon RX 460
   * AMD Radeon RX 560
-    * Note that some AMD Radeon RX 560 GPUs are actually "Polaris 12"/"Lexa" chips, and thus are not supported. Please check with your device vendor for details on the chip your card uses.
   * AMD Radeon Pro WX 4100
+* "Polaris 12" chips (also known as "Lexa"), including the following GPUs:
+  * AMD Radeon RX 540
+  * AMD Radeon RX 550
+  * AMD Radeon Pro WX 2100
+  * AMD Radeon Pro WX 3100
 
 #### GFX9 GPUs
-ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPUs. By default, these GPUs require a host CPU and platform with PCIe gen 3 with support for PCIe atomics. This is detailed further in the following section on CPU requirements. However, as of ROCm 1.8, we have enabled a mode of operation that does not require PCIe atomics at the expense of lower performance. In ROCm 1.8.x, if you want to run any of these gfx9 GPUs on a system that does not support PCIe gen 3 with atomics, please set the environment variable `HSA_ENABLE_SDMA=0`. This is not required in ROCm 1.9.x.
+ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPUs. By default, these GPUs require a host CPU and platform with PCIe 3.0 with support for PCIe atomics. This is detailed further in the following section on CPU requirements. However, as of ROCm 1.8, we have enabled a mode of operation that does not require PCIe atomics at the expense of lower performance. In ROCm 1.8.x, if you want to run any of these gfx9 GPUs on a system that does not support PCIe 3.0 with atomics, please set the environment variable `HSA_ENABLE_SDMA=0`. This is not required in ROCm 1.9.x.
 
 * "Vega 10" chips, including the following GPUs:
   * AMD Radeon RX Vega 56
@@ -66,6 +70,22 @@ ROCm has code to enable one chip from AMD's "gfx7" generation of GPUs. These GPU
   * AMD FirePro S9150
   * AMD FirePro S9170
 
+#### The iGPU in AMD APUs
+
+The following APUs are not fully supported by the ROCm stack.
+
+* "Carrizo" and "Bristol Ridge" APUs
+* "Raven Ridge" APUs
+
+These APUs are enabled in  the upstream Linux kernel drivers and the ROCm [Thunk](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface).
+Support for these APUs is enabled in the [ROCm OpenCL runtime](https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime).
+However, support for them is not enabled in our [HCC compiler](https://github.com/RadeonOpenCompute/hcc), [HIP](https://github.com/ROCm-Developer-Tools/HIP), or the ROCm libraries.
+In addition, because ROCm is currently focused on discrete GPUs, AMD does not make any claims of continued support in the ROCm stack for these integrated GPUs.
+
+In addition, these APUs may may not work due to OEM and ODM choices when it comes to key configurations parameters such as inclusion of the required CRAT tables and IOMMU configuration parameters in the system BIOS.
+As such, APU-based laptops, all-in-one systems, and desktop motherboards may not be properly detected by the ROCm drivers.
+You should check with your system vendor to see if these options are available before attempting to use an APU-based system with ROCm.
+
 ### GPUs that are known not to work with ROCm
 As of ROCm 1.9, the following GPUs are known *not to work* with ROCm because the basic drivers required for ROCm, such as `amdkfd` do not include support for them.
 * Any pre-GCN AMD GPU
@@ -77,8 +97,8 @@ As of ROCm 1.9, the following GPUs are known *not to work* with ROCm because the
 * Any "Sea Islands" (gfx7) GPU besides "Hawaii", including:
   * "Bonaire" and "Oland"
 * "Iceland" chips (gfx802), also known as "Topaz".
-* "Polaris 12" chips (gfx803), also known as "Lexa".
 * AMD Radeon Vega M
+* AMD "Kaveri" and "Godavari" APUs
 
 The following GPU is known *not to work* with ROCm 1.9 and before because of a bug in the [Thunk](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface). Because of this runtime bug, the [HCC compiler](https://github.com/RadeonOpenCompute/hcc) has chosen to disable compilation for this class of GPUs as well, and thus none of the ROCm libraries are built for this GPU.
 * "Tonga" chips, including the following GPUs:
@@ -89,15 +109,6 @@ The following GPU is known *not to work* with ROCm 1.9 and before because of a b
   * FirePro S7150
   * FirePro S7100X
   * FirePro S7150x2
-
-The following APUs are not fully supported by the ROCm stack. They may work in the [kernel driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver) and [Thunk](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface), but support for them is not enabled in our [HCC compiler](https://github.com/RadeonOpenCompute/hcc) or libraries. In addition, because ROCm is currently focused on discrete GPUs, AMD does not make any claims of continued support in the ROCm stack for these integrated GPUs.
-* "Kaveri" and "Godavari" APUs
-* "Carrizo" and "Bristol Ridge" APUs
-* "Raven Ridge" APUs
-
-In addition, these APUs may have limited support in the kernel due to OEM &amp; ODM decisions to not properly include CRAT tables in their system BIOS, or to allow the IOMMU to be enabled.
-As such, APU-based laptops, all-in-one systems, and desktop motherboards may not be properly detected by the ROCm drivers.
-You should check with your system vendor to see if these options are available before attempting to use an APU-based system with ROCm.
 
 ##### Supported CPUs
 
@@ -122,7 +133,7 @@ Example text from kernel log:
 kfd: skipped device 1002:7300, PCI rejects atomics
 ```
 
-###### Current CPUs with support PCIe Gen3 + PCIe Atomics: 
+###### Current CPUs with support PCIe 3.0 + PCIe Atomics: 
 
 * AMD
   * Ryzen CPUs (Family 17h Model 01h-0Fh -- previously code-named Zen) such as:
@@ -154,7 +165,7 @@ kfd: skipped device 1002:7300, PCI rejects atomics
   * Some models of "Ivy Bridge-E" processors
   
 ###### Currently NOT supported 
-The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supported ROCm host platforms for gfx8 GPUs. gfx9 GPUs may work with these platforms, though they may run slower due to the lack of PCIe atomics.
+The following CPUs *do not* support PCIe 3.0 atomics, and as such are not supported ROCm host platforms for gfx8 GPUs. gfx9 GPUs may work with these platforms, though they may run slower due to the lack of PCIe atomics.
 
 * AMD Phenom CPUs
 * AMD FX CPUs
@@ -163,4 +174,4 @@ The following CPUs *do not* support PCIe gen 3 atomics, and as such are not supp
 * AMD Carrizo APUs
 * Intel CPUs that were released before "Haswell" and "Ivy Bridge-E"
 
-In addition, connecting gfx8 GPUs to the host through Thunderbolt 1 or Thunderbolt 2 adapters is not supported because these are based on PCIe gen 2.
+In addition, connecting gfx8 GPUs to the host through Thunderbolt 1 or Thunderbolt 2 adapters is not supported because these are based on PCIe 2.0.
