@@ -374,7 +374,7 @@ In particular, if you are trying to install on a system with a limited amount of
 To do that, you can run the following installation command **instead** of the command to install `rocm-dkms`.
 
 ```shell
-sudo apt-get install dkms rock-dkms rocm-opencl
+sudo apt-get install dkms rock-dkms rocm-opencl-dev
 ```
 
 ##### How to uninstall from Ubuntu 16.04 or Ubuntu 18.04
@@ -537,7 +537,7 @@ In particular, if you are trying to install on a system with a limited amount of
 To do that, you can run the following installation command **instead** of the command to install `rocm-dkms`.
 
 ```shell
-sudo yum install rock-dkms rocm-opencl
+sudo yum install rock-dkms rocm-opencl-devel
 ```
 
 ##### Compiling applications using HCC, HIP, and other ROCm software
