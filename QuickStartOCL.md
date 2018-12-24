@@ -30,12 +30,12 @@ However, if you are using a newer kernel (depending on your GPU, this can be as 
 Once you have a working kernel driver, the following command can be used to install the ROCm OpenCL runtime on Ubuntu:
 
 ```shell
-sudo apt-get install rocm-opencl
+sudo apt-get install rocm-opencl-dev
 ```
 
 If you are using RHEL/CentOS, you can use the following command ionstead:
 ```shell
-sudo yum install rocm-opencl
+sudo yum install rocm-opencl-devel
 ```
 
 ##### Test your OpenCL Installation
@@ -57,7 +57,6 @@ make \
 
 Note that your applications will need to include OpenCL headers when you compile it.
 These can be found in `/opt/rocm/opencl/include/` in ROCm installations, and they are added by the `rocm-opencl-dev` (on Ubuntu) and `rocm-opencl-devel` (on RHEL/CentOS) packages.
-These packages are also installed whenever you install `rocm-opencl`.
 
 If you have previously built your applications on a system using the AMD APP SDK, you do not need to install anything else besides `rocm-opencl`.
 You only need to set the `AMDAPPSDKROOT` environment variable to point towards `/opt/rocm/opencl/`.
