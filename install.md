@@ -141,6 +141,8 @@ The latest supported version of the drivers, tools, libraries and source code fo
   - [Asynchronous Task and Memory Interface (ATMI)](https://github.com/RadeonOpenCompute/atmi/tree/4dd14ad8)
   - [ROCr Debug Agent](https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.0.0)
   - [ROCm Code Object Manager](https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.0.0)
+  - [ROC Profiler](https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.0.0)
+  - [Radeon Compute Profiler](https://github.com/GPUOpen-Tools/RCP/tree/v5.6)
   - Example Applications:
     - [HCC Examples](https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333)
     - [HIP Examples](https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.0.x)
@@ -158,6 +160,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
   - [ROCm SMI Lib](https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.0.0)
   - [RCCL](https://github.com/ROCmSoftwarePlatform/rccl/tree/0.7.1)
   - [MIVisionX](https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.0.0)
+  - [CUB HIP](https://github.com/ROCmSoftwarePlatform/cub-hip/tree/hip_port_1.7.4)
 
 #### Supported Operating Systems - New operating systems available
 
@@ -226,6 +229,8 @@ The packages for each of the major ROCm components are:
   - Asynchronous Task and Memory Interface (ATMI): `atmi`
   - ROCr Debug Agent: `rocr_debug_agent`
   - ROCm Code Object Manager: `comgr`
+  - ROC Profiler: `rocprofiler-dev`
+  - Radeon Compute Profiler: `rocm-profiler`
 * ROCm Libraries
   - rocBLAS: `rocblas`
   - hipBLAS: `hipblas`
@@ -240,6 +245,7 @@ The packages for each of the major ROCm components are:
   - ROCm SMI Lib: `rocm_smi_lib64`
   - RCCL: `rccl`
   - MIVisionX: `mivisionx`
+  - CUB HIP: `cub-hip`
 
 To make it easier to install ROCm, the AMD binary repos provide a number of meta-packages that will automatically install multiple other packages.
 For example, `rocm-dkms` is the primary meta-package that is used to install most of the base technology needed for ROCm to operate.
