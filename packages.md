@@ -6,7 +6,7 @@ title: ROCm Optimized Applications and Libraries
 #### ROCm Install 
 You can perform a simplified ROCm install using our repository server. The package installs the driver, run time, HCC compiler and HIP language run time, as well as test apps to get you ready to start development in about 5&ndash;10 minutes. 
 * [ROCm Install Instructions](ROCmInstall.md)
-* [ROCm Instal FAQ](install_issues.md) 
+* [ROCm Install FAQ](install_issues.md) 
 
 
 #### Source-Code Repositories for Kernel Driver + Thunk + Run Time
