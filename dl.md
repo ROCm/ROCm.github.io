@@ -4,9 +4,9 @@ title: Deep Learning
 ---
 # Deep Learning on ROCm
 
-[TensorFlow](tensorflow.md): TensorFlow for ROCm
+[TensorFlow](deeplearning/tensorflow.md): TensorFlow for ROCm
 
-[MIOpen](miopen.md): Open-source deep learning library for AMD GPUs
+[MIOpen](deeplearning/miopen.md): Open-source deep learning library for AMD GPUs
 
-[PyTorch](pytorch.md): PyTorch for ROCm
+[PyTorch](deeplearning/pytorch.md): PyTorch for ROCm
 
