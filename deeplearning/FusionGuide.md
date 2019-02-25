@@ -1,3 +1,8 @@
+---
+layout: default
+title: MIOpen Fusion APIs
+---
+
 Fusion API: Getting Started
 ===========================
 ## Introduction
