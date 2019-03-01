@@ -38,7 +38,7 @@ ROCm offers support for three chips from AMD's "gfx8" generation of GPUs. Note t
   * AMD Radeon Pro WX 3100
 
 #### GFX9 GPUs
-ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPUs. By default, these GPUs require a host CPU and platform with PCIe 3.0 with support for PCIe atomics. This is detailed further in the following section on CPU requirements. However, as of ROCm 1.8, we have enabled a mode of operation that does not require PCIe atomics at the expense of lower performance. In ROCm 1.8.x, if you want to run any of these gfx9 GPUs on a system that does not support PCIe 3.0 with atomics, please set the environment variable `HSA_ENABLE_SDMA=0`. This is not required in ROCm 1.9.x.
+ROCm offers support for two chips from AMD's most recent "gfx9" generation of GPUs. As of ROCm 1.8, we have enabled a mode of operation that does not require PCIe atomics on these GPUs, at the expense of lower performance. In ROCm 1.8.x, if you want to run any of these gfx9 GPUs on a system that does not support PCIe 3.0 with atomics, please set the environment variable `HSA_ENABLE_SDMA=0`. This is not required in ROCm 1.9.x.
 
 * "Vega 10" chips, including the following GPUs:
   * AMD Radeon RX Vega 56
@@ -50,7 +50,10 @@ ROCm offers support for one chip from AMD's most recent "gfx9" generation of GPU
   * AMD Radeon Pro V340 MxGPU
   * AMD Radeon Instinct MI25
   * Note that ROCm does *not* support the Radeon Pro SSG
-
+* "Vega 7nm" chips, including the following GPUs:
+  * AMD Radeon VII
+  * AMD Radeon Instinct MI50
+  * AMD Radeon Instinct MI60
 
 ### GPUs that are enabled, but which AMD does not officially support
 ROCm is a collection of software ranging from drivers and runtimes to libraries and developer tools.
