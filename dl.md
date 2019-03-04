@@ -4,7 +4,7 @@ title: Deep Learning
 ---
 # Deep Learning on ROCm
 
-[TensorFlow](tensorflow.md): TensorFlow for ROCm -- latest supported version 1.12
+[TensorFlow](tensorflow.md): TensorFlow for ROCm -- latest supported version 1.13
 
 [MIOpen](miopen.md): Open-source deep learning library for AMD GPUs -- latest supported version 1.7.1
 
