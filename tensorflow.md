@@ -1,8 +1,22 @@
 # TensorFlow
 
-## ROCm Tensorflow v1.13 Release
-We are excited to announce the release of ROCm enabled TensorFlow v1.13 for AMD GPUs.
-In this release, we enabled Tensorflow VERBS support, details in [TensorFlow Verbs Quick-Start](https://github.com/ROCmSoftwarePlatform/tensorflow-upstream/blob/r1.13-rocm/rocm_docs/tensorflow-verbs.md)
+## Tensorflow Community Supported Build for ROCm is ready!
+We are excited to announce that official Tensorflow now includes Linux AMD ROCm GPU nightly builds.
+Link to the upstream Tensorflow CSB doc: https://github.com/tensorflow/tensorflow#community-supported-builds
+
+### Tensorflow CSB Installations
+We provide nightly tensorflow-rocm whl packages for Python 2.7, 3.5, 3.6 and 3.7 based systems.
+After downloading the compatible whl package, you can use pip/pip3 to install.
+For example, the following commands can be used to download and install the tensorflow-rocm CSB package on an Ubuntu 16.04 system configured with ROCm 2.6 and Python3.5:
+```
+wget http://ml-ci.amd.com:21096/job/tensorflow-rocm-release/lastSuccessfulBuild/artifact/pip35_test/whl/tensorflow_rocm-1.14.0-cp35-cp35m-manylinux1_x86_64.whl
+pip3 install --user tensorflow_rocm-1.14.0-cp35-cp35m-manylinux1_x86_64.whl
+```
+
+## ROCm Tensorflow Official Releases
+TensorFlow v1.14.1 and v2.0-beta-v3 packages are available for AMD GPUs on PyPi.
+Please refer to the following document for more details:
+https://github.com/ROCmSoftwarePlatform/tensorflow-upstream/blob/develop-upstream/RELEASE.md
 
 ### Tensorflow Installation
 First, you’ll need to install the open-source ROCm stack. Details can be found here: https://rocm.github.io/ROCmInstall.html
