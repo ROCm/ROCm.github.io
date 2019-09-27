@@ -7,6 +7,7 @@ title: ROCm Install
 
 ### Current ROCm Version: 2.7.2
 
+
 - [Hardware Support](#hardware-support)
   * [Supported GPUs](#supported-gpus)
   * [Supported CPUs](#supported-cpus)
