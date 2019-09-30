@@ -33,6 +33,7 @@ title: ROCm Install
 #### Support for NCCL2.4.8 API
 
 Implements ncclCommAbort() and ncclCommGetAsyncError() to match the NCCL 2.4.x API
+Features and enhancements introduced in previous versions of ROCm can be found in [version_history.md](https://github.com/RadeonOpenCompute/ROCm/blob/master/version_history.md)
 
 ### The latest ROCm platform - ROCm 2.8
 
