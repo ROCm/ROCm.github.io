@@ -1,29 +1,31 @@
-# AMD ROCm Release Notes v2.10
+# AMD ROCm Release Notes v3.0
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software.
-It also covers known issues and deprecated features in the ROCm v2.10 release.
+It also covers known issues and deprecated features in the ROCm v3.0 release.
 
 - [What Is ROCm?](#What-Is-ROCm)
   * [ROCm Components](#ROCm-Components)
   * [Supported Operating Systems](#Supported-Operating-Systems)
   * [Important ROCm Links](#Important-ROCm-Links)
   
-- [Whats New in This Release](#Whats-New-in-This-Release)
-  * [rocBLAS Support for Complex GEMM](#rocBLAS-Support-for-Complex-GEMM)
-  * [Support for SLES 15 SP1](#Support-for-SLES-15-SP1)
-  * [Code Marker Support for rocProfiler and rocTracer Libraries](#Code-Marker-Support-for-rocProfiler-and-rocTracer-Libraries)
+- [What\'s New in This Release](#Whats-New-in-This-Release)
+  * [Support for CentOS RHEL v7.7](#centos-anchor)
+  * [Initial distribution of AOMP 0.7-5 in ROCm v3.0](#aomp-anchor)
+  * [Fast Fourier Transform Updates](#Fast-Fourier-Transform-Updates)
+  * [MemCopy Enhancement for rocProf](#MemCopy-Enhancement-for-rocProf)
   
 - [Fixed Issues](#Fixed-Issues)
-   * [Running TensorFlow and PyTorch Frameworks Consecutively Results in the Memory Access Fault error ](#Running-TensorFlow-and-PyTorch-Frameworks-Consecutively-Results-in-the-Memory-Access-Fault-error)
-   * [Issue with the Docker Container Environment Variable Setting](#Issue-with-the-Docker-Container-Environment-Variable-Setting)
-   * [Printf Functionality in ROCm Re-Enabled](#Printf-functionality-in-ROCm-Re-Enabled)
+   * [MIGraph v05 Graph Optimizer](#MIGraph-v05-Graph-Optimizer)
  
  - [Known Issues](#Known-Issues)
-   * [Memory Access Fault Error While Running RCCL in Docker Container](#Memory-Access-Fault-Error-While-Running-RCCL-in-Docker-Container)
-   * [Workaround for Tracer Library Fails to Load on RHEL](#Workaround-for-Tracer-Library-Fails-to-Load-on-RHEL)
-   
+   * [Installation Issue with Red Hat Enterprise Linux v7.7](#Installation-Issue-with-Red-Hat-Enterprise-Linux-v77)
+   * [Error While Running rocProfiler on SLES](#Error-While-Running-rocProfiler-on-SLES)   
+   * [gpuOwl Fails with Memory Access Fault Error](#gpuOwl-Fails-with-Memory-Access-Fault-Error)   
+      
 - [Deprecated Features](#Deprecated-Features)
-  * [ROCm OpenCL Driver Compilation Services](#ROCm-OpenCL-Driver-Compilation-Services)
-  * [Peer-to-Peer Bridge Driver for PeerDirect](#Peer-to-Peer-Bridge-Driver-for-PeerDirect)
+
+  [MIOpen](#MIOpen)
+  * [SCGEMM Convolution Algorithm](#SCGEMM-Convolution-Algorithm)
+  * [Text-Based Performance Database](#Text-Based-Performance-Database)
   
 - [Deploying ROCm](#Deploying-ROCm)
   * [Ubuntu](#Ubuntu)
@@ -44,7 +46,8 @@ Note: You can also clone the source code for individual ROCm components from the
 
 
 ### ROCm Components
-The following components for the ROCm platform are released and available for the v2.10 release:
+The following components for the ROCm platform are released and available for the v3.0
+release:
 
 • Drivers
 
@@ -58,20 +61,23 @@ You can access the latest supported version of drivers, tools, libraries, and so
 https://github.com/RadeonOpenCompute/ROCm
 
 ### Supported Operating Systems
-The ROCm v2.10.x platform is designed to support the following operating systems:
+The ROCm v3.0.x platform is designed to support the following operating systems:
 
 •	SLES 15 SP1 
 
 •	Ubuntu 16.04.6(Kernel 4.15) and 18.04.3(Kernel 5.0)
 
-•	CentOS 7.6 (Using devtoolset-7 runtime support)
+•	CentOS v7.7 (Using devtoolset-7 runtime support)
 
-•	RHEL 7.6 (Using devtoolset-7 runtime support)
+•	RHEL v7.7 (Using devtoolset-7 runtime support)
 
-For details about deploying the ROCm v2.10.x on these operating systems, see the Deploying ROCm section later in the document.
+
+For details about deploying the ROCm v3.0.x on these operating systems, see the Deploying ROCm section later in the document.
 
 ### Important ROCm Links
+
 Access the following links for more information on:
+
 •	ROCm documentation, see 
 https://rocm-documentation.readthedocs.io/en/latest/index.html
 
@@ -83,139 +89,133 @@ https://rocm.github.io/install_issues.html
 
 •	Instructions to install PyTorch after ROCm is installed – https://rocm-documentation.readthedocs.io/en/latest/Deep_learning/Deep-learning.html#pytorch
 
-Note: These instructions reference the rocm/pytorch:rocm2.9_ubuntu16.04_py2.7_pytorch image. However, you can substitute the Ubuntu 18.04 image listed at https://hub.docker.com/r/rocm/pytorch/tags
+Note: These instructions reference the rocm/pytorch:rocm3.0_ubuntu16.04_py2.7_pytorch image. However, you can substitute the Ubuntu 18.04 image listed at https://hub.docker.com/r/rocm/pytorch/tags
 
 
-## Whats New in This Release
+## What\'s New in This Release
 
-### rocBLAS Support for Complex GEMM
-The rocBLAS library is a gpu-accelerated implementation of the standard Basic Linear Algebra Subroutines (BLAS). rocBLAS is designed to enable you to develop algorithms, including high performance computing, image analysis, and machine learning.
+### Support for CentOS RHEL v7.7 <a id="centos-anchor"></a> 
+Support is extended for CentOS/RHEL v7.7 in the ROCm v3.0 release. For more information about the CentOS/RHEL v7.7 release, see:
 
-In the AMD ROCm release v2.10, support is extended to the General Matrix Multiply (GEMM) routine for multiple small matrices processed simultaneously for rocBLAS in AMD Radeon Instinct MI50.  Both single and double precision, CGEMM and ZGEMM, are now supported in rocBLAS.
-
-### Support for SLES 15 SP1
-In the AMD ROCm v2.10 release, support is added for SUSE Linux® Enterprise Server (SLES) 15 SP1. SLES is a modular operating system for both multimodal and traditional IT.
-
-Note: The SUSE Linux® Enterprise Server is a licensed platform. Ensure you have registered and have a license key prior to installation. Use the following SUSE command line to apply your license:
-SUSEConnect -r < Key>
-
-#### SLES 15 SP1 
-The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
-Run the following commands once for a fresh install on the operating system:
-
-	sudo usermod -a -G video  $LOGNAME
-	sudo usermod  -a -G sudo $LOGNAME
-	sudo reboot
-
-Installation
-1. Install the "dkms" package.
-
-		sudo SUSEConnect --product PackageHub/15.1/x86_64
-		sudo zypper install dkms
-	
-2. Add the ROCm repo.
-
-		sudo zypper clean --all
-		sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
-		sudo zypper ref
-		zypper install rocm-dkms
-		sudo zypper install rocm-dkms
-		sudo reboot
-
-#Run the following command once
-
-	cat <<EOF | sudo tee /etc/modprobe.d/10-unsupported-modules.conf
- 	allow_unsupported_modules 1
-	EOF
-	sudo modprobe amdgpu
-	
-3. Verify the ROCm installation.
-
-Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
-
-Uninstallation
-
-To uninstall, use the following command:
-
-	sudo zypper remove rocm-dkms rock-dkms
-	
-#Ensure all other installed packages/components are removed
-
-Note: Ensure all the content in the /opt/rocm directory is completely removed.
+[CentOS/RHEL](https://centos.org/forums/viewtopic.php?t=71657)
 
 
-### Code Marker Support for rocProfiler and rocTracer Libraries
-Code markers provide the external correlation ID for the calling thread. This function indicates that the calling thread is entering and leaving an external API region.
+### Initial distribution of AOMP 0.7-5 in ROCm v3.0 <a id="aomp-anchor"></a> 
+The code base for this release of AOMP is the Clang/LLVM 9.0 sources as of October 8th, 2019. The LLVM-project branch used to build this release is AOMP-191008. It is now locked. With this release, an artifact tarball of the entire source tree is created. This tree includes a Makefile in the root directory used to build AOMP from the release tarball. You can use Spack to build AOMP from this source tarball or build manually without Spack.
 
-• The rocProfiler library enables you to profile performance counters and derived metrics. This library supports GFX8/GFX9 and provides a hardware-specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes hardware performance counters with complex performance metrics.
-
-• The rocTracer library provides a specific runtime profiler to trace API and asynchronous activity. The API provides functionality for registering the runtimes API callbacks and the asynchronous activity records pool support.
-
-• rocTX provides a C API for code markup for performance profiling and supports annotation of code ranges and ASCII markers.
+For more information about AOMP 0.7-5, see: [AOMP](https://github.com/ROCm-Developer-Tools/aomp/tree/roc-3.0.0)
 
 
-## Fixed Issues
-Fixed Issues in the v2.10 Release
-### Running TensorFlow and PyTorch Frameworks Consecutively Results in the Memory Access Fault error 
-Issue: Running the TensorFlow and PyTorch frameworks in quick succession results in a Memory Access Fault error.
+### Fast Fourier Transform Updates
+The Fast Fourier Transform (FFT) is an efficient algorithm for computing the Discrete Fourier Transform. Fast Fourier transforms are used in signal processing, image processing, and many other areas. The following real FFT performance change is made in the ROCm v3.0 release:
 
-Resolution: This issue is resolved, and the error no longer appears.
+•	Implement efficient real/complex 2D transforms for even lengths.
 
-### Issue with the Docker Container Environment Variable Setting
-Issue: Applications fail when the docker container is launched on the NUMA system without the ‘security-opt seccomp=unconfined’ setting.
+Other improvements:
 
-Resolution: Configure the “–security-opt seccomp=unconfined” variable setting to avoid this issue.
+•	More 2D test coverage sizes.
 
-### Printf Functionality in ROCm Re-Enabled
-Known issues with hc:printf have been addressed in ROCm v2.10. The hc:printf functionality has now been re-enabled on all supported distros.
+•	Fix buffer allocation error for large 1D transforms.
 
-## Known Issues
-### Memory Access Fault Error While Running RCCL in Docker Container
-Issue: The Memory Access Fault error appears while running ROCm Communication Collectives Library (RCCL) tests in the Docker container.
+•	C++ compatibility improvements.
 
-Resolution: While launching the Docker container to run tests related to RCCL, including PyTorch, increase the size limit for the shared memory (SHM) directory to 1 GB. To increase the size limit of the shared memory directory, enter:
+### MemCopy Enhancement for rocProf
+In the v3.0 release, the rocProf tool is enhanced with an additional capability to dump asynchronous GPU memcopy information into a .csv file. You can use the '-hsa-trace' option to create the results_mcopy.csv file.
+Future enhancements will include column labels.
 
-	“--shm-size = 1G”
+## Fixed Issues in This Release
+### MIGraph v0.5 Graph Optimizer 
+The ROCm v3.0 release consists of performance updates and minor bug fixes for the MIGraphX graph optimizer. 
+For more information, see 
 
-By default, Docker uses only16 MB of shared memory. Running a Docker container for RCCL requires you to resize the limit to 1 GB.
+https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/wiki/Getting-started:-using-the-new-features-of-MIGraphX-0.5
 
-### Workaround for Tracer Library Fails to Load on RHEL
-Issue: When running /opt/rocm/bin/rocprof --hip-trace <output filename>, a warning message is printed to console: "Tool lib "/opt/rocm/roctracer/tool/libtracer_tool.so" failed to load", and no output file is generated, on systems with RHEL distro.
 
-Resolution: You can use either of the following workarounds to fix the issue:
+## Known Issues in This Release
+### Installation Issue with Red Hat Enterprise Linux v7.7
+<b>Issue</b>: ROCm installation fails on Red Hat Enterprise Linux (RHEL) v7.7.
 
-• Run Idconfig
+<b>Resolution</b>: Ensure the following repo is installed and available prior to installing ROCm on RHEL v7.7:
 
-	'SUDO LDCONFIG' 
+<b>Note</b>: 
 
- or 
- 
-• Configure LD_LIBRARY_PATH  
+For workstations, use
 
-	'EXPORT LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/OPT/ROCM/ROCTRACER/LIB'
+<i>rhel-7-workstation-optional-rpms</i>
 
+For servers, use
+
+<i>rhel-7-server-optional-rpms</i>
+
+<b>To install </b>
+
+<i>$sudo subscription-manager repos --enable=rhel-7-workstation-optional-rpms</i>
+
+|| You will see the following message:
+
+Repository 'rhel-7-workstation-optional-rpms' is enabled for this system.
+
+|| If the following error message appears,
+
+<i>Error: 'rhel-7-workstation-optional-rpms' does not match a valid repository ID. Use "subscription-manager repos --list" to see valid repositories.</i>
+
+|| Use
+
+<i>$sudo subscription-manager repos --enable=rhel-7-server-optional-rpms</i>
+
+|| You will see the following message:
+
+Repository 'rhel-7-server-optional-rpms' is enabled for this system.
+
+### Error While Running rocProfiler on SLES
+
+<b>Issue</b>: Running rocprofiler: hip/hsa trace results in the following error. Note, this issue is noticed only on SLES.
+
+<i>ImportError: No module named sqlite3 </i>
+
+<b>Resolution</b>: The following workarounds are recommended:
+
+<b>Workaround 1</b>
+
+1. Run the following command
+
+<i>sudo vi /opt/rocm/bin/rocprof </i>
+
+2. Change Python to Python3.6. 
+
+3. Save and run the test again.  
+
+<b>Workaround 2:</b>
+
+• Run the following command:
+
+<i>alias python=python3.6</i>
+
+
+### gpuOwl Fails with Memory Access Fault Error
+
+<b>Issue</b>: gpuOwL is an OpenCL-based program for testing Mersenne numbers for primality. Currently, running gpuOwl for higher probable prime (PRP) values results in a Memory Access Fault error. 
+
+Note, the issue is noticed only when using higher PRP values. 
+
+<b>Resolution</b>: As a workaround, you may use lower PRP values. 
 
 ## Deprecated Features
-The following features are deprecated in the AMD ROCm v2.10 release. 
+The following features are deprecated in the AMD ROCm v3.0 release. 
 
-### ROCm OpenCL Driver Compilation Services
-The AMD ROCm-OpenCL-Driver Compilation Services is now deprecated. Users should migrate to ROCm-CompilerSupport, which provides more comprehensive functionality. The compiler support repository provides various lightning compiler-related services. It currently contains a single library, the Code Object Manager (Comgr) at lib/comgr.
+### MIOpen
 
-ROCm-OpenCL-Driver Compilation Services will no longer be actively maintained after the v2.10 release. We would encourage you to switch to the ROCm-CompilerSupport repository.
+#### SCGEMM Convolution Algorithm
+The SCGEMM convolution algorithm is now disabled by default. This algorithm is deprecated and will be removed in future releases.
 
-### Peer-to-Peer Bridge Driver for PeerDirect
-The Peer-to-Peer bridge driver for the PeerDirect feature still works in the current release, however, it is now included as part of the ROCk kernel driver. ROCmRDMA allows third-party kernel drivers to utilize DMA access to the GPU memory. It allows a direct path for data exchange (peer-to-peer) using the standard features of PCI Express.
+#### Text-Based Performance Database
+An SQLite database has been added to replace the text-based performance database. While the text file still exists, by default, SQLite is used over the text-based performance database. The text-based performance database support is deprecated and will be removed in a future release.
 
-Currently, ROCmRDMA provides the following benefits:
-
-•	Direct access to ROCm memory for 3rd party PCIe devices
-
-•	Support for PeerDirect(c) interface to offloads the CPU when dealing with ROCm memory for RDMA network stacks
 
 ## Deploying ROCm
-AMD hosts both Debian and RPM repositories for the ROCm v2.10x packages. 
+AMD hosts both Debian and RPM repositories for the ROCm v3.0.x packages. 
 
-The following directions show how to install ROCm on supported Debian-based systems such as Ubuntu 18.04. 
+The following directions show how to install ROCm on supported Debian-based systems such as Ubuntu 18.04.x. 
 
 Note: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
@@ -242,11 +242,10 @@ To install from a Debian Repository:
 
      For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
    
-      	wget -q0 – http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | 
+        wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+        
+        echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
-      	sudo apt-key add -echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | 
-
-      	sudo tee /etc/apt/sources.list.d/rocm.list
       
   The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating,     re-add the key from the ROCm apt repository. 
 
@@ -300,15 +299,15 @@ https://rocm.github.io/install_issues.html
 
 
 ### Uninstalling ROCm Packages from Ubuntu 
-To uninstall the ROCm packages from Ubuntu 1v6.04 or Ubuntu v18.04, run the following command:
+To uninstall the ROCm packages from Ubuntu 1v6.04 or Ubuntu v18.04.x, run the following command:
 
 	sudo apt autoremove rocm-dkms rocm-dev rocm-utils
 
 
-### Installing Development Packages for Cross Compilation
-It is recommended that you develop and test development packages on different systems. For example, some development or build systems may not have an AMD GPU installed. In this scenario, you must avoid installing the ROCk kernel driver on the development system. 
+### Installing Development Applications for Cross Compilation
+It is recommended that you develop and test applications on different systems. For example, some development or build systems may not have an AMD GPU installed. In this scenario, you must avoid installing the ROCk kernel driver on the development system. 
 
-Instead, install the following development subset of packages:
+Instead, install the following development subset of applications:
 
 	sudo apt update
 	sudo apt install rocm-dev
@@ -328,16 +327,12 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 ## CentOS RHEL 
 
-This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.6. 
-
-Note: The following instructions may not work on unsupported RPM-based distributions. For example, Fedora may not be compatible with the rock-dkms kernel driver. You can exclude the rocm-dkms and rock-dkms packages and use the upstream kernel driver instead.
-
-Note: Although support for CentOS/RHEL v7 was added in ROCm v1.8, ROCm requires a special runtime environment provided by the RHEL Software Collections and additional dkms support packages to install and run correctly.
+This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7. 
 
 For more details, refer:
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#rocm-binary-package-structure
 
-### Preparing RHEL v7 (7.6) for Installation
+### Preparing RHEL v7 (7.7) for Installation
 RHEL is a subscription-based operating system. You must enable the external repositories to install on the devtoolset-7 environment and the dkms support files. 
 
 Note: The following steps do not apply to the CentOS installation.
@@ -346,13 +341,15 @@ Note: The following steps do not apply to the CentOS installation.
 
 2. Enable the following repositories:
 
-	sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms		
-	sudo subscription-manager repos --enable rhel-7-server-optional-rpms	
-	sudo subscription-manager repos --enable rhel-7-server-extras-rpms
+		sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
+	
+		sudo subscription-manager repos --enable rhel-7-server-optional-rpms
+	
+		sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 
 3. Enable additional repositories by downloading and installing the epel-release-latest-7 repository RPM:
 
-	sudo rpm -ivh 
+		sudo rpm -ivh 
 
 For more details, see
 https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -364,9 +361,9 @@ https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
 
-### Installing CentOS/RHEL (v7.6) for DKMS
+### Installing CentOS/RHEL (v7.7) for DKMS
 
-Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.6:
+Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
 
 	sudo yum install -y epel-release
 	sudo yum install -y dkms kernel-headers-`uname -r` kernel-devel-`uname -r`
@@ -380,17 +377,17 @@ To install ROCm on your system, follow the instructions below:
 1. Delete the previous versions of ROCm before installing the latest version.
 2. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
 
-	[ROCm]
-	name=ROCm
-	baseurl=http://repo.radeon.com/rocm/yum/rpm
-	enabled=1
-	gpgcheck=0
+		[ROCm]
+		name=ROCm
+		baseurl=http://repo.radeon.com/rocm/yum/rpm
+		enabled=1
+		gpgcheck=0
 
 Note: The URL of the repository must point to the location of the repositories’ repodata database. 
 
 3. Install ROCm components using the following command:
 
-	sudo yum install rocm-dkms
+		sudo yum install rocm-dkms
 
 4.Restart the system.
 The rock-dkms component is installed and the /dev/kfd device is now available.
@@ -400,18 +397,18 @@ To configure permissions, following the instructions below:
 
 1. Ensure that your user account is a member of the "video" or "wheel" group prior to using the ROCm driver. You can find which groups you are a member of with the following command:
 
-	groups
+		groups
 	
 2. Add your user to the video (or wheel) group you will need the sudo password and can use the following command:
 
-	sudo usermod -a -G video $LOGNAME
+		sudo usermod -a -G video $LOGNAME
 	
 Note: All future users must be added to the "video" group by default. To add the users to the group, run the following commands
 
 	echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
 	echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
-Note: The current release supports CentOS/RHEL v7.6. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
+Note: The current release supports CentOS/RHEL v7.7. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
 
 3. Restart the system.
 
@@ -423,7 +420,8 @@ After restarting the system, run the following commands to verify that the ROCm 
 
 Note: Add the ROCm binaries in your PATH for easy implementation of the ROCm programs.
 
-	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
+	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
+	sudo tee -a /etc/profile.d/rocm.sh
 
 For more information about installation issues, see:
 https://rocm.github.io/install_issues.html
@@ -439,7 +437,7 @@ To compile applications or samples, run the following command to use gcc-7.2 pro
 
 	scl enable devtoolset-7 bash
 
-### Uninstalling ROCm from CentOS/RHEL v7.6
+### Uninstalling ROCm from CentOS/RHEL v7.7
 To uninstall the ROCm packages, run the following command:
 
 	sudo yum autoremove rocm-dkms rock-dkms
@@ -458,16 +456,10 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 	echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"'  
 	sudo tee /etc/udev/rules.d/70-kfd.rules
 	
-Note: You can use this command instead of installing rocm-dkms.
+Note: You can use these commands instead of installing rocm-dkms.
 
 
 ### ROCm Installation - Known Issues and Workarounds 
-#### Docker container environment variable setting
-
-Issue: Applications fail when a Docker container is launched on a NUMA system without --security-opt seccomp=unconfined. 
-
-Resolution: Set "--security-opt seccomp=unconfined" to fix this issue.
-
 #### Closed source components
 The ROCm platform relies on some closed source components to provide functionalities like HSA image support. These components are only available through the ROCm repositories, and they may be deprecated or become open source components in the future. These components are made available in the following packages:
 
@@ -491,14 +483,13 @@ The following example shows how to use the repo binary to download the ROCm sour
 
 	mkdir -p ~/ROCm/
 	cd ~/ROCm/
-	~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-2.10.0
+	~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.0.0
 	repo sync
 
 Note: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
 
 ### Building the ROCm Source Code
 Each ROCm component repository contains directions for building that component. You can access the desired component for instructions to build the repository.
-
 
 
 ### Hardware and Software Support
@@ -596,11 +587,11 @@ from the list provided above for compatibility purposes.
 
 ### Supported Operating Systems - New operating systems available
 
-The ROCm 2.9.x platform supports the following operating systems:
+The ROCm 3.0.x platform supports the following operating systems:
 
  * Ubuntu 16.04.5(Kernel 4.15) and 18.04.3(Kernel 4.15 and Kernel 4.18)
- * CentOS 7.6 (Using devtoolset-7 runtime support)
- * RHEL 7.6 (Using devtoolset-7 runtime support)
+ * CentOS 7.7 (Using devtoolset-7 runtime support)
+ * RHEL 7.7 (Using devtoolset-7 runtime support)
 
 #### ROCm support in upstream Linux kernels
 
@@ -641,14 +632,11 @@ The releases of the upstream Linux kernel support the following GPUs in ROCm:
 • Fiji, Polaris 10, Polaris 11, Vega10
 • Fiji, Polaris 10, Polaris 11, Vega10, Vega 7nm
 
-#### Supported Products
-
-• CUDA v8
 
 
 ## Machine Learning and High Performance Computing Software Stack for AMD GPU
 
-ROCm Version 2.10
+ROCm Version 3.0
 
 ### ROCm Binary Package Structure
 
@@ -756,58 +744,55 @@ Drivers, ToolChains, Libraries, and Source Code
 The latest supported version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available from the following GitHub repositories:
 
  #### ROCm Core Components
-  - [ROCk Kernel Driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.10.0)
-  - [ROCr Runtime](https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.10.0)
-  - [ROCt Thunk Interface](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.10.0)  
+  - [ROCk Kernel Driver](https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-3.0.0)
+  - [ROCr Runtime](https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-3.0.0)
+  - [ROCt Thunk Interface](https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-3.0.0)  
 
   
 #### ROCm Support Software
-  - [ROCm SMI](https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.10.0)
-  - [ROCm cmake](https://github.com/RadeonOpenCompute/rocm-cmake/tree/roc-2.10.0)
-  - [rocminfo](https://github.com/RadeonOpenCompute/rocminfo/tree/roc-2.10.0)
-  - [ROCm Bandwidth Test](https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.10.0)
+  - [ROCm SMI](https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-3.0.0)
+  - [ROCm cmake](https://github.com/RadeonOpenCompute/rocm-cmake/tree/roc-3.0.0)
+  - [rocminfo](https://github.com/RadeonOpenCompute/rocminfo/tree/roc-3.0.0)
+  - [ROCm Bandwidth Test](https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-3.0.0)
   
 #### ROCm Development ToolChains
-  - [HCC compiler](https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.10.0)
-  - [HIP](https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.10.0)
-  - [ROCm Device Libraries](https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.10.0)
+  - [HCC compiler](https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-3.0.0)
+  - [HIP](https://github.com/ROCm-Developer-Tools/HIP/tree/roc-3.0.0)
+  - [ROCm Device Libraries](https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-3.0.0)
   - ROCm OpenCL, which is created from the following components:
-    - [ROCm OpenCL Runtime](http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.10.0)
-    - [ROCm OpenCL Driver](http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.10.0)
-  - The ROCm OpenCL compiler, which is created from the following components:
-      - [ROCm LLVM OCL](http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.10.0)
-      - [ROCm LLVM HCC](http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.10.0)
-      - [ROCm Clang](http://github.com/RadeonOpenCompute/clang/tree/roc-2.10.0)
-      - [ROCm lld OCL](http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.10.0)
-      - [ROCm lld HCC](http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.10.0)
-      - [ROCm Device Libraries](https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-ocl-2.10.0)
-  - [ROCM Clang-OCL Kernel Compiler](https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.10.0)
-  - [Asynchronous Task and Memory Interface (ATMI)](https://github.com/RadeonOpenCompute/atmi/tree/rocm_2.10.0)
-  - [ROCr Debug Agent](https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.10.0)
-  - [ROCm Code Object Manager](https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.10.0)
-  - [ROC Profiler](https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.10.0)
-  - [ROC Tracer](https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-2.10.x)
+    - [ROCm OpenCL Runtime](http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.0.0)
+     - The ROCm OpenCL compiler, which is created from the following components:
+      - [ROCm LLVM OCL](http://github.com/RadeonOpenCompute/llvm-project/tree/roc-ocl-3.0.0)                
+      - [ROCm Device Libraries](https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-ocl-3.0.0)
+  - [ROCM Clang-OCL Kernel Compiler](https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-3.0.0)
+  - [Asynchronous Task and Memory Interface (ATMI)](https://github.com/RadeonOpenCompute/atmi/tree/rocm_3.0.0)
+  - [ROCr Debug Agent](https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-3.0.0)
+  - [ROCm Code Object Manager](https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-3.0.0)
+  - [ROC Profiler](https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-3.0.0)
+  - [ROC Tracer](https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-3.0.x)
+  - [AOMP](https://github.com/ROCm-Developer-Tools/aomp/tree/roc-3.0.0)
   - [Radeon Compute Profiler](https://github.com/GPUOpen-Tools/RCP/tree/3a49405)
+  - [ROCmValidationSuite](https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/roc-3.0.0)
   - Example Applications:
     - [HCC Examples](https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333)
-    - [HIP Examples](https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.10.0)
+    - [HIP Examples](https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-3.0.0)
     
 #### ROCm Libraries
-  - [rocBLAS](https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-2.10)
-  - [hipBLAS](https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-2.10)
-  - [rocFFT](https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-2.10)
-  - [rocRAND](https://github.com/ROCmSoftwarePlatform/rocRAND/tree/2.10.0)
-  - [rocSPARSE](https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-2.10)
-  - [hipSPARSE](https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-2.10)
-  - [rocALUTION](https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-2.10)
+  - [rocBLAS](https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.0)
+  - [hipBLAS](https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.0)
+  - [rocFFT](https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.0)
+  - [rocRAND](https://github.com/ROCmSoftwarePlatform/rocRAND/tree/3.0.0)
+  - [rocSPARSE](https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.0)
+  - [hipSPARSE](https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.0)
+  - [rocALUTION](https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.0)
   - [MIOpenGEMM](https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/6275a879)
-  - [MIOpen](https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-2.10.0)
-  - [rocThrust](https://github.com/ROCmSoftwarePlatform/rocThrust/tree/2.10.0)
-  - [ROCm SMI Lib](https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.10.0)
-  - [RCCL](https://github.com/ROCmSoftwarePlatform/rccl/tree/2.10.0)
+  - [MIOpen](https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-3.0.0)
+  - [rocThrust](https://github.com/ROCmSoftwarePlatform/rocThrust/tree/3.0.0)
+  - [ROCm SMI Lib](https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc.3.0.0)
+  - [RCCL](https://github.com/ROCmSoftwarePlatform/rccl/tree/3.0.0)
   - [MIVisionX](https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.5)
-  - [hipCUB](https://github.com/ROCmSoftwarePlatform/hipCUB/tree/2.10.0)
+  - [hipCUB](https://github.com/ROCmSoftwarePlatform/hipCUB/tree/3.0.0)
+  - [AMDMIGraphX](https://github.com/ROCmSoftwarePlatform/AMDMIGraphx/tree/0.5-hip-hcc)
 
 
 Features and enhancements introduced in previous versions of ROCm can be found in [version_history.md](version_history.md)
-
