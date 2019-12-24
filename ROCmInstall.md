@@ -151,19 +151,19 @@ For servers, use
 
 <i>$sudo subscription-manager repos --enable=rhel-7-workstation-optional-rpms</i>
 
-|| You will see the following message:
+You will see the following message:
 
 Repository 'rhel-7-workstation-optional-rpms' is enabled for this system.
 
-|| If the following error message appears,
+If the following error message appears,
 
 <i>Error: 'rhel-7-workstation-optional-rpms' does not match a valid repository ID. Use "subscription-manager repos --list" to see valid repositories.</i>
 
-|| Use
+ Use
 
 <i>$sudo subscription-manager repos --enable=rhel-7-server-optional-rpms</i>
 
-|| You will see the following message:
+You will see the following message:
 
 Repository 'rhel-7-server-optional-rpms' is enabled for this system.
 
@@ -242,9 +242,11 @@ To install from a Debian Repository:
 
      For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
    
-        wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-        
-        echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+        wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key |
+	
+	sudo apt-key add -echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' |
+	
+	sudo tee /etc/apt/sources.list.d/rocm.list
 
       
   The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating,     re-add the key from the ROCm apt repository. 
