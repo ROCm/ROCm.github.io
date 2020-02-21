@@ -1,4 +1,4 @@
-Refer the main version of the release notes at:
+For updated installation instructions, see:
 
 https://github.com/RadeonOpenCompute/ROCm
 
