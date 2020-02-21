@@ -1,6 +1,10 @@
-For updated installation instructions, see:
+For updated installation instructions and documentation, see:
 
 https://github.com/RadeonOpenCompute/ROCm
+
+or 
+
+https://rocm-documentation.readthedocs.io/en/latest/
 
 **********************************************************
 # AMD ROCm Release Notes v3.0
