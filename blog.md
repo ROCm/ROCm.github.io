@@ -98,3 +98,6 @@ C++ unsigned int hc::__shfl_xor (unsigned int var, int laneMask, int width=__HSA
 
 HPC User Forum in Tucson; Gregory Stoner from AMD presents It's Time to ROC and overivew on ROCm SOftware Platform.
 
+
+Visit Us - An Stay Connected with mY BLOG !
+
