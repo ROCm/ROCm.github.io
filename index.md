@@ -60,3 +60,4 @@ uncharted. We look forward to working with you to improve the platform
 so you can use it more effectively in your own projects. Our efforts
 have opened the door to unique heterogeneous-computing applications
 that explore what this growing technology can do.
+Thank you.
