@@ -2,7 +2,7 @@ title: ROCm, A New Era in Open GPU Computing
 description: "Platform for GPU Enabled HPC and UltraScale Computing "
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-slate
 
 gems:
   - jekyll-mentions
