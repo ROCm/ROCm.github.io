@@ -1,3 +1,6 @@
+This file is obsolete. Please refer to ROCm documentation at https://docs.amd.com for more information. 
+
+
 ---
 layout: default
 title: Hardware
